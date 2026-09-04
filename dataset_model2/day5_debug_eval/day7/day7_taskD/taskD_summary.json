@@ -1,0 +1,66 @@
+{
+  "task": "Day 7 Task D: validation-normalized holdout Q scores",
+  "output_dir": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske",
+  "device": "cuda:0",
+  "frozen_pristine_E_H": {
+    "checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+    "epoch": 20,
+    "img_size": 256,
+    "latent_dim": 100,
+    "mu_ref_shape": [
+      100
+    ],
+    "Sigma_ref_shape": [
+      100
+    ],
+    "Sigma_ref_mean": 2.2225053797342298e-08,
+    "sz_mode": "mu_only",
+    "sz_sigma_t_max": 1.0
+  },
+  "selected_artifact_E_A": {
+    "checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+    "epoch": 5,
+    "img_size": 256,
+    "latent_dim": 100,
+    "mu_ref_shape": [
+      100
+    ],
+    "Sigma_ref_shape": [
+      100
+    ],
+    "Sigma_ref_mean": 0.0005347708938643336,
+    "sz_mode": "mu_only",
+    "sz_sigma_t_max": 1.0
+  },
+  "taskC_selection_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/taskc_checkpoint_selection_table.csv",
+  "selected_E_A_checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+  "E_A_reference_source": "embedded mu_ref/Sigma_ref inside selected Task C checkpoint",
+  "koniq_mos_source": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_task/day6/koniq10k_scores.csv",
+  "val_counts_by_dataset": {
+    "KONIQ-10k": 1555,
+    "KADID-10k": 1500,
+    "TID2013": 360
+  },
+  "holdout_counts_by_dataset": {
+    "KADID-10k": 1625,
+    "KONIQ-10k": 1557,
+    "TID2013": 600
+  },
+  "normalization_rule": "For each dataset separately, mean/std of E_H and E_A are fit on val only. Holdout z-scores use those val-only stats.",
+  "formulas": {
+    "E_H": "pristine energy",
+    "E_A": "artifact energy using selected E_A checkpoint and new ref",
+    "Q_raw": "E_A - E_H",
+    "z_H": "(E_H - mean_H_val_dataset) / std_H_val_dataset",
+    "z_A": "(E_A - mean_A_val_dataset) / std_A_val_dataset",
+    "Qz_AmH": "z_A - z_H",
+    "Qz_HmA": "z_H - z_A"
+  },
+  "outputs": {
+    "taskD_holdout_scores_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_holdout_scores.csv",
+    "taskD_val_scores_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_val_scores.csv",
+    "taskD_val_normalization_stats_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_val_normalization_stats.csv",
+    "summary_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_summary.json",
+    "report_txt": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_report.txt"
+  }
+}

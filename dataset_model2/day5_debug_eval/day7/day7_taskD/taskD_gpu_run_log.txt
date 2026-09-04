@@ -1,0 +1,2 @@
+Saved Task D outputs under /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske
+Saved holdout CSV: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_holdout_scores.csv

@@ -1,0 +1,52 @@
+Day 10 completed
+
+Important: KonIQ-10k images/rows were not used for Day 10 fit or scoring.
+Train set used for fit: 9040 rows = KADID+TID train only.
+Val scoring set: 1860 rows = KADID+TID val only.
+Holdout scoring set: 1625 rows = KADID holdout only.
+
+Fit summary:
+   arm  train_N  latent_dim  fit_seconds                                                                                              model_path  converged  n_iter  lower_bound                                          families  min_family_rows   K
+  free     9040         100     1.365052   /home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/gmm_K05_free.pt       True      49   409.492157                                               NaN              NaN NaN
+family     9040         100     0.130138 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/gmm_K05_family.pt       True      23   415.364146 [blur, color, compression, noise, spatial_detail]             50.0 5.0
+
+Validation metrics:
+   arm variant       score_col  blur_EA_sev_SRCC  blur_EA_sev_p  blur_N  lens_EA_sev_SRCC  lens_EA_sev_p  lens_N  sharpen_EA_sev_SRCC  sharpen_EA_sev_p  sharpen_N  pixelate_EA_sev_SRCC  pixelate_EA_sev_p  pixelate_N  pooled_EA_MOS_SRCC_report_only  pooled_EA_MOS_p  pooled_EA_MOS_N
+  free    soft   E_A_free_soft          0.474995       0.000126      60          0.488605       0.000075      60             0.675745      3.148374e-09         60             -0.044914           0.733290          60                       -0.125668     5.397887e-08             1860
+  free    hard   E_A_free_hard          0.474995       0.000126      60          0.488605       0.000075      60             0.675745      3.148374e-09         60             -0.044914           0.733290          60                       -0.125674     5.388987e-08             1860
+family    soft E_A_family_soft          0.257232       0.047242      60          0.434845       0.000517      60             0.820693      1.004413e-15         60             -0.110923           0.398816          60                       -0.020972     3.660105e-01             1860
+family    hard E_A_family_hard          0.257913       0.046640      60          0.434845       0.000517      60             0.820693      1.004413e-15         60             -0.110923           0.398816          60                       -0.020951     3.665039e-01             1860
+
+KADID holdout metrics:
+   arm variant            metric                      subset    N      SRCC       SRCC_p   Pearson    Pearson_p
+  free    soft        E_A vs MOS               KADID holdout 1625 -0.153942 4.430308e-10 -0.221248 1.813807e-19
+  free    soft     Qz_AmH vs MOS               KADID holdout 1625  0.060976 1.395514e-02  0.048661 4.985092e-02
+  free    soft     Qz_HmA vs MOS               KADID holdout 1625 -0.060976 1.395514e-02 -0.048661 4.985092e-02
+  free    soft     Blur E_A--sev KADID holdout Gaussian blur   65  0.374570 2.111861e-03  0.422857 4.494776e-04
+  free    soft  Sharpen E_A--sev  KADID holdout High sharpen   65  0.546199 2.522187e-06  0.569029 7.584040e-07
+  free    soft Pixelate E_A--sev      KADID holdout Pixelate   65  0.072479 5.661308e-01  0.040867 7.465256e-01
+  free    hard        E_A vs MOS               KADID holdout 1625 -0.153954 4.417212e-10 -0.221262 1.803702e-19
+  free    hard     Qz_AmH vs MOS               KADID holdout 1625  0.060929 1.402925e-02  0.048640 4.994900e-02
+  free    hard     Qz_HmA vs MOS               KADID holdout 1625 -0.060929 1.402925e-02 -0.048640 4.994900e-02
+  free    hard     Blur E_A--sev KADID holdout Gaussian blur   65  0.374570 2.111861e-03  0.422856 4.494847e-04
+  free    hard  Sharpen E_A--sev  KADID holdout High sharpen   65  0.546199 2.522187e-06  0.568981 7.603972e-07
+  free    hard Pixelate E_A--sev      KADID holdout Pixelate   65  0.072479 5.661308e-01  0.040867 7.465258e-01
+family    soft        E_A vs MOS               KADID holdout 1625 -0.162978 3.868916e-11 -0.215674 1.481651e-18
+family    soft     Qz_AmH vs MOS               KADID holdout 1625  0.093928 1.495339e-04  0.054388 2.835198e-02
+family    soft     Qz_HmA vs MOS               KADID holdout 1625 -0.093928 1.495339e-04 -0.054388 2.835198e-02
+family    soft     Blur E_A--sev KADID holdout Gaussian blur   65  0.357175 3.491696e-03  0.291482 1.848239e-02
+family    soft  Sharpen E_A--sev  KADID holdout High sharpen   65  0.623897 2.820136e-08  0.588364 2.547703e-07
+family    soft Pixelate E_A--sev      KADID holdout Pixelate   65  0.097411 4.401408e-01  0.035414 7.794302e-01
+family    hard        E_A vs MOS               KADID holdout 1625 -0.162994 3.851634e-11 -0.215665 1.486459e-18
+family    hard     Qz_AmH vs MOS               KADID holdout 1625  0.093921 1.497107e-04  0.054400 2.831541e-02
+family    hard     Qz_HmA vs MOS               KADID holdout 1625 -0.093921 1.497107e-04 -0.054400 2.831541e-02
+family    hard     Blur E_A--sev KADID holdout Gaussian blur   65  0.357175 3.491696e-03  0.291486 1.848058e-02
+family    hard  Sharpen E_A--sev  KADID holdout High sharpen   65  0.623897 2.820136e-08  0.588338 2.551595e-07
+family    hard Pixelate E_A--sev      KADID holdout Pixelate   65  0.097411 4.401408e-01  0.035419 7.793967e-01
+
+Comparative table:
+                        Arm  Holdout Q_z^(A-H)  Blur E_A--sev  Sharpen E_A--sev
+       S0 ep05 (Day-8 join)           0.251901      -0.625636          0.593166
+         Day-9 GMM ep05 K=8           0.123694       0.237150          0.644191
+   Day-10 free K=5 no KonIQ           0.060976       0.374570          0.546199
+Day-10 family K<=5 no KonIQ           0.093928       0.357175          0.623897

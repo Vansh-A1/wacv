@@ -1,0 +1,62 @@
+Day 11 severity pair generation
+rule: all
+pair_N: 18080
+datasets: {'KADID-10k': 14000, 'TID2013': 4080}
+distortion_type_count: 49
+
+pairs by dataset/type:
+dataset    distortion_type               
+KADID-10k  Brighten                          560
+           Color block                       560
+           Color diffusion                   560
+           Color quantization                560
+           Color saturation 1                560
+           Color saturation 2                560
+           Color shift                       560
+           Contrast change                   560
+           Darken                            560
+           Denoise                           560
+           Gaussian blur                     560
+           High sharpen                      560
+           Impulse noise                     560
+           JPEG                              560
+           JPEG2000                          560
+           Jitter                            560
+           Lens blur                         560
+           Mean shift                        560
+           Motion blur                       560
+           Multiplicative noise              560
+           Non-eccentricity patch            560
+           Pixelate                          560
+           Quantization                      560
+           White noise                       560
+           White noise in color component    560
+TID2013    type_01                           170
+           type_02                           170
+           type_03                           170
+           type_04                           170
+           type_05                           170
+           type_06                           170
+           type_07                           170
+           type_08                           170
+           type_09                           170
+           type_10                           170
+           type_11                           170
+           type_12                           170
+           type_13                           170
+           type_14                           170
+           type_15                           170
+           type_16                           170
+           type_17                           170
+           type_18                           170
+           type_19                           170
+           type_20                           170
+           type_21                           170
+           type_22                           170
+           type_23                           170
+           type_24                           170
+
+Forbidden rows check:
+KONIQ rows: 0
+split: train only by construction from split manifest
+MOS not used; MOS columns are not present in pairs CSV

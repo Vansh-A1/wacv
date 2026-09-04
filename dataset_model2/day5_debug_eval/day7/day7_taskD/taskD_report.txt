@@ -1,0 +1,25 @@
+Day 7 Task D: validation-normalized holdout scores
+
+Frozen pristine E_H checkpoint: /home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth
+Selected artifact E_A checkpoint: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth
+E_A ref source: embedded new ref in selected checkpoint, Sigma mean=0.000534770893864
+Device: cuda:0
+
+Val-only normalization stats:
+  dataset  N_val      mean_H    std_H    mean_A     std_A
+KADID-10k   1500 2808.225155 8.082121 43.987866  7.482573
+KONIQ-10k   1555 2807.047217 9.321337 42.037849  9.923401
+  TID2013    360 2803.637103 9.333664 53.648916 17.991750
+
+Holdout output columns:
+dataset, image_id, ref_id, distortion_type, severity_or_level, mos_or_dmos, E_H, E_A, Q_raw, z_H, z_A, Qz_AmH, Qz_HmA
+
+Holdout rows saved: 3782
+Holdout by dataset: {'KADID-10k': 1625, 'KONIQ-10k': 1557, 'TID2013': 600}
+
+Outputs:
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_holdout_scores.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_val_scores.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_val_normalization_stats.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_summary.json
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_report.txt

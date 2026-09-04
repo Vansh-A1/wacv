@@ -1,0 +1,4 @@
+Day 9 Task B DONE
+Output dir: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb
+Selected K ep05: 8
+Selected K ep10: 16

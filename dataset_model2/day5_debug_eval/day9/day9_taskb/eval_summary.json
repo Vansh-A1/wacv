@@ -1,0 +1,110 @@
+{
+  "task": "Day 9 Task B - GMM energy evaluation",
+  "device": "cpu",
+  "val_N": 1860,
+  "holdout_N": 1625,
+  "inputs": {
+    "split_csv": "/home/projectwork/student_package/dataset_model2/ref_splits_seed42/combined_kadid_tid_koniq_split_seed42.csv",
+    "taskD_holdout": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskD/taskD_holdout_scores.csv",
+    "day8_epoch5_vs_v2": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day8/kadid_holdout_epoch5_v1_vs_v2_scores.csv",
+    "day9_taskA_gmm_root": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm"
+  },
+  "energy_definition": {
+    "soft": "negative log likelihood under diagonal GMM: -logsumexp(log pi_k + log N(mu | mean_k, diag cov_k))",
+    "hard_min": "minimum per-component negative weighted log likelihood: min_k[-(log pi_k + log N(mu | mean_k, diag cov_k))]"
+  },
+  "encodings": {
+    "ep05": {
+      "val": {
+        "checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+        "checkpoint_epoch": 5,
+        "img_size": 256,
+        "latent_dim": 100,
+        "cache": "miss",
+        "mu_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/encoded_mu_cache/ep05_val_kadid_tid_mu.npy",
+        "ids_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/encoded_mu_cache/ep05_val_kadid_tid_ids.csv",
+        "N": 1860,
+        "mu_shape": [
+          1860,
+          100
+        ],
+        "encode_seconds": 19.03339171409607,
+        "batch_size": 16,
+        "workers": 0,
+        "device": "cpu"
+      },
+      "holdout": {
+        "checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+        "checkpoint_epoch": 5,
+        "img_size": 256,
+        "latent_dim": 100,
+        "cache": "miss",
+        "mu_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/encoded_mu_cache/ep05_kadid_holdout_mu.npy",
+        "ids_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/encoded_mu_cache/ep05_kadid_holdout_ids.csv",
+        "N": 1625,
+        "mu_shape": [
+          1625,
+          100
+        ],
+        "encode_seconds": 13.89138650894165,
+        "batch_size": 16,
+        "workers": 0,
+        "device": "cpu"
+      }
+    },
+    "ep10": {
+      "val": {
+        "checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth",
+        "checkpoint_epoch": 10,
+        "img_size": 256,
+        "latent_dim": 100,
+        "cache": "miss",
+        "mu_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/encoded_mu_cache/ep10_val_kadid_tid_mu.npy",
+        "ids_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/encoded_mu_cache/ep10_val_kadid_tid_ids.csv",
+        "N": 1860,
+        "mu_shape": [
+          1860,
+          100
+        ],
+        "encode_seconds": 15.618306875228882,
+        "batch_size": 16,
+        "workers": 0,
+        "device": "cpu"
+      },
+      "holdout": {
+        "checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth",
+        "checkpoint_epoch": 10,
+        "img_size": 256,
+        "latent_dim": 100,
+        "cache": "miss",
+        "mu_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/encoded_mu_cache/ep10_kadid_holdout_mu.npy",
+        "ids_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/encoded_mu_cache/ep10_kadid_holdout_ids.csv",
+        "N": 1625,
+        "mu_shape": [
+          1625,
+          100
+        ],
+        "encode_seconds": 13.897675514221191,
+        "batch_size": 16,
+        "workers": 0,
+        "device": "cpu"
+      }
+    }
+  },
+  "selected_K": {
+    "ep05": 8,
+    "ep10": 16
+  },
+  "outputs": {
+    "val_all8_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/val_all8_scores.csv",
+    "val_all8_metrics": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/val_all8_metrics.csv",
+    "k_selection_ep05": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/k_selection_ep05.csv",
+    "k_selection_ep10": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/k_selection_ep10.csv",
+    "gmm_val_normalization_stats": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/gmm_val_normalization_stats.csv",
+    "holdout_all8_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/holdout_all8_scores.csv",
+    "holdout_metrics": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/holdout_metrics.csv",
+    "holdout_selected_soft_metrics": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/holdout_selected_soft_metrics.csv",
+    "eval_report": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/eval_report.txt",
+    "eval_summary": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/eval_summary.json"
+  }
+}

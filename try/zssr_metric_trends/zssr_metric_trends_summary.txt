@@ -1,0 +1,17 @@
+ZSSR iteration metric trends
+ZSSR root: /home/projectwork/vansh_zssr
+Output dir: /home/projectwork/vansh_zssr/zssr_metric_trends
+Folders scored: 6
+Total rows: 54
+Metric crop: 256x256
+D_WACV, NIQE, DBCNN vs iter plots and LR_content, PSNR, LPIPS vs iter plots are saved in plots/.
+D_WACV uses the frozen WACV checkpoint and score direction from previous tasks.
+LR_content uses full-image bicubic Down4(SR) vs matched LR; PSNR/LPIPS use matched HR center crop.
+
+Per-folder outputs:
+Canon_10_x1: 9 iterations, CSV=/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/Canon_10_x1_iteration_metrics.csv
+Canon_14_x1: 9 iterations, CSV=/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/Canon_14_x1_iteration_metrics.csv
+Canon_40_x1: 9 iterations, CSV=/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/Canon_40_x1_iteration_metrics.csv
+Canon_42_x1: 9 iterations, CSV=/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/Canon_42_x1_iteration_metrics.csv
+Canon_56_x1: 9 iterations, CSV=/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/Canon_56_x1_iteration_metrics.csv
+DSC_0988_x1: 9 iterations, CSV=/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/DSC_0988_x1_iteration_metrics.csv

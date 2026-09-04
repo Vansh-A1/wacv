@@ -1,0 +1,13 @@
+Day 9 Task A GMM fit log for ep05
+checkpoint: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth
+device: cuda:0
+train_N: 16301
+mu_train.npy shape: (16301, 100)
+seed: 42
+GMM settings: sklearn GaussianMixture, covariance_type=diag, reg_covar=1e-6, max_iter=300, n_init=3, init_params=kmeans
+
+ K                                                                                                model_path  train_N  latent_dim  seed covariance_type  converged  n_iter  lower_bound  fit_seconds
+ 2 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K02.pt    16301         100    42            diag       True      15   344.129578     0.657200
+ 4 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K04.pt    16301         100    42            diag       True      16   374.392029     0.907262
+ 8 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K08.pt    16301         100    42            diag       True      17   402.896210     1.676877
+16 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K16.pt    16301         100    42            diag       True      49   423.301025     1.708835

@@ -1,0 +1,16 @@
+Task E copy with PSNR and SSIM negated
+Original CSVs were copied from day2_tasks/task_e_metric_correspondence.
+PSNR_neg = -PSNR_original; SSIM_neg = -SSIM_original.
+In the adjusted CSVs, columns PSNR and SSIM are replaced with the negated values.
+
+Pooled correlations:
+D_WACV vs NIQE: rho=0.298127, p=3.58247e-05, N=186
+D_WACV vs LR_content: rho=-0.479949, p=4.16089e-12, N=186
+D_WACV vs PSNR_neg: rho=-0.633553, p=2.89073e-22, N=186
+D_WACV vs SSIM_neg: rho=-0.679661, p=1.4807e-26, N=186
+D_WACV vs LPIPS: rho=-0.526596, p=1.16291e-14, N=186
+D_WACV vs DISTS: rho=-0.284644, p=8.22927e-05, N=186
+
+Adjusted pooled CSV: /home/projectwork/student_package/day2_tasks/task_e_metric_correspondence_negated_psnr_ssim/task_e_pooled_metrics_psnr_ssim_negated.csv
+Correlation CSV: /home/projectwork/student_package/day2_tasks/task_e_metric_correspondence_negated_psnr_ssim/task_e_correlations_psnr_ssim_negated.csv
+Plots folder: /home/projectwork/student_package/day2_tasks/task_e_metric_correspondence_negated_psnr_ssim/plots

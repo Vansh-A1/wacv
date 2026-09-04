@@ -1,0 +1,136 @@
+{
+  "task": "Day 7 Task C: validation-only checkpoint selection",
+  "output_dir": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd",
+  "checkpoint_dir": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42",
+  "num_epoch_checkpoints": 10,
+  "epochs_evaluated": [
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50
+  ],
+  "device_used": "cuda:0",
+  "validation_rows": 1860,
+  "validation_by_dataset": {
+    "KADID-10k": 1500,
+    "TID2013": 360
+  },
+  "subsets": {
+    "gaussian_blur": 60,
+    "lens_blur": 60,
+    "high_sharpen": 60,
+    "pixelate": 60,
+    "pooled_mos": 1860
+  },
+  "selection_formula": "selection_score = (- SRCC_EA_sev_blur) + (- SRCC_EA_sev_lens)",
+  "selected_checkpoint": {
+    "Epoch": 5,
+    "ckpt path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+    "blur SRCC": -0.7805430648918629,
+    "lens SRCC": -0.7859871316042735,
+    "sharpen SRCC": 0.8070828901148642,
+    "pixelation SRCC": -0.034705925291617264,
+    "pooled Spearman(E_A,MOS)": 0.1736102353448747,
+    "selection_score": 1.5665301964961365,
+    "selected": "yes"
+  },
+  "checkpoint_meta": [
+    {
+      "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+      "epoch": 5,
+      "mu_ref_mean": -0.0002676588192116469,
+      "Sigma_ref_mean": 0.0005347708938643336,
+      "sz_mode": "mu_only",
+      "sz_sigma_t_max": 1.0
+    },
+    {
+      "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth",
+      "epoch": 10,
+      "mu_ref_mean": -0.0002676588192116469,
+      "Sigma_ref_mean": 0.0005347708938643336,
+      "sz_mode": "mu_only",
+      "sz_sigma_t_max": 1.0
+    },
+    {
+      "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0015.pth",
+      "epoch": 15,
+      "mu_ref_mean": -0.0002676588192116469,
+      "Sigma_ref_mean": 0.0005347708938643336,
+      "sz_mode": "mu_only",
+      "sz_sigma_t_max": 1.0
+    },
+    {
+      "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0020.pth",
+      "epoch": 20,
+      "mu_ref_mean": -0.0002676588192116469,
+      "Sigma_ref_mean": 0.0005347708938643336,
+      "sz_mode": "mu_only",
+      "sz_sigma_t_max": 1.0
+    },
+    {
+      "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0025.pth",
+      "epoch": 25,
+      "mu_ref_mean": -0.0002676588192116469,
+      "Sigma_ref_mean": 0.0005347708938643336,
+      "sz_mode": "mu_only",
+      "sz_sigma_t_max": 1.0
+    },
+    {
+      "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0030.pth",
+      "epoch": 30,
+      "mu_ref_mean": -0.0002676588192116469,
+      "Sigma_ref_mean": 0.0005347708938643336,
+      "sz_mode": "mu_only",
+      "sz_sigma_t_max": 1.0
+    },
+    {
+      "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0035.pth",
+      "epoch": 35,
+      "mu_ref_mean": -0.0002676588192116469,
+      "Sigma_ref_mean": 0.0005347708938643336,
+      "sz_mode": "mu_only",
+      "sz_sigma_t_max": 1.0
+    },
+    {
+      "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0040.pth",
+      "epoch": 40,
+      "mu_ref_mean": -0.0002676588192116469,
+      "Sigma_ref_mean": 0.0005347708938643336,
+      "sz_mode": "mu_only",
+      "sz_sigma_t_max": 1.0
+    },
+    {
+      "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0045.pth",
+      "epoch": 45,
+      "mu_ref_mean": -0.0002676588192116469,
+      "Sigma_ref_mean": 0.0005347708938643336,
+      "sz_mode": "mu_only",
+      "sz_sigma_t_max": 1.0
+    },
+    {
+      "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0050.pth",
+      "epoch": 50,
+      "mu_ref_mean": -0.0002676588192116469,
+      "Sigma_ref_mean": 0.0005347708938643336,
+      "sz_mode": "mu_only",
+      "sz_sigma_t_max": 1.0
+    }
+  ],
+  "outputs": {
+    "val_scores_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/taskc_val_scores_all_epoch_ckpts.csv",
+    "correlations_long_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/taskc_val_correlations_long.csv",
+    "selection_table_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/taskc_checkpoint_selection_table.csv",
+    "summary_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/taskc_summary.json",
+    "report_txt": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/taskc_report.txt",
+    "plots": [
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/plots/taskc_selection_score_vs_epoch.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/plots/taskc_severity_srcc_vs_epoch.png"
+    ]
+  }
+}

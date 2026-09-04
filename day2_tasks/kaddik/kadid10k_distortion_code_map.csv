@@ -1,0 +1,26 @@
+distortion_code,distortion_type
+01,Gaussian blur
+02,Lens blur
+03,Motion blur
+04,Color diffusion
+05,Color shift
+06,Color quantization
+07,Color saturation 1
+08,Color saturation 2
+09,JPEG2000
+10,JPEG
+11,White noise
+12,White noise in color component
+13,Impulse noise
+14,Multiplicative noise
+15,Denoise
+16,Brighten
+17,Darken
+18,Mean shift
+19,Jitter
+20,Non-eccentricity patch
+21,Pixelate
+22,Quantization
+23,Color block
+24,High sharpen
+25,Contrast change

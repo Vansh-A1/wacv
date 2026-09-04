@@ -1,0 +1,82 @@
+{
+  "task": "Task 1: Reference stats similarity & EA reference set confirmation",
+  "inputs": {
+    "ref_h_pt": "/home/projectwork/student_package/runs/hr_combined_ft1/reference_stats.pt",
+    "ref_a_pt": "/home/projectwork/student_package/dataset_model2/runs/wacv_degradation_from_scratch_lambda0_seed42/reference_stats.pt",
+    "ckpt_h": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+    "ckpt_a": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth",
+    "ea_ref_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/ea_reference_set_diagnostics.csv"
+  },
+  "similarity_metrics": {
+    "mu_ref": {
+      "vector_name": "mu_ref",
+      "dim": 100,
+      "cosine_similarity": 0.9999984502792358,
+      "l2_distance": 0.00044008035911247134,
+      "relative_l2_distance": 0.0016880367246085112,
+      "l1_distance": 0.0035390511620789766,
+      "mean_abs_diff": 3.539051249390468e-05,
+      "max_abs_diff": 0.00011488422751426697,
+      "h_min": -0.04623810574412346,
+      "h_max": 0.055748626589775085,
+      "h_mean": 0.001732701901346445,
+      "h_std": 0.02614394761621952,
+      "a_min": -0.046197310090065,
+      "a_max": 0.05566208437085152,
+      "a_mean": 0.0017229625955224037,
+      "a_std": 0.02614661119878292
+    },
+    "Sigma_ref": {
+      "vector_name": "Sigma_ref",
+      "dim": 100,
+      "cosine_similarity": 0.990303099155426,
+      "l2_distance": 1.0675375250457364e-07,
+      "relative_l2_distance": 0.36364721803465955,
+      "l1_distance": 6.118132773735852e-07,
+      "mean_abs_diff": 6.118132223065231e-09,
+      "max_abs_diff": 4.876047654533977e-08,
+      "h_min": 9.99999993922529e-09,
+      "h_max": 8.41410070506754e-08,
+      "h_mean": 2.2225053797342298e-08,
+      "h_std": 1.927592307993109e-08,
+      "a_min": 9.99999993922529e-09,
+      "a_max": 1.2284564832043543e-07,
+      "a_mean": 2.832467238533809e-08,
+      "a_std": 2.685228572829601e-08
+    }
+  },
+  "ea_reference_set_confirmation": {
+    "total_paths": 2000,
+    "pool_counts": {
+      "KADID-10k": 876,
+      "KONIQ-10k": 869,
+      "TID2013": 255
+    },
+    "dataset_verified_counts": {
+      "KADID-10k (distorted train)": 876,
+      "KONIQ-10k (authentic train)": 869,
+      "TID2013 (distorted train)": 255
+    },
+    "num_distorted_or_authentic_train": 2000,
+    "num_pristine_df2k": 0,
+    "is_100_percent_distorted_or_authentic": true,
+    "all_paths_exist_check": 2000
+  },
+  "root_cause_explanation": {
+    "finding": "mu_ref and Sigma_ref are almost identical between pristine (E_H) and degradation (E_A) runs.",
+    "reason_1_ref_mode_once": "In train.py, ref_mode is set to 'once'. Reference statistics are computed once at epoch 0 and saved to reference_stats.pt, then frozen for all subsequent epochs (not updated as the network trains).",
+    "reason_2_initialization_caveat": "The degradation run was trained from scratch with seed=123, while the HR run config records init_from='checkpoints/best.pth'. Therefore this audit should not claim both runs had identical initial weights.",
+    "reason_3_latent_scale": "Both models use the same CVAE latent geometry and store very small Sigma_ref values. With ref_mode='once', close epoch/reference-set statistics remain frozen, producing very similar saved reference vectors.",
+    "reason_4_ea_reference_set": "The 2000 images in ea_reference_set_diagnostics.csv are 100% from KADID-10k (876), KONIQ-10k (869), and TID2013 (255) training splits. None are pristine DF2K images."
+  },
+  "outputs": {
+    "similarity_metrics_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b/task1_similarity_metrics.csv",
+    "ea_reference_paths_confirmation_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b/task1_ea_reference_paths_confirmation.csv",
+    "plots": [
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b/plots/task1_mu_ref_comparison.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b/plots/task1_sigma_ref_comparison.png"
+    ],
+    "summary_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b/task1_reference_comparison.json",
+    "report_txt": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b/task1_report.txt"
+  }
+}

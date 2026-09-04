@@ -1,0 +1,163 @@
+{
+  "task": "Day 9 Task A - encode train mu and fit diagonal GMMs",
+  "output_root": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA",
+  "gmm_root": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm",
+  "split_csv": "/home/projectwork/student_package/dataset_model2/ref_splits_seed42/combined_kadid_tid_koniq_split_seed42.csv",
+  "seed": 42,
+  "full_train_used": true,
+  "train_N": 16301,
+  "train_counts_by_dataset": {
+    "KONIQ-10k": 7261,
+    "KADID-10k": 7000,
+    "TID2013": 2040
+  },
+  "epochs": [
+    {
+      "tag": "ep05",
+      "checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+      "output_dir": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05",
+      "encoding": {
+        "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+        "checkpoint_epoch": 5,
+        "img_size": 256,
+        "latent_dim": 100,
+        "has_mu_ref": true,
+        "has_Sigma_ref": true,
+        "train_N": 16301,
+        "mu_shape": [
+          16301,
+          100
+        ],
+        "mu_dtype": "float32",
+        "encode_seconds": 20.820953130722046,
+        "batch_size": 64,
+        "workers": 4,
+        "device": "cuda:0"
+      },
+      "gmms": [
+        {
+          "K": 2,
+          "model_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K02.pt",
+          "train_N": 16301,
+          "latent_dim": 100,
+          "seed": 42,
+          "covariance_type": "diag",
+          "converged": true,
+          "n_iter": 15,
+          "lower_bound": 344.12957763671875,
+          "fit_seconds": 0.6571996212005615
+        },
+        {
+          "K": 4,
+          "model_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K04.pt",
+          "train_N": 16301,
+          "latent_dim": 100,
+          "seed": 42,
+          "covariance_type": "diag",
+          "converged": true,
+          "n_iter": 16,
+          "lower_bound": 374.39202880859375,
+          "fit_seconds": 0.9072620868682861
+        },
+        {
+          "K": 8,
+          "model_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K08.pt",
+          "train_N": 16301,
+          "latent_dim": 100,
+          "seed": 42,
+          "covariance_type": "diag",
+          "converged": true,
+          "n_iter": 17,
+          "lower_bound": 402.8962097167969,
+          "fit_seconds": 1.6768770217895508
+        },
+        {
+          "K": 16,
+          "model_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K16.pt",
+          "train_N": 16301,
+          "latent_dim": 100,
+          "seed": 42,
+          "covariance_type": "diag",
+          "converged": true,
+          "n_iter": 49,
+          "lower_bound": 423.301025390625,
+          "fit_seconds": 1.7088353633880615
+        }
+      ]
+    },
+    {
+      "tag": "ep10",
+      "checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth",
+      "output_dir": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10",
+      "encoding": {
+        "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth",
+        "checkpoint_epoch": 10,
+        "img_size": 256,
+        "latent_dim": 100,
+        "has_mu_ref": true,
+        "has_Sigma_ref": true,
+        "train_N": 16301,
+        "mu_shape": [
+          16301,
+          100
+        ],
+        "mu_dtype": "float32",
+        "encode_seconds": 17.86780333518982,
+        "batch_size": 64,
+        "workers": 4,
+        "device": "cuda:0"
+      },
+      "gmms": [
+        {
+          "K": 2,
+          "model_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K02.pt",
+          "train_N": 16301,
+          "latent_dim": 100,
+          "seed": 42,
+          "covariance_type": "diag",
+          "converged": true,
+          "n_iter": 7,
+          "lower_bound": 370.84332275390625,
+          "fit_seconds": 0.5800354480743408
+        },
+        {
+          "K": 4,
+          "model_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K04.pt",
+          "train_N": 16301,
+          "latent_dim": 100,
+          "seed": 42,
+          "covariance_type": "diag",
+          "converged": true,
+          "n_iter": 22,
+          "lower_bound": 401.0472106933594,
+          "fit_seconds": 0.6478538513183594
+        },
+        {
+          "K": 8,
+          "model_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K08.pt",
+          "train_N": 16301,
+          "latent_dim": 100,
+          "seed": 42,
+          "covariance_type": "diag",
+          "converged": true,
+          "n_iter": 58,
+          "lower_bound": 425.50927734375,
+          "fit_seconds": 1.3068273067474365
+        },
+        {
+          "K": 16,
+          "model_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K16.pt",
+          "train_N": 16301,
+          "latent_dim": 100,
+          "seed": 42,
+          "covariance_type": "diag",
+          "converged": true,
+          "n_iter": 69,
+          "lower_bound": 447.6831359863281,
+          "fit_seconds": 1.5535361766815186
+        }
+      ]
+    }
+  ],
+  "sync_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_taskA_sync.csv"
+}

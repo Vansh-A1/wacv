@@ -1,0 +1,25 @@
+CUDA Version: 12.8
+current CUDA Device: 0 NVIDIA RTX 2000 Ada Generation
+[INFO] train_list=manifests/hr_combined_train.txt (19300 images)
+[INFO] run_name: hr_combined_ft1
+[INFO] version:  vft1
+[INFO] run_dir:  /home/projectwork/student_package/runs/hr_combined_ft1
+[INFO] ckpt_dir: /home/projectwork/student_package/checkpoints/hr_combined_ft1
+[INFO] git commit: unknown
+[INFO] chosen pools: ['HR_combined_DIV2K_part', 'HR_combined_Flickr2K_part']
+       HR_combined_DIV2K_part: 750
+       HR_combined_Flickr2K_part: 18550
+[INFO] total train images: 19300
+[INFO] crop size: 256 | norm: [0,1] | ldim: 100 | amp: True
+[INFO] best_metric: separation | latent_plot: both
+[INFO] S_Z: mode=mu_only ref_mode=once lambda_rank=0.25 free_bits=1.0
+[INFO] CVAE ONLY (VGG+KLD) — no discriminator / adversarial loss
+===>Training data size : 19300
+[INFO] eval_list=examples/eval_list_example.txt (4 images)
+[INFO] fixed eval set (student_eval): 4 images | n_eval_crops=5 | ladder_meta=
+===>Eval data size : 4
+[INFO] S_Z reference set: 2000 center-crop pristine images
+[INFO] Resuming Training ..........................................
+[WARN] could not fully restore rng_state: RNG state must be a torch.ByteTensor
+[INFO] Training Resumed from epoch 1
+[INFO] restored frozen S_Z reference from runs/hr_combined_ft1/reference_stats.pt

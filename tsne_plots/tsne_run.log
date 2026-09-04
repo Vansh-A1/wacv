@@ -1,0 +1,44 @@
+/home/projectwork/.config/matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /tmp/matplotlib-a61z8s5n because there was an issue with the default path ({configdir}); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Done: /home/projectwork/student_package/tsne_plots
+{
+  "task": "t-SNE plots for same validation set",
+  "output_dir": "/home/projectwork/student_package/tsne_plots",
+  "same_val_set": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/encoded_mu_cache/ep05_val_kadid_tid_ids.csv",
+  "N": 1860,
+  "dataset_counts": {
+    "KADID-10k": 1500,
+    "TID2013": 360
+  },
+  "EA_mu_source": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb/encoded_mu_cache/ep05_val_kadid_tid_mu.npy",
+  "EH_mu_source": "/home/projectwork/student_package/tsne_plots/cache/eh_frozen_val_kadid_tid_mu.npy",
+  "EH_checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "tsne_settings": {
+    "seed": 42,
+    "perplexity": 30.0,
+    "max_iter": 1000,
+    "init": "pca",
+    "learning_rate": "auto",
+    "metric": "euclidean"
+  },
+  "group_B_definition": {
+    "blur": "distortion name contains blur, plus TID type_08/type_23",
+    "HF/sharpen": "High sharpen/sharpen names, plus TID type_05",
+    "noise": "noise names plus TID noise-like type codes",
+    "other": "all remaining types"
+  },
+  "group_counts": {
+    "other": 1155,
+    "noise": 420,
+    "blur": 210,
+    "HF/sharpen": 75
+  },
+  "plots": [
+    "/home/projectwork/student_package/tsne_plots/01_EA_epoch5_A_by_distortion_type.png",
+    "/home/projectwork/student_package/tsne_plots/02_EA_epoch5_B_by_group.png",
+    "/home/projectwork/student_package/tsne_plots/03_EH_frozen_A_by_distortion_type.png",
+    "/home/projectwork/student_package/tsne_plots/04_EH_frozen_B_by_group.png"
+  ],
+  "coordinates_csv": "/home/projectwork/student_package/tsne_plots/tsne_coordinates_same_valset.csv",
+  "runtime_seconds": 40.24112820625305
+}

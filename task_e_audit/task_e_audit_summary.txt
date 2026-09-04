@@ -1,0 +1,30 @@
+Task E methodological audit rerun
+No training. WACV checkpoint and score direction unchanged.
+
+Pairing audit: 0 problematic rows out of 186; matched SwinSR=93, HAT=93.
+WACV receives PIL RGB, [0,1] float32, no mean/std normalization, center 256x256 crop; same frozen wrapper/checkpoint as previous checks.
+PSNR/SSIM use matched HR, RGB [0,1], no border crop, no resize to hide mismatches.
+Full LPIPS/DISTS are NaN: CPU-only environment cannot practically run full 22MP neural metrics; crop LPIPS/DISTS are computed with pyiqa 0.1.16.
+
+Crop pooled correlations:
+D_WACV vs NIQE: rho=0.298127, p=3.58e-05, N=186, CI95=[0.161204,0.421899]
+D_WACV vs LR_content: rho=-0.479949, p=4.16e-12, N=186, CI95=[-0.584142,-0.351358]
+D_WACV vs PSNR: rho=0.633553, p=2.89e-22, N=186, CI95=[0.519895,0.728525]
+D_WACV vs SSIM: rho=0.679661, p=1.48e-26, N=186, CI95=[0.592253,0.752428]
+D_WACV vs LPIPS: rho=-0.526596, p=1.16e-14, N=186, CI95=[-0.621762,-0.415010]
+D_WACV vs DISTS: rho=-0.284644, p=8.23e-05, N=186, CI95=[-0.420011,-0.126601]
+
+Full pooled correlations:
+D_WACV vs NIQE: rho=0.327535, p=5.03e-06, N=186, CI95=[0.200094,0.445165]
+D_WACV vs LR_content: rho=-0.479949, p=4.16e-12, N=186, CI95=[-0.584142,-0.351358]
+D_WACV vs PSNR: rho=0.441111, p=2.95e-10, N=186, CI95=[0.306019,0.552400]
+D_WACV vs SSIM: rho=0.507781, p=1.39e-13, N=186, CI95=[0.383100,0.611465]
+D_WACV vs LPIPS: rho=nan, p=nan, N=0, CI95=[nan,nan]
+D_WACV vs DISTS: rho=nan, p=nan, N=0, CI95=[nan,nan]
+
+Answers:
+Direction reversal on crop PSNR/SSIM: yes, rho PSNR=0.633553, SSIM=0.679661.
+By method: see correlations_by_method.csv; both methods are reported separately.
+Full-resolution PSNR/SSIM: rho PSNR=0.441111, SSIM=0.507781.
+After controlling/stratifying LR_content: see partial_correlations.csv and content_stratified_correlations.csv.
+Likely diagnosis: pairing/preprocessing errors were not found; the PSNR/SSIM direction anomaly persists in the diagnostic outputs available here, so it looks more like content/SR-method behavior or WACV behavior than a simple pairing bug.

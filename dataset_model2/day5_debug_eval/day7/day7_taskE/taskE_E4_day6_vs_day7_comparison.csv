@@ -1,0 +1,7 @@
+Metric,Day-6 (old E_A_ref),Day-7 (this run),Notes
+"cosine(mu_ref_H, mu_ref_A)",0.9999984502792358,-0.0393403915596508,mu_ref cosine similarity
+KADID SRCC E_A vs MOS,0.07089601328097093,0.11200216759655192,KADID holdout only
+KADID SRCC Qz_AmH vs MOS,0.2454,0.2519012359679859,MOS-oriented Q_z^(A-H); higher MOS is better in KADID
+KADID SRCC E_H vs MOS,-0.3447055559894375,-0.34469331055533586,"Frozen pristine scorer, should match aside from scoring precision"
+Blur E_A vs severity,-0.5850479743826221,-0.6256360399988595,KADID Gaussian blur holdout
+Sharpen E_A vs severity,0.5821488268386051,0.5931655875058696,KADID High sharpen holdout

@@ -1,0 +1,4 @@
+Score,Subset,N,"SRCC(score,severity)",SRCC p
+E_H,"KADID+TID holdout, all distortion types pooled",2225,0.3133430079530089,6.98712123519474e-52
+E_A,"KADID+TID holdout, all distortion types pooled",2225,-0.02559492969698209,0.22749774587803395
+Q_z^(H-A),"KADID+TID holdout, all distortion types pooled",2225,0.19482788543747007,1.7954427700572985e-20

@@ -1,0 +1,56 @@
+================================================================================
+DAY 6 TASK 2 AUDIT REPORT: DISTRIBUTIONAL ANALYSIS & SEVERITY CORRELATIONS
+================================================================================
+
+1. SUMMARY TABLE (ROWS WITH MOS)
+--------------------------------------------------------------------------------
+Dataset          | N    | mean E_H | std E_H | min - max E_H       | mean E_A  | std E_A   | corr(Q,E_A) | corr(Q,E_H) | SRCC(E_H,MOS)
+--------------------------------------------------------------------------------
+KADID holdout    | 1625 | 2806.1150| 7.7869  | 2788.7458-2834.0833 | 3805.2805 | 1255.3978 | +1.0000     | -0.1678     | -0.3447
+TID holdout      | 600  | 2810.1286| 8.7166  | 2791.7671-2833.6562 | 3163.9085 | 642.3367  | +0.9999     | -0.5416     | -0.1069
+pooled KADID+TID | 2225 | 2807.1973| 8.2410  | 2788.7458-2834.0833 | 3632.3262 | 1158.8853 | +1.0000     | -0.3106     | -0.1502
+--------------------------------------------------------------------------------
+* Notes:
+  - corr(Q, E_A) and corr(Q, E_H) are reported as Spearman rank correlations above.
+    Pearson values: KADID (+1.0000 / -0.0891), TID (+0.9999 / -0.5134), Pooled (+1.0000 / -0.2014).
+  - SRCC(E_H, MOS) is negative across all datasets, confirming that higher pristine
+    latent distance (E_H) corresponds to lower MOS (worse quality).
+
+2. SEVERITY CORRELATIONS ON KADID-10k (SEVERITY 1...5, N=1625)
+--------------------------------------------------------------------------------
+- Spearman(E_H, severity): +0.3608  (p-value = 3.7553e-51, extremely significant)
+  -> Pristine model E_H increases monotonically with distortion severity level.
+- Spearman(E_A, severity): +0.0308  (p-value = 0.2145, not statistically significant)
+  -> Degradation model E_A fails to capture monotonic distortion severity.
+- Spearman(Q, severity):   +0.0285  (p-value = 0.2509, not statistically significant)
+  -> Q = E_A - E_H is dominated by E_A and loses the monotonic severity signal of E_H.
+
+3. TID2013 SEVERITY CORRELATIONS (FOR COMPARISON, N=600)
+--------------------------------------------------------------------------------
+- Spearman(E_H, severity): +0.2195  (p-value = 5.6262e-08, highly significant)
+- Spearman(E_A, severity): +0.0452  (p-value = 0.2687, not significant)
+- Spearman(Q, severity):   +0.0428  (p-value = 0.2952, not significant)
+
+4. KEY SCIENTIFIC FINDINGS
+--------------------------------------------------------------------------------
+1) Variance Imbalance:
+   std(E_A) = 1158.89 >> std(E_H) = 8.24 (a ratio of ~140x).
+   Because Var(E_A) dwarfs Var(E_H), the differential score Q = E_A - E_H is
+   mathematically almost identical to E_A (corr(Q, E_A) = 1.0000).
+
+2) Signal Integrity:
+   E_H carries a clear, statistically robust quality signal:
+     * SRCC(E_H, MOS) = -0.3447 on KADID (p = 1.5e-46)
+     * Spearman(E_H, severity) = +0.3608 on KADID (p = 3.7e-51)
+   In contrast, E_A has virtually zero correlation with severity (+0.0308)
+   and degrades the overall ranking performance when combined naively into Q.
+
+5. GENERATED ARTIFACTS IN day6c/
+--------------------------------------------------------------------------------
+- Metrics Table CSV:       /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6c/task2_holdout_metrics_table.csv
+- Severity CSV:            /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6c/task2_severity_correlations.csv
+- Summary JSON:            /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6c/task2_summary.json
+- Text Report:             /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6c/task2_report.txt
+- Severity Trends Plot:    /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6c/plots/task2_kadid_severity_trends.png
+- Scatter Correlation Plot:/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6c/plots/task2_q_vs_ea_eh_scatter.png
+================================================================================

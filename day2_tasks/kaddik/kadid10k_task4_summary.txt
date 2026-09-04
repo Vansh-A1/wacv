@@ -1,0 +1,15 @@
+Task 4: KADID-10k scoring
+Rows scored: 10125 / 10125
+Scores CSV: /home/projectwork/student_package/day2_tasks/kaddik/kadid10k_task4_scores.csv
+Correlations CSV: /home/projectwork/student_package/day2_tasks/kaddik/kadid10k_task4_metric_correlations.csv
+Frozen WACV checkpoint: /home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth
+WACV preprocess: resize short side only if < 256, then center crop 256x256
+Metric crop size: 256
+Metrics: D_WACV, PSNR, SSIM, NIQE, LPIPS, MOS/DMOS
+
+Correlation against mos_or_dmos:
+D_WACV: Spearman=-0.365827, Pearson=-0.374483, N=10125
+PSNR: Spearman=0.674948, Pearson=0.656720, N=9775
+SSIM: Spearman=0.676131, Pearson=0.662365, N=10125
+NIQE: Spearman=-0.349318, Pearson=-0.295893, N=10125
+LPIPS: Spearman=-0.855524, Pearson=-0.784935, N=10125

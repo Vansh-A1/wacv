@@ -1,0 +1,21 @@
+{
+  "method": "HAT",
+  "metric": "D_WACV",
+  "extreme": "minimum",
+  "image_id": "DSC_1326",
+  "metric_value": 2788.475830078125,
+  "D_WACV": 2788.475830078125,
+  "NIQE": 6.0987032908269185,
+  "LR_content": 0.03633614629507065,
+  "PSNR": 22.143660335591456,
+  "SSIM": 0.6736710667610168,
+  "LPIPS": 0.2805585563182831,
+  "DISTS": 0.18958336114883423,
+  "sr_path": "/data/projectwork/sr_output/HAT_inference/DReal_x4/visualization/DReal_x4/DSC_1326_x1_DReal_x4.png",
+  "hr_path": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/HR/DSC_1326_x4.png",
+  "lr_path": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/LR/dreal4_15.png",
+  "saved_sr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/D_WACV/minimum/SR_DSC_1326_x1_DReal_x4.png",
+  "saved_hr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/D_WACV/minimum/HR_DSC_1326_x4.png",
+  "saved_lr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/D_WACV/minimum/LR_dreal4_15.png",
+  "case_dir": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/D_WACV/minimum"
+}

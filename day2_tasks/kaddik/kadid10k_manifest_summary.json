@@ -1,0 +1,33 @@
+{
+  "task": "Steps 2 and 3: KADID-10k local dataset check and manifest",
+  "dataset_root": "/data/projectwork/swati_mam/kadid10k",
+  "images_dir": "/data/projectwork/swati_mam/kadid10k/images",
+  "dmos_csv": "/data/projectwork/swati_mam/kadid10k/dmos.csv",
+  "output_dir": "/home/projectwork/student_package/day2_tasks/kaddik",
+  "manifest_csv": "/home/projectwork/student_package/day2_tasks/kaddik/kadid10k_manifest.csv",
+  "manifest_extended_csv": "/home/projectwork/student_package/day2_tasks/kaddik/kadid10k_manifest_extended.csv",
+  "distortion_code_map_csv": "/home/projectwork/student_package/day2_tasks/kaddik/kadid10k_distortion_code_map.csv",
+  "num_manifest_rows": 10125,
+  "num_reference_images_found": 81,
+  "num_distorted_images_found": 10125,
+  "num_distortion_types": 25,
+  "severity_levels": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "missing_files_count": 0,
+  "missing_files_sample": [],
+  "parse_errors_count": 0,
+  "parse_errors_sample": [],
+  "dmos_min": 1.0,
+  "dmos_max": 4.93,
+  "notes": [
+    "Main manifest uses the exact requested columns.",
+    "mos_or_dmos contains the KADID-10k dmos score from dmos.csv.",
+    "AppleDouble files beginning with ._ are ignored.",
+    "Distortion type names follow the official KADID-10k code order."
+  ]
+}

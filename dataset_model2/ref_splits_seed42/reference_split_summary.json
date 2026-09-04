@@ -1,0 +1,50 @@
+{
+  "task": "Reference-level train/val/holdout splits for KADID-10k and TID2013",
+  "split_seed": 42,
+  "procedure": [
+    "List unique ref_id values.",
+    "Sort ref_ids lexicographically.",
+    "Shuffle with random.Random(split_seed=42).",
+    "Assign first int(70%) refs to train, next int(15%) refs to val, remainder to holdout.",
+    "Every distorted image inherits its ref_id split."
+  ],
+  "outputs": {
+    "kadid_manifest_with_split": "/home/projectwork/student_package/day2_tasks/ref_splits_seed42/kadid10k_manifest_ref_split_seed42.csv",
+    "tid2013_manifest_with_split": "/home/projectwork/student_package/day2_tasks/ref_splits_seed42/tid2013_manifest_ref_split_seed42.csv",
+    "kadid_ref_splits": "/home/projectwork/student_package/day2_tasks/ref_splits_seed42/kadid10k_ref_splits_seed42.csv",
+    "tid2013_ref_splits": "/home/projectwork/student_package/day2_tasks/ref_splits_seed42/tid2013_ref_splits_seed42.csv",
+    "combined_manifest_with_split": "/home/projectwork/student_package/day2_tasks/ref_splits_seed42/combined_kadid_tid_ref_split_seed42.csv",
+    "summary_json": "/home/projectwork/student_package/day2_tasks/ref_splits_seed42/reference_split_summary.json",
+    "summary_txt": "/home/projectwork/student_package/day2_tasks/ref_splits_seed42/reference_split_summary.txt"
+  },
+  "kadid": {
+    "num_refs": 81,
+    "row_counts_by_split": {
+      "train": 7000,
+      "holdout": 1625,
+      "val": 1500
+    },
+    "ref_counts_by_split": {
+      "train": 56,
+      "holdout": 13,
+      "val": 12
+    },
+    "num_refs_in_multiple_splits": 0,
+    "refs_in_multiple_splits": []
+  },
+  "tid2013": {
+    "num_refs": 25,
+    "row_counts_by_split": {
+      "train": 2040,
+      "holdout": 600,
+      "val": 360
+    },
+    "ref_counts_by_split": {
+      "train": 17,
+      "holdout": 5,
+      "val": 3
+    },
+    "num_refs_in_multiple_splits": 0,
+    "refs_in_multiple_splits": []
+  }
+}

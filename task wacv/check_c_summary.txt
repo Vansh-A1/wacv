@@ -1,0 +1,11 @@
+VTask A: Ballpark pristine test (Check C)
+Score: D_WACV = S_Z; higher means worse quality
+
+summary table
+split,N,mean,SD,median,p05,p95
+calibration,50,2803.975713,7.563678,2802.779175,2793.080212,2818.209399
+hr_test,100,2802.645029,7.788531,2802.031494,2792.128076,2816.654553
+
+delta_mean = abs(mean_test - mean_cal) = 1.330684
+threshold = 0.5 * SD_cal = 3.781839
+passes_ballpark_rule = True

@@ -1,0 +1,184 @@
+{
+  "device": "cuda:0",
+  "requested_missing_checkpoint_note": {
+    "pasted_request_checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_seed42/best.pth",
+    "exists": false,
+    "used_degradation_checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth"
+  },
+  "checkpoint_diagnostics": [
+    {
+      "name": "E_H_pristine_model",
+      "checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+      "exists": true,
+      "epoch": 20,
+      "best_metric": "separation",
+      "best_value": 1.0,
+      "mu_ref": {
+        "shape": [
+          100
+        ],
+        "finite": true,
+        "nan_count": 0,
+        "inf_count": 0,
+        "min": -0.04623810574412346,
+        "max": 0.055748626589775085,
+        "mean": 0.001732701901346445,
+        "std": 0.026012899354100227
+      },
+      "Sigma_ref": {
+        "shape": [
+          100
+        ],
+        "finite": true,
+        "nan_count": 0,
+        "inf_count": 0,
+        "min": 9.99999993922529e-09,
+        "max": 8.41410070506754e-08,
+        "mean": 2.2225053797342298e-08,
+        "std": 1.9179301702365592e-08
+      },
+      "bad_parameter_count": 0,
+      "bad_parameters": []
+    },
+    {
+      "name": "E_A_degradation_model",
+      "checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth",
+      "exists": true,
+      "epoch": 50,
+      "best_metric": "psnr",
+      "best_value": 26.58890858115424,
+      "mu_ref": {
+        "shape": [
+          100
+        ],
+        "finite": true,
+        "nan_count": 0,
+        "inf_count": 0,
+        "min": -0.046197310090065,
+        "max": 0.05566208437085152,
+        "mean": 0.0017229625955224037,
+        "std": 0.026015549898147583
+      },
+      "Sigma_ref": {
+        "shape": [
+          100
+        ],
+        "finite": true,
+        "nan_count": 0,
+        "inf_count": 0,
+        "min": 9.99999993922529e-09,
+        "max": 1.2284564832043543e-07,
+        "mean": 2.832467238533809e-08,
+        "std": 2.6717687617860975e-08
+      },
+      "bad_parameter_count": 0,
+      "bad_parameters": []
+    }
+  ],
+  "validation_nan_trace": {
+    "eval_list": "/home/projectwork/student_package/dataset_model2/runs/wacv_degradation_from_scratch_lambda0_seed42/eval_files.txt",
+    "n": 3415,
+    "label_counts": {
+      "other": 3415
+    }
+  },
+  "preprocessing": {
+    "training_degradation": "PIL RGB -> resize short side to >=256 if needed -> random 256x256 crop -> random hflip -> float RGB [0,1] -> ToTensor; no mean/std normalization",
+    "validation_degradation": "PIL RGB -> resize short side to >=256 if needed -> center 256x256 crop -> float RGB [0,1] -> ToTensor; no mean/std normalization",
+    "day5_EH_EA": "Both E_H and E_A use PIL RGB -> resize short side to >=256 if needed -> center 256x256 crop -> float RGB [0,1] -> ToTensor; no mean/std normalization"
+  },
+  "sz_math": {
+    "mode": "mu_only",
+    "formula": "sqrt(sum((mu_ref - mu_t)^2 / (Sigma_ref + eps)))",
+    "eps": 1e-08,
+    "Sigma_ref_clamp_in_fit_reference": "clamp_min(1e-8)"
+  },
+  "ea_reference_set": {
+    "attempted": 2000,
+    "loaded": 2000,
+    "skipped": 0,
+    "finite_score": 2000,
+    "nan_or_inf_score": 0,
+    "score_summary": {
+      "min": 1701.1865234375,
+      "max": 12752.5732421875,
+      "mean": 3555.5713453979492,
+      "std": 1006.9427174834232
+    },
+    "note": "These are the 2000 center-crop entries reconstructed from the degradation training list. The code comment says pristine, but this degradation run used the degradation train_list."
+  },
+  "small_diagnostic": {
+    "rows": 20,
+    "E_H_finite": 20,
+    "E_A_finite": 20,
+    "Q_finite": 20,
+    "E_H_mean": 2807.2426635742186,
+    "E_A_mean": 3299.7377685546876,
+    "Q_mean": 492.49510498046874
+  },
+  "full_holdout": {
+    "rows_scored": 3782,
+    "path_exists_rows": 3782,
+    "rows_with_mos": 2225,
+    "finite_all": 3782,
+    "nonfinite_rows": 0,
+    "E_H_summary": {
+      "count": 3782.0,
+      "mean": 2807.099778117357,
+      "std": 8.789211330956201,
+      "min": 2766.936279296875,
+      "25%": 2800.5986328125,
+      "50%": 2806.69384765625,
+      "75%": 2813.2952270507812,
+      "max": 2834.083251953125
+    },
+    "E_A_summary": {
+      "count": 3782.0,
+      "mean": 3565.3523306198563,
+      "std": 1089.1507131622614,
+      "min": 1693.016357421875,
+      "25%": 2836.4375,
+      "50%": 3409.215576171875,
+      "75%": 4159.059814453125,
+      "max": 12349.150390625
+    },
+    "Q_summary": {
+      "count": 3782.0,
+      "mean": 758.2525525024995,
+      "std": 1091.761200649722,
+      "min": -1117.15576171875,
+      "25%": 25.85076904296875,
+      "50%": 601.6693115234375,
+      "75%": 1357.0220336914062,
+      "max": 9539.53076171875
+    },
+    "pooled_spearman_mos": {
+      "E_H": -0.15023003609559216,
+      "E_A": -0.05074609164883136,
+      "Q": -0.04993581646785124
+    },
+    "delta_Q_minus_EH_abs_srcc": -0.10029421962774092,
+    "auroc_note": "Training validation AUROC is undefined when eval list has one class only. For Day 5, no binary HR/degraded labels were created because scoring is MOS/DMOS correlation based."
+  },
+  "outputs": {
+    "diagnostics_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/diagnostics.json",
+    "debug_report": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/debug_report.txt",
+    "ea_reference_set_diagnostics": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/ea_reference_set_diagnostics.csv",
+    "small_diagnostic_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/small_diagnostic_scores.csv",
+    "day5_holdout_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day5_holdout_scores.csv",
+    "day5_correlations": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day5_correlations.csv",
+    "day5_winners": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day5_winners.csv",
+    "plots": [
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/pooled_KADID_TID_E_H_vs_mos.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/pooled_KADID_TID_E_A_vs_mos.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/pooled_KADID_TID_Q_vs_mos.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/KADID-10k_E_H_vs_mos.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/KADID-10k_E_A_vs_mos.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/KADID-10k_Q_vs_mos.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/TID2013_E_H_vs_mos.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/TID2013_E_A_vs_mos.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/TID2013_Q_vs_mos.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/kadid_distortion_type_mean_Q.png"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "day6_task": "KonIQ-10k MOS integration",
+  "koniq_holdout_rows": 1557,
+  "koniq_mos_matched": 1512,
+  "koniq_mos_unmatched": 45,
+  "koniq_mos_file": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6/koniq10k_scores.csv",
+  "spearman_koniq_mos": {
+    "E_H": -0.33553127841437874,
+    "E_A": 0.1379050103754992,
+    "Q": 0.14069099099296883
+  },
+  "outputs": {
+    "correlations_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6/day5_correlations_koniq.csv",
+    "unmatched_rows_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6/koniq_unmatched_holdout_rows.csv",
+    "scatter_plots": [
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6/plots/KonIQ_E_H_vs_mos.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6/plots/KonIQ_E_A_vs_mos.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6/plots/KonIQ_Q_vs_mos.png"
+    ],
+    "summary_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6/day6_summary.json"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "init_checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "pairs_csv": "/home/projectwork/student_package/day11_day12/pairs_severity_train.csv",
+  "rank_direction": "severe_E_H_higher_than_mild_E_H",
+  "outputs": [
+    "val_selection_table.csv",
+    "holdout_metrics.csv",
+    "compare_vs_unranked_EH.csv",
+    "day11b_report.txt"
+  ],
+  "selected": [
+    {
+      "lambda_rank": 0.1,
+      "epoch": 5,
+      "ckpt_path": "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/checkpoints/epoch_0005.pth",
+      "blur_SRCC": 0.7812235732309142,
+      "blur_N": 60,
+      "lens_SRCC": 0.7866676399433248,
+      "lens_N": 60,
+      "sharpen_SRCC": 0.6410388553863424,
+      "sharpen_N": 60,
+      "pixelate_SRCC": 0.3858482282420978,
+      "pixelate_N": 60,
+      "pooled_EH_MOS_SRCC_report_only": -0.3371749202292615,
+      "pooled_EH_MOS_Pearson_report_only": -0.325756902741773,
+      "pooled_N": 1860,
+      "selection_score": -2.59477829680268,
+      "selected": "yes"
+    },
+    {
+      "lambda_rank": 1.0,
+      "epoch": 25,
+      "ckpt_path": "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/checkpoints/epoch_0025.pth",
+      "blur_SRCC": 0.6117769968071357,
+      "blur_N": 60,
+      "lens_SRCC": 0.7077286726133717,
+      "lens_N": 60,
+      "sharpen_SRCC": 0.597486321687058,
+      "sharpen_N": 60,
+      "pixelate_SRCC": 0.4573016038424863,
+      "pixelate_N": 60,
+      "pooled_EH_MOS_SRCC_report_only": -0.3608683232619205,
+      "pooled_EH_MOS_Pearson_report_only": -0.365004775580542,
+      "pooled_N": 1860,
+      "selection_score": -2.374293594950052,
+      "selected": "yes"
+    }
+  ]
+}

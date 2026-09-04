@@ -1,0 +1,34 @@
+{
+  "task": "Task 4: Cross-checkpoint evaluation (Old WACV D_old vs Day-5 E_H)",
+  "subset_200_fixed": {
+    "N": 200,
+    "Spearman_D_old_vs_MOS": -0.39928741676454826,
+    "Pearson_D_old_vs_MOS": -0.2598139855203005,
+    "Spearman_E_H_vs_MOS": -0.43905467889657523,
+    "Pearson_E_H_vs_MOS": -0.4706500071964926,
+    "Spearman_D_old_vs_E_H": 0.9060332539430489,
+    "Pearson_D_old_vs_E_H": 0.6016789707830866
+  },
+  "checkpoints": {
+    "D_old": "/home/projectwork/student_package/checkpoints/best.pth",
+    "E_H": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth"
+  },
+  "outputs": {
+    "scores_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6e/kadid_200_old_vs_day5_scores.csv",
+    "metrics_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6e/task4_correlations_metrics.csv",
+    "report_txt": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6e/task4_report.txt",
+    "summary_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6e/task4_summary.json",
+    "plots": [
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6e/plots/task4_dold_vs_eh_and_mos_scatters.png"
+    ]
+  },
+  "full_holdout_1625": {
+    "N": 1625,
+    "Spearman_D_old_vs_MOS": -0.4131899927664026,
+    "Pearson_D_old_vs_MOS": -0.2349378662776559,
+    "Spearman_E_H_vs_MOS": -0.3447055559894375,
+    "Pearson_E_H_vs_MOS": -0.3572273493710588,
+    "Spearman_D_old_vs_E_H": 0.8503584075837691,
+    "Pearson_D_old_vs_E_H": 0.4304459190209771
+  }
+}

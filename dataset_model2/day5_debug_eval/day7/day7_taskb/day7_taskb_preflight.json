@@ -1,0 +1,30 @@
+{
+  "task": "Day 7 Task B preflight",
+  "output_folder": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7_taskb",
+  "weights_selected_trained_E_A": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth",
+  "weights_epoch": 50,
+  "init_ref_from_new_reference_stats_ea_refit": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7_taskb/new_reference_stats_ea_refit.pt",
+  "not_old_epoch0_reference_file": true,
+  "old_epoch0_reference_file_not_used": "/home/projectwork/student_package/dataset_model2/runs/wacv_degradation_from_scratch_lambda0_seed42/reference_stats.pt",
+  "lambda_rank": 0.0,
+  "train_list": "/home/projectwork/student_package/dataset_model2/training_manifests/degradation_train_seed42.txt",
+  "eval_list_val_only": "/home/projectwork/student_package/dataset_model2/training_manifests/degradation_val_eval_seed42.txt",
+  "train_count": 16301,
+  "train_counts_by_dataset": {
+    "KONIQ-10k": 7261,
+    "KADID-10k": 7000,
+    "TID2013": 2040
+  },
+  "new_ref_shapes": {
+    "mu_ref": [
+      100
+    ],
+    "Sigma_ref": [
+      100
+    ]
+  },
+  "checkpoint_save_rule": "save epoch_XXXX.pth every 5 epochs plus best_psnr.pth independent of selection metric",
+  "target_checkpoint_dir": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42",
+  "target_run_dir": "/home/projectwork/student_package/dataset_model2/runs/wacv_ea_day7_seed42",
+  "train_log": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7_taskb/train_log.txt"
+}

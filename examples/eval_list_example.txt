@@ -1,0 +1,13 @@
+# One image path per line used during validation.
+# Prefer a mix of clean and degraded images.
+# Name files so labels can be guessed, e.g.:
+#   something_HR.png   -> clean
+#   something_LR.png   -> low-res
+#   something_gblur... -> blur
+#   something_jpeg...  -> jpeg
+#
+# Demo list (relative to the student_package folder):
+examples/sample_images/002963_HR.png
+examples/sample_images/003536_HR.png
+examples/sample_images/002963_gblur_r4.png
+examples/sample_images/002963_jpeg_q10.png

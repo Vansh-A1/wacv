@@ -1,0 +1,29 @@
+{
+  "dataset": "KONIQ-10k",
+  "input_dir": "/data/projectwork/swati_mam/new model data/koniq10k_1024x768/1024x768",
+  "output_dir": "/home/projectwork/student_package/dataset_model2/ref_splits_seed42",
+  "split_seed": 42,
+  "subset_used": false,
+  "num_images": 10373,
+  "split_counts": {
+    "train": 7261,
+    "val": 1555,
+    "holdout": 1557
+  },
+  "split_rule": "Sort image_ids lexicographically, shuffle with random.Random(42), assign first 70% train, next 15% val, last 15% holdout.",
+  "manifest_notes": {
+    "distortion_type": "authentic",
+    "distortion_code": "NA",
+    "severity_or_level": "NA",
+    "ref_id": "NA",
+    "ref_path": "NA",
+    "mos_or_dmos": "NA"
+  },
+  "outputs": {
+    "image_splits": "/home/projectwork/student_package/dataset_model2/ref_splits_seed42/koniq10k_authentic_image_splits_seed42.csv",
+    "manifest": "/home/projectwork/student_package/dataset_model2/ref_splits_seed42/koniq10k_authentic_manifest_split_seed42.csv",
+    "combined_manifest": "/home/projectwork/student_package/dataset_model2/ref_splits_seed42/combined_kadid_tid_koniq_split_seed42.csv",
+    "summary_json": "/home/projectwork/student_package/dataset_model2/ref_splits_seed42/koniq10k_authentic_split_summary.json",
+    "summary_txt": "/home/projectwork/student_package/dataset_model2/ref_splits_seed42/koniq10k_authentic_split_summary.txt"
+  }
+}

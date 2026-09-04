@@ -1,0 +1,50 @@
+{
+  "check": "Task B - Content sensitivity test (Check D)",
+  "data": "/data/projectwork/swati_mam/HR_DATA/HR-calibration/DIV2K",
+  "checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "num_images": 50,
+  "score_name": "D_WACV = S_Z; higher means worse quality",
+  "image_size": 256,
+  "latent_dim": 100,
+  "sz_mode": "mu_only",
+  "sz_sigma_t_max": 1.0,
+  "blur_level_4": {
+    "severity": 4,
+    "kernel": 21,
+    "sigma": 8.0
+  },
+  "content_proxy_note": "Computed on clean 256x256 center crop after the same resize/crop used for scoring.",
+  "report_table": [
+    {
+      "quantity": "SD of D0 across images",
+      "value": 7.563487629779402
+    },
+    {
+      "quantity": "mean of delta",
+      "value": 17.6562548828125
+    },
+    {
+      "quantity": "median of delta",
+      "value": 17.239501953125
+    },
+    {
+      "quantity": "fraction with delta > 0",
+      "value": 1.0
+    },
+    {
+      "quantity": "Spearman(D0, luminance)",
+      "value": 0.5165426170468187
+    },
+    {
+      "quantity": "Spearman(D0, edge density)",
+      "value": -0.5765666266506603
+    }
+  ],
+  "spearman_D0_luminance_pvalue": 0.00012295113239136908,
+  "spearman_D0_edge_density_pvalue": 1.1752475713866835e-05,
+  "scores_csv": "/home/projectwork/student_package/day2_tasks/check_d_content_sensitivity_scores.csv",
+  "report_csv": "/home/projectwork/student_package/day2_tasks/check_d_report_table.csv",
+  "summary_txt": "/home/projectwork/student_package/day2_tasks/check_d_summary.txt",
+  "clean_crops_dir": "/home/projectwork/student_package/day2_tasks/check_d_clean_crops",
+  "blur_level4_dir": "/home/projectwork/student_package/day2_tasks/check_d_blur_level4_images"
+}

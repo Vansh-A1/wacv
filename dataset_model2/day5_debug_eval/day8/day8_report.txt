@@ -1,0 +1,33 @@
+Day 8 quick check for selection criteria
+
+V1 selected epoch: 5
+V2 selected epoch: 10
+V2 selected checkpoint: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth
+
+selection_score_v2 = (-blur) + (-lens) - max(0, sharpen) - max(0, pixelate)
+
+Task C v2 checkpoint selection table:
+ Epoch                                                                                       ckpt path      blur      lens  sharpen  pixelate  pooled_EA_MOS_report_only  selection_score_v1  selection_score_v2 selected_v2
+     5 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth -0.780543 -0.785987 0.807083 -0.034706                   0.173610            1.566530            0.759447          no
+    10 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth -0.747879 -0.780543 0.716575  0.002042                   0.104887            1.528422            0.809805         yes
+    15 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0015.pth -0.706368 -0.664176 0.766252 -0.028581                   0.136976            1.370544            0.604291          no
+    20 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0020.pth -0.534880 -0.631512 0.816610 -0.109562                   0.113990            1.166391            0.349781          no
+    25 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0025.pth -0.728824 -0.643080 0.738352  0.078258                   0.101765            1.371905            0.555295          no
+    30 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0030.pth -0.753323 -0.807763 0.824776 -0.110923                   0.188829            1.561086            0.736310          no
+    35 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0035.pth -0.560058 -0.317117 0.696160  0.028581                   0.215018            0.877175            0.152434          no
+    40 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0040.pth -0.367475 -0.450497 0.787348 -0.078258                   0.071364            0.817971            0.030623          no
+    45 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0045.pth -0.762169 -0.773057 0.748559 -0.004083                   0.111126            1.535227            0.786668          no
+    50 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0050.pth -0.354545 -0.317117 0.634234  0.033345                   0.031830            0.671662            0.004083          no
+
+KADID holdout-only epoch 5 vs v2 comparison:
+               Metric  epoch 5 (v1)  v2 selected    N      Better?
+      SRCC E_A vs MOS      0.112002     0.055869 1625 epoch 5 (v1)
+SRCC Q_z^(A-H) vs MOS      0.251901     0.225761 1625 epoch 5 (v1)
+        Blur E_A--sev     -0.625636    -0.607081   65 epoch 5 (v1)
+     Sharpen E_A--sev      0.593166     0.559535   65 epoch 5 (v1)
+    Pixelate E_A--sev     -0.028412     0.000580   65 epoch 5 (v1)
+
+Notes:
+No retraining was done.
+The original Day 7 Task B/Task C/Task D files were not deleted or modified.
+Epoch 5 values are from Day 7 Task D; v2 selected values are scored on KADID holdout only using the same preprocess/ref setup.

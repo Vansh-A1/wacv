@@ -1,0 +1,5 @@
+K,model_path,train_N,latent_dim,seed,covariance_type,converged,n_iter,lower_bound,fit_seconds
+2,/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K02.pt,16301,100,42,diag,True,7,370.84332275390625,0.5800354480743408
+4,/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K04.pt,16301,100,42,diag,True,22,401.0472106933594,0.6478538513183594
+8,/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K08.pt,16301,100,42,diag,True,58,425.50927734375,1.3068273067474365
+16,/home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K16.pt,16301,100,42,diag,True,69,447.6831359863281,1.5535361766815186

@@ -1,0 +1,165 @@
+{
+  "task": "Task 3: Validation-normalized relative scores (Q_z) and SRCC comparison",
+  "normalization_rule": "Fitted exclusively on validation split (never on holdout).",
+  "validation_statistics": {
+    "KADID-10k": {
+      "N_val": 1500,
+      "mu_H": 2808.225155436198,
+      "sigma_H": 8.082120950170612,
+      "mu_A": 3908.558762939453,
+      "sigma_A": 1075.7455998356918
+    },
+    "TID2013": {
+      "N_val": 360,
+      "mu_H": 2803.637103271484,
+      "sigma_H": 9.333663997068225,
+      "mu_A": 5110.239791531033,
+      "sigma_A": 2518.0138408396588
+    },
+    "pooled_KADID_TID": {
+      "N_val": 1860,
+      "mu_H": 2807.3371453398017,
+      "sigma_H": 8.53375951284854,
+      "mu_A": 4141.142187828146,
+      "sigma_A": 1544.609297466794
+    }
+  },
+  "summary_table": [
+    {
+      "Dataset": "KADID holdout",
+      "SRCC E_H": "-0.3447",
+      "Pearson E_H": "-0.3572",
+      "SRCC E_A": "0.0709",
+      "Pearson E_A": "-0.0397",
+      "SRCC raw Q=E_A-E_H": "0.0728",
+      "Pearson raw Q=E_A-E_H": "-0.0375",
+      "SRCC Q_z^{(A-H)}": "0.2454",
+      "Pearson Q_z^{(A-H)}": "0.1893",
+      "SRCC Q_z^{(H-A)}": "-0.2454",
+      "Pearson Q_z^{(H-A)}": "-0.1893",
+      "Does best Q_z beat |SRCC(E_H)|?": "N"
+    },
+    {
+      "Dataset": "TID holdout",
+      "SRCC E_H": "-0.1069",
+      "Pearson E_H": "-0.1054",
+      "SRCC E_A": "0.0440",
+      "Pearson E_A": "0.0886",
+      "SRCC raw Q=E_A-E_H": "0.0444",
+      "Pearson raw Q=E_A-E_H": "0.0894",
+      "SRCC Q_z^{(A-H)}": "0.1026",
+      "Pearson Q_z^{(A-H)}": "0.1116",
+      "SRCC Q_z^{(H-A)}": "-0.1026",
+      "Pearson Q_z^{(H-A)}": "-0.1116",
+      "Does best Q_z beat |SRCC(E_H)|?": "N"
+    },
+    {
+      "Dataset": "pooled KADID+TID",
+      "SRCC E_H": "-0.1502",
+      "Pearson E_H": "-0.1273",
+      "SRCC E_A": "-0.0507",
+      "Pearson E_A": "-0.1346",
+      "SRCC raw Q=E_A-E_H": "-0.0499",
+      "Pearson raw Q=E_A-E_H": "-0.1335",
+      "SRCC Q_z^{(A-H)}": "0.0618",
+      "Pearson Q_z^{(A-H)}": "0.0164",
+      "SRCC Q_z^{(H-A)}": "-0.0618",
+      "Pearson Q_z^{(H-A)}": "-0.0164",
+      "Does best Q_z beat |SRCC(E_H)|?": "N"
+    }
+  ],
+  "detailed_correlations": [
+    {
+      "dataset": "KADID holdout",
+      "N_holdout": 1625,
+      "SRCC_E_H": -0.3447055559894375,
+      "p_SRCC_E_H": 1.5013644866797403e-46,
+      "Pearson_E_H": -0.3572273493710588,
+      "SRCC_E_A": 0.07089601328097093,
+      "p_SRCC_E_A": 0.004245651984453087,
+      "Pearson_E_A": -0.039697055253067756,
+      "SRCC_raw_Q": 0.07279220583217626,
+      "p_SRCC_raw_Q": 0.0033249029742651957,
+      "Pearson_raw_Q": -0.03746128402525936,
+      "SRCC_Qz_AmH": 0.24537547627957212,
+      "p_SRCC_Qz_AmH": 1.0414662263645272e-23,
+      "Pearson_Qz_AmH": 0.18925950643586995,
+      "SRCC_Qz_HmA": -0.24537547627957212,
+      "p_SRCC_Qz_HmA": 1.0414662263645272e-23,
+      "Pearson_Qz_HmA": -0.18925950643586995,
+      "abs_best_Qz_SRCC": 0.24537547627957212,
+      "abs_EH_SRCC": 0.3447055559894375,
+      "best_Qz_beats_EH": "N"
+    },
+    {
+      "dataset": "TID holdout",
+      "N_holdout": 600,
+      "SRCC_E_H": -0.10693434985902225,
+      "p_SRCC_E_H": 0.00875684656542259,
+      "Pearson_E_H": -0.10543241865923857,
+      "SRCC_E_A": 0.04395355737152214,
+      "p_SRCC_E_A": 0.28241401441304426,
+      "Pearson_E_A": 0.0885841519004849,
+      "SRCC_raw_Q": 0.04442147701468065,
+      "p_SRCC_raw_Q": 0.27731675294009134,
+      "Pearson_raw_Q": 0.0893981389507979,
+      "SRCC_Qz_AmH": 0.1026197083315813,
+      "p_SRCC_Qz_AmH": 0.011901206259534274,
+      "Pearson_Qz_AmH": 0.11158380416552416,
+      "SRCC_Qz_HmA": -0.1026197083315813,
+      "p_SRCC_Qz_HmA": 0.011901206259534274,
+      "Pearson_Qz_HmA": -0.11158380416552416,
+      "abs_best_Qz_SRCC": 0.1026197083315813,
+      "abs_EH_SRCC": 0.10693434985902225,
+      "best_Qz_beats_EH": "N"
+    },
+    {
+      "dataset": "pooled KADID+TID",
+      "N_holdout": 2225,
+      "SRCC_E_H": -0.15023003609559216,
+      "p_SRCC_E_H": 1.0574653805531321e-12,
+      "Pearson_E_H": -0.12725582960067564,
+      "SRCC_E_A": -0.05074609164883136,
+      "p_SRCC_E_A": 0.016670946715715423,
+      "Pearson_E_A": -0.13461489987298705,
+      "SRCC_raw_Q": -0.04993581646785124,
+      "p_SRCC_raw_Q": 0.01849213595554332,
+      "Pearson_raw_Q": -0.1335219418974179,
+      "SRCC_Qz_AmH": 0.06183100696522592,
+      "p_SRCC_Qz_AmH": 0.003526056728149811,
+      "Pearson_Qz_AmH": 0.01642057574353537,
+      "SRCC_Qz_HmA": -0.06183100696522592,
+      "p_SRCC_Qz_HmA": 0.003526056728149811,
+      "Pearson_Qz_HmA": -0.01642057574353537,
+      "abs_best_Qz_SRCC": 0.06183100696522592,
+      "abs_EH_SRCC": 0.15023003609559216,
+      "best_Qz_beats_EH": "N"
+    }
+  ],
+  "sign_conventions": {
+    "E_H": "Higher = Worse (farther from pristine posterior, negative correlation with MOS)",
+    "E_A": "Higher = Worse (farther from degradation posterior)",
+    "raw_Q": "Q = E_A - E_H (dominated by E_A variance)",
+    "Qz_AmH": "Q_z^(A-H) = z_A - z_H: Higher = Better (higher z_A = far from degradation, lower z_H = close to pristine, positive correlation with MOS)",
+    "Qz_HmA": "Q_z^(H-A) = z_H - z_A: Higher = Worse (higher z_H = far from pristine, lower z_A = close to degradation, negative correlation with MOS)"
+  },
+  "key_takeaways": [
+    "Validation-based z-score normalization dramatically improves relative scoring over raw Q (KADID SRCC improves from +0.0728 to +0.2454).",
+    "However, the best normalized Q_z (0.2454 on KADID, 0.1026 on TID) DOES NOT beat standalone pristine |SRCC(E_H)| (0.3447 on KADID, 0.1069 on TID).",
+    "Conclusion: Standalone E_H remains the superior quality predictor across both benchmarks."
+  ],
+  "outputs": {
+    "qz_holdout_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/Qz_holdout.csv",
+    "summary_table_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/task3_qz_summary_table.csv",
+    "detailed_correlations_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/task3_detailed_correlations.csv",
+    "val_stats_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/task3_val_normalization_stats.csv",
+    "val_scored_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/task3_val_scored_images.csv",
+    "summary_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/task3_summary.json",
+    "report_txt": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/task3_report.txt",
+    "plots": [
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/plots/task3_srcc_comparison_bar.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/plots/task3_qz_vs_mos_scatter.png"
+    ]
+  },
+  "summary_table_note": "Updated to include both Spearman/SRCC and Pearson values, per Task 3 requirement."
+}

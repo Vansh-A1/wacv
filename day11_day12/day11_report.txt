@@ -1,0 +1,31 @@
+Day 11 report
+
+Goal: severity pairwise ranking, no MOS in training, no E_H gate, no pristine pairs.
+Pairs CSV: /home/projectwork/student_package/day11_day12/pairs_severity_train.csv
+Pair stats: /home/projectwork/student_package/day11_day12/pair_stats.txt
+
+Validation selection:
+ lambda_rank  epoch                                                                                         ckpt_path  blur_SRCC  blur_N  lens_SRCC  lens_N  sharpen_SRCC  sharpen_N  pixelate_SRCC  pixelate_N  pooled_EA_MOS_SRCC_report_only  pooled_N  selection_score selected
+         0.1      5 /home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/checkpoints/epoch_0005.pth  -0.873092      60  -0.874453      60     -0.315075         60      -0.249066          60                        0.440352      1860         1.747545      yes
+         0.1     10 /home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/checkpoints/epoch_0010.pth  -0.736991      60  -0.725422      60     -0.501535         60      -0.379043          60                        0.436004      1860         1.462412       no
+         0.1     15 /home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/checkpoints/epoch_0015.pth  -0.747198      60  -0.776460      60     -0.547129         60      -0.355225          60                        0.494707      1860         1.523658       no
+         0.1     20 /home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/checkpoints/epoch_0020.pth  -0.737671      60  -0.749920      60     -0.408305         60      -0.349781          60                        0.469349      1860         1.487591       no
+         0.1     25 /home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/checkpoints/epoch_0025.pth  -0.664176      60  -0.702285      60     -0.334130         60      -0.426679          60                        0.464628      1860         1.366461       no
+         1.0      5 /home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/checkpoints/epoch_0005.pth  -0.560739      60  -0.581154      60     -0.499493         60      -0.281050          60                        0.398181      1860         1.141893      yes
+         1.0     10 /home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/checkpoints/epoch_0010.pth  -0.255871      60  -0.251108      60     -0.562100         60      -0.234775          60                        0.210001      1860         0.506979       no
+         1.0     15 /home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/checkpoints/epoch_0015.pth  -0.149712      60  -0.174891      60     -0.592042         60      -0.282411          60                        0.263635      1860         0.324602       no
+         1.0     20 /home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/checkpoints/epoch_0020.pth  -0.410347      60  -0.466148      60     -0.471592         60      -0.258593          60                        0.355080      1860         0.876495       no
+         1.0     25 /home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/checkpoints/epoch_0025.pth  -0.489285      60  -0.489285      60     -0.513784         60      -0.291938          60                        0.429916      1860         0.978571       no
+
+Holdout comparison:
+                arm            metric    N      SRCC   Pearson
+    S0 ep05 (Day-8)  Q_z^(A-H) vs MOS 1625  0.251901  0.202625
+         E_H vs MOS        E_H vs MOS 1625 -0.344693 -0.357198
+Rank-all lambda_0.1  Q_z^(A-H) vs MOS 1625  0.440190  0.469402
+Rank-all lambda_0.1     Blur E_A--sev   65 -0.870324 -0.865797
+Rank-all lambda_0.1  Sharpen E_A--sev   65 -0.320646 -0.311783
+Rank-all lambda_0.1 Pixelate E_A--sev   65 -0.342099 -0.285374
+Rank-all lambda_1.0  Q_z^(A-H) vs MOS 1625  0.423548  0.445084
+Rank-all lambda_1.0     Blur E_A--sev   65 -0.635493 -0.627427
+Rank-all lambda_1.0  Sharpen E_A--sev   65 -0.641291 -0.641309
+Rank-all lambda_1.0 Pixelate E_A--sev   65 -0.324705 -0.317866

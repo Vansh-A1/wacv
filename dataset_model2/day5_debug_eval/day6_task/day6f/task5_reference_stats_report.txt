@@ -1,0 +1,37 @@
+Day 6 Task 5: pristine E_H reference stats
+
+Loaded reference stats:
+/home/projectwork/student_package/runs/hr_combined_ft1/reference_stats.pt
+
+Day-5 E_H checkpoint:
+/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth
+
+mu_ref:
+- shape: [100]
+- min: -0.04623811
+- max: 0.05574863
+- mean: 0.00173270
+- std: 0.02601290
+
+Sigma_ref:
+- shape: [100]
+- min: 9.99999993923e-09
+- max: 8.41410070507e-08
+- mean: 2.22250537973e-08
+- std: 1.91793017024e-08
+
+Comparison to diagnostics.json:
+- diagnostics mu_ref shape: [100]
+- diagnostics mu_ref min/max/mean: -0.04623811, 0.05574863, 0.00173270
+- diagnostics Sigma_ref shape: [100]
+- diagnostics Sigma_ref min/max/mean: 9.99999993923e-09, 8.41410070507e-08, 2.22250537973e-08
+- The loaded Sigma_ref values match the diagnostics scale: approximately 1e-8 to 1e-7.
+
+Checkpoint consistency:
+- mu_ref in reference_stats.pt matches checkpoint mu_ref: True
+- Sigma_ref in reference_stats.pt matches checkpoint Sigma_ref: True
+
+Outputs:
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6f/task5_reference_stats_summary.json
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6f/task5_reference_stats_report.txt
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6f/task5_reference_stats_vector.csv

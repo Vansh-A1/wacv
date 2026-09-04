@@ -1,0 +1,27 @@
+{
+  "output_root": "/home/projectwork/student_package/day11/task12/day11b_pristine_rank",
+  "init_checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "pair_csv": "/home/projectwork/student_package/day11/pairs_severity_train.csv",
+  "pair_rows": 18080,
+  "pair_columns": [
+    "ref_id",
+    "distortion_type",
+    "path_mild",
+    "path_severe",
+    "sev_mild",
+    "sev_severe",
+    "abs_dEH",
+    "dataset",
+    "image_id_mild",
+    "image_id_severe"
+  ],
+  "mos_column_in_pairs": false,
+  "koniq_rows_in_pairs": 0,
+  "bad_severity_order_rows": 0,
+  "lambda_values": [
+    0.1,
+    1.0
+  ],
+  "margin": 0.1,
+  "default_epochs": 25
+}

@@ -1,0 +1,21 @@
+{
+  "method": "HAT",
+  "metric": "SSIM",
+  "extreme": "maximum",
+  "image_id": "P1160566",
+  "metric_value": 0.9880563815434774,
+  "D_WACV": 2828.23388671875,
+  "NIQE": 21.759676124614025,
+  "LR_content": 0.03167787566781044,
+  "PSNR": 38.796437706070115,
+  "SSIM": 0.9880563815434774,
+  "LPIPS": 0.06557569652795792,
+  "DISTS": 0.2354259490966797,
+  "sr_path": "/data/projectwork/sr_output/HAT_inference/DReal_x4/visualization/DReal_x4/P1160566_x1_DReal_x4.png",
+  "hr_path": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/HR/P1160566_x4.png",
+  "lr_path": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/LR/dreal4_50.png",
+  "saved_sr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/SSIM/maximum/SR_P1160566_x1_DReal_x4.png",
+  "saved_hr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/SSIM/maximum/HR_P1160566_x4.png",
+  "saved_lr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/SSIM/maximum/LR_dreal4_50.png",
+  "case_dir": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/SSIM/maximum"
+}

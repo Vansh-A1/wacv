@@ -1,0 +1,3 @@
+arm,train_N,latent_dim,fit_seconds,model_path,converged,n_iter,lower_bound,families,min_family_rows,K
+free,9040,100,1.365051507949829,/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/gmm_K05_free.pt,True,49,409.4921569824219,,,
+family,9040,100,0.13013792037963867,/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/gmm_K05_family.pt,True,23,415.3641462253905,"['blur', 'color', 'compression', 'noise', 'spatial_detail']",50.0,5.0

@@ -1,0 +1,21 @@
+# Frozen scoring rule for the student checkpoint (v1.5a best.pth).
+# Do not change these unless you know what you are doing.
+
+checkpoint: checkpoints/best.pth
+run_name: cvae_v2_ld100_256_celeba-div2k-kadid-kadis-live_v1.5a
+architecture: CVAEGenerator_v2
+latent_dim: 100
+image_size: 256
+patch_size: 256
+normalization: '[0,1]'
+decoder_activation: sigmoid
+score_name: S_Z
+score_direction: higher S_Z = worse quality
+sz_mode: mu_only
+sz_sigma_t_max: 1.0
+sz_formula: >-
+  sqrt(sum_j (mu_ref_j - mu_t_j)^2 / den_j);
+  den = Sigma_ref if mu_only else Sigma_ref + clamp(exp(log_var), max=sz_sigma_t_max)
+reference: frozen mu_ref/Sigma_ref inside best.pth (DO NOT refit by default)
+seed: 123
+discriminator: false

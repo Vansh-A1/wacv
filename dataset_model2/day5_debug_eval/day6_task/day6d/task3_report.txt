@@ -1,0 +1,38 @@
+================================================================================
+DAY 6 TASK 3 AUDIT REPORT: VALIDATION-NORMALIZED RELATIVE SCORES (Q_z)
+================================================================================
+
+1. VALIDATION NORMALIZATION STATISTICS (FIT ON VAL ONLY, NEVER ON HOLDOUT)
+--------------------------------------------------------------------------------
+- KADID-10k Validation (N = 1500):
+  * mu_H = 2808.2252,  sigma_H = 8.0821
+  * mu_A = 3908.5588, sigma_A = 1075.7456
+
+- TID2013 Validation (N = 360):
+  * mu_H = 2803.6371,  sigma_H = 9.3337
+  * mu_A = 5110.2398, sigma_A = 2518.0138
+
+- Pooled KADID+TID Validation (N = 1860):
+  * mu_H = 2807.3371,  sigma_H = 8.5338
+  * mu_A = 4141.1422, sigma_A = 1544.6093
+
+2. SUMMARY TABLE: SPEARMAN AND PEARSON WITH MOS
+--------------------------------------------------------------------------------
+KADID holdout: SRCC E_H=-0.3447, Pearson E_H=-0.3572; SRCC E_A=0.0709, Pearson E_A=-0.0397; SRCC raw Q=0.0728, Pearson raw Q=-0.0375; SRCC Qz(A-H)=0.2454, Pearson Qz(A-H)=0.1893; SRCC Qz(H-A)=-0.2454, Pearson Qz(H-A)=-0.1893; best Qz beats |E_H|? N
+TID holdout: SRCC E_H=-0.1069, Pearson E_H=-0.1054; SRCC E_A=0.0440, Pearson E_A=0.0886; SRCC raw Q=0.0444, Pearson raw Q=0.0894; SRCC Qz(A-H)=0.1026, Pearson Qz(A-H)=0.1116; SRCC Qz(H-A)=-0.1026, Pearson Qz(H-A)=-0.1116; best Qz beats |E_H|? N
+pooled KADID+TID: SRCC E_H=-0.1502, Pearson E_H=-0.1273; SRCC E_A=-0.0507, Pearson E_A=-0.1346; SRCC raw Q=-0.0499, Pearson raw Q=-0.1335; SRCC Qz(A-H)=0.0618, Pearson Qz(A-H)=0.0164; SRCC Qz(H-A)=-0.0618, Pearson Qz(H-A)=-0.0164; best Qz beats |E_H|? N
+
+3. SIGN CONVENTIONS
+--------------------------------------------------------------------------------
+- E_H: higher = worse; it is farther from the pristine reference, so MOS correlations are negative.
+- Q_z^(A-H) = z_A - z_H: higher = better in these outputs; it correlates positively with MOS.
+- Q_z^(H-A) = z_H - z_A: higher = worse; it is the sign-reversed form.
+
+4. OUTPUT ARTIFACTS
+--------------------------------------------------------------------------------
+- Holdout rows: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/Qz_holdout.csv (N=2225)
+- Summary table: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/task3_qz_summary_table.csv
+- Detailed correlations: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/task3_detailed_correlations.csv
+- Validation stats: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/task3_val_normalization_stats.csv
+- Validation scores: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d/task3_val_scored_images.csv
+================================================================================

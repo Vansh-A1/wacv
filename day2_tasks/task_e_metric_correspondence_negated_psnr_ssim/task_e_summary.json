@@ -1,0 +1,88 @@
+{
+  "check": "Task E - Metric correspondence on frozen SR corpus",
+  "scoring_only_no_training": true,
+  "checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "score_name": "D_WACV = S_Z; higher means worse quality",
+  "wacv_preprocess": "resize short side only if < 256, then center crop 256x256",
+  "metric_crop_size": 256,
+  "metric_crop_note": "NIQE, PSNR, SSIM, LPIPS, and DISTS are computed on the same center crop size for speed/reproducibility.",
+  "lr_content_definition": "RGB RMSE in [0,1] between PIL Down4(SR) and matched LR image",
+  "lr_mapping_note": "LR files are numbered dreal4_1..93; mapped to HR IDs by lexicographic HR order from the original Test_x4 zip/listing.",
+  "pyiqa_version": "0.1.16",
+  "image_size": 256,
+  "latent_dim": 100,
+  "sz_mode": "mu_only",
+  "sz_sigma_t_max": 1.0,
+  "inputs": {
+    "SwinSR": "/data/projectwork/sr_output/swinIr_Inference/SwinIR_results/Dreal",
+    "HAT": "/data/projectwork/sr_output/HAT_inference/DReal_x4/visualization/DReal_x4",
+    "HR": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/HR",
+    "LR": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/LR"
+  },
+  "matches": {
+    "SwinSR": {
+      "num_sr": 93,
+      "num_matched": 93,
+      "missing": {
+        "sr_missing": [],
+        "hr_missing": [],
+        "lr_missing": []
+      }
+    },
+    "HAT": {
+      "num_sr": 93,
+      "num_matched": 93,
+      "missing": {
+        "sr_missing": [],
+        "hr_missing": [],
+        "lr_missing": []
+      }
+    }
+  },
+  "correlations": [
+    {
+      "pair": "D_WACV vs NIQE",
+      "Spearman_rho": 0.29812717668505145,
+      "N": 186,
+      "p_value": 3.5824727930721344e-05
+    },
+    {
+      "pair": "D_WACV vs LR_content",
+      "Spearman_rho": -0.4799490882982344,
+      "N": 186,
+      "p_value": 4.1608906770726315e-12
+    },
+    {
+      "pair": "D_WACV vs PSNR",
+      "Spearman_rho": 0.6335532358302756,
+      "N": 186,
+      "p_value": 2.890726833153671e-22
+    },
+    {
+      "pair": "D_WACV vs SSIM",
+      "Spearman_rho": 0.6796609616343962,
+      "N": 186,
+      "p_value": 1.4807015374737667e-26
+    },
+    {
+      "pair": "D_WACV vs LPIPS",
+      "Spearman_rho": -0.52659576948002,
+      "N": 186,
+      "p_value": 1.1629081136727322e-14
+    },
+    {
+      "pair": "D_WACV vs DISTS",
+      "Spearman_rho": -0.2846439677559222,
+      "N": 186,
+      "p_value": 8.229271567162739e-05
+    }
+  ],
+  "outputs": {
+    "SwinSR_csv": "/home/projectwork/student_package/day2_tasks/task_e_metric_correspondence/task_e_swinsr_metrics.csv",
+    "HAT_csv": "/home/projectwork/student_package/day2_tasks/task_e_metric_correspondence/task_e_hat_metrics.csv",
+    "pooled_csv": "/home/projectwork/student_package/day2_tasks/task_e_metric_correspondence/task_e_pooled_metrics.csv",
+    "correlations_csv": "/home/projectwork/student_package/day2_tasks/task_e_metric_correspondence/task_e_pooled_correlations.csv",
+    "summary_txt": "/home/projectwork/student_package/day2_tasks/task_e_metric_correspondence/task_e_summary.txt",
+    "summary_json": "/home/projectwork/student_package/day2_tasks/task_e_metric_correspondence/task_e_summary.json"
+  }
+}

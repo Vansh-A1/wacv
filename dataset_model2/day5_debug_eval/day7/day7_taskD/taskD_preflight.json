@@ -1,0 +1,27 @@
+{
+  "task": "Day 7 Task D setup",
+  "output_dir": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske",
+  "selected_epoch_from_taskC": 5,
+  "selected_artifact_checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+  "selected_checkpoint_has_embedded_new_ref": true,
+  "selected_checkpoint_sigma_ref_mean": 0.0005347708938643336,
+  "frozen_pristine_EH_checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "split_manifest": "/home/projectwork/student_package/dataset_model2/ref_splits_seed42/combined_kadid_tid_koniq_split_seed42.csv",
+  "normalization": "fit mean/std for E_H and E_A on val only per dataset; apply to holdout",
+  "output_holdout_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taske/taskD_holdout_scores.csv",
+  "required_columns": [
+    "dataset",
+    "image_id",
+    "ref_id",
+    "distortion_type",
+    "severity_or_level",
+    "mos_or_dmos",
+    "E_H",
+    "E_A",
+    "Q_raw",
+    "z_H",
+    "z_A",
+    "Qz_AmH",
+    "Qz_HmA"
+  ]
+}

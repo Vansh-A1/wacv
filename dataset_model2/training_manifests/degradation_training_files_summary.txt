@@ -1,0 +1,25 @@
+Degradation WACV training files
+Source manifest: /home/projectwork/student_package/dataset_model2/ref_splits_seed42/combined_kadid_tid_koniq_split_seed42.csv
+Output directory: /home/projectwork/student_package/dataset_model2/training_manifests
+
+Train total: 16301
+Val eval total: 3415
+KADID val monitor total: 1500
+
+Train by dataset:
+- KADID-10k: 7000
+- KONIQ-10k: 7261
+- TID2013: 2040
+
+Val by dataset:
+- KADID-10k: 1500
+- KONIQ-10k: 1555
+- TID2013: 360
+
+Generated files:
+- /home/projectwork/student_package/dataset_model2/training_manifests/degradation_train_seed42.txt
+- /home/projectwork/student_package/dataset_model2/training_manifests/degradation_train_seed42.csv
+- /home/projectwork/student_package/dataset_model2/training_manifests/degradation_val_eval_seed42.txt
+- /home/projectwork/student_package/dataset_model2/training_manifests/kadid_val_monitor_seed42.csv
+- /home/projectwork/student_package/dataset_model2/training_manifests/degradation_training_files_summary.json
+- /home/projectwork/student_package/dataset_model2/training_manifests/degradation_training_files_summary.txt

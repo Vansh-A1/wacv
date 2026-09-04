@@ -1,0 +1,42 @@
+Day 5 VAE/IQA NaN Debug Report
+
+Root cause: HR mean S_Z=nan in train.py validation is caused by an empty HR subset: the eval list contains only distorted/authentic validation images, whose basenames do not contain the HR label. run_validation computes sz_hr = sz_np[is_hr == 1], then returns nan when len(sz_hr)==0. This is not a NaN from input tensors, checkpoint parameters, mu/log_var, Sigma_ref, or S_Z math.
+
+Responsible code:
+- train.py run_validation(): labels come from _label_from_basename; sz_hr is empty for the current eval list.
+- train.py return block: sz_mean_hr is set to float('nan') when len(sz_hr)==0.
+
+Fix/handling:
+- No architecture/checkpoint/training objective was changed.
+- Day 5 evaluation now computes E_H and E_A directly per image using the two frozen checkpoints and identical preprocessing.
+- No torch.nan_to_num replacement was used.
+
+E_A reference diagnostic: attempted=2000, loaded=2000, finite_score=2000, nan_or_inf_score=0
+Small diagnostic: rows=20, E_H_finite=20, E_A_finite=20, Q_finite=20
+Full holdout: rows=3782, finite_all=3782, nonfinite_rows=0
+
+Pooled KADID+TID Spearman vs MOS/DMOS:
+- E_H: -0.150230
+- E_A: -0.050746
+- Q: -0.049936
+delta_Q_minus_EH_abs_srcc: -0.100294
+
+Generated outputs:
+- diagnostics_json: /home/projectwork/student_package/dataset_model2/day5_debug_eval/diagnostics.json
+- debug_report: /home/projectwork/student_package/dataset_model2/day5_debug_eval/debug_report.txt
+- ea_reference_set_diagnostics: /home/projectwork/student_package/dataset_model2/day5_debug_eval/ea_reference_set_diagnostics.csv
+- small_diagnostic_scores: /home/projectwork/student_package/dataset_model2/day5_debug_eval/small_diagnostic_scores.csv
+- day5_holdout_scores: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day5_holdout_scores.csv
+- day5_correlations: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day5_correlations.csv
+- day5_winners: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day5_winners.csv
+- plots:
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/pooled_KADID_TID_E_H_vs_mos.png
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/pooled_KADID_TID_E_A_vs_mos.png
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/pooled_KADID_TID_Q_vs_mos.png
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/KADID-10k_E_H_vs_mos.png
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/KADID-10k_E_A_vs_mos.png
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/KADID-10k_Q_vs_mos.png
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/TID2013_E_H_vs_mos.png
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/TID2013_E_A_vs_mos.png
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/TID2013_Q_vs_mos.png
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/plots/kadid_distortion_type_mean_Q.png

@@ -1,0 +1,87 @@
+Day 7 Task E - Spearman tables
+
+Inputs:
+Task D holdout scores: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskD/taskD_holdout_scores.csv
+Task D val scores: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskD/taskD_val_scores.csv
+Selected Day 7 E_A checkpoint: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth
+Day 7 new reference comparison: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskA/day7_reference_stats_comparison.csv
+Day 6 baseline folder: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_task
+
+Conventions:
+E_H = frozen pristine energy.
+E_A = artifact energy from the selected Day 7 checkpoint and new artifact reference.
+Q_raw = E_A - E_H.
+Q_z^(A-H) = z_A - z_H; Q_z^(H-A) = z_H - z_A.
+For severity tables, higher severity means stronger distortion; Q_z^(H-A) is the main severity-oriented Q.
+For MOS comparison in E4, Q_z^(A-H) is reported because KADID MOS is higher-is-better.
+
+E1 - MOS correlations:
+Dataset     Score    N  SRCC vs MOS       SRCC p  Pearson vs MOS    Pearson p
+  KADID       E_H 1625    -0.344693 1.513135e-46       -0.357198 4.331464e-50
+  KADID       E_A 1625     0.112002 6.018918e-06       -0.013170 5.957462e-01
+  KADID     Q_raw 1625     0.254595 1.857966e-25        0.212295 5.147151e-18
+  KADID Q_z^(A-H) 1625     0.251901 6.129325e-25        0.202625 1.617507e-16
+  KADID Q_z^(H-A) 1625    -0.251901 6.129325e-25       -0.202625 1.617507e-16
+    TID       E_H  600    -0.106966 8.736572e-03       -0.105440 9.750030e-03
+    TID       E_A  600     0.064047 1.170739e-01        0.112243 5.916848e-03
+    TID     Q_raw  600     0.105824 9.485556e-03        0.116232 4.360754e-03
+    TID Q_z^(A-H)  600     0.106880 8.791341e-03        0.113041 5.570354e-03
+    TID Q_z^(H-A)  600    -0.106880 8.791341e-03       -0.113041 5.570354e-03
+  KonIQ       E_H 1512    -0.335549 4.141621e-41       -0.328819 1.878423e-39
+  KonIQ       E_A 1512    -0.005346 8.354715e-01       -0.127061 7.169805e-07
+  KonIQ     Q_raw 1512     0.155519 1.207275e-09        0.119047 3.454304e-06
+  KonIQ Q_z^(A-H) 1512     0.161414 2.741105e-10        0.127989 5.937827e-07
+  KonIQ Q_z^(H-A) 1512    -0.161414 2.741105e-10       -0.127989 5.937827e-07
+
+E2 - Overall severity correlations:
+    Score                                         Subset    N  SRCC(score,severity)       SRCC p
+      E_H KADID+TID holdout, all distortion types pooled 2225              0.313343 6.987121e-52
+      E_A KADID+TID holdout, all distortion types pooled 2225             -0.025595 2.274977e-01
+Q_z^(H-A) KADID+TID holdout, all distortion types pooled 2225              0.194828 1.795443e-20
+
+E3 - Within-type KADID severity correlations:
+         Type  SRCC(E_H,sev)  SRCC(E_A,sev)  SRCC(Q_z^(H-A),sev)  N
+Gaussian blur       0.620418      -0.625636             0.687098 65
+    Lens blur       0.802484      -0.597804             0.818139 65
+ High sharpen       0.517214       0.593166            -0.465023 65
+     Pixelate      -0.056823      -0.028412            -0.016815 65
+         JPEG       0.299192      -0.094512             0.238310 65
+  White noise       0.567073       0.031311             0.399503 65
+
+E4 - Day 6 vs Day 7 comparison:
+                    Metric  Day-6 (old E_A_ref)  Day-7 (this run)                                                             Notes
+cosine(mu_ref_H, mu_ref_A)             0.999998         -0.039340                                          mu_ref cosine similarity
+     KADID SRCC E_A vs MOS             0.070896          0.112002                                                KADID holdout only
+  KADID SRCC Qz_AmH vs MOS             0.245400          0.251901             MOS-oriented Q_z^(A-H); higher MOS is better in KADID
+     KADID SRCC E_H vs MOS            -0.344706         -0.344693 Frozen pristine scorer, should match aside from scoring precision
+      Blur E_A vs severity            -0.585048         -0.625636                                       KADID Gaussian blur holdout
+   Sharpen E_A vs severity             0.582149          0.593166                                        KADID High sharpen holdout
+
+Summary:
+{
+  "output_dir": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE",
+  "taskD_holdout_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskD/taskD_holdout_scores.csv",
+  "taskD_val_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskD/taskD_val_scores.csv",
+  "day6_baseline_dir": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_task",
+  "selected_day7_ea_checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+  "holdout_rows": 3782,
+  "val_rows": 3415,
+  "holdout_dataset_counts": {
+    "KADID-10k": 1625,
+    "KONIQ-10k": 1557,
+    "TID2013": 600
+  },
+  "val_dataset_counts": {
+    "KONIQ-10k": 1555,
+    "KADID-10k": 1500,
+    "TID2013": 360
+  },
+  "generated_files": [
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E1_mos_correlations.csv",
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E2_overall_severity_correlations.csv",
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E3_within_type_severity_correlations.csv",
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E4_day6_vs_day7_comparison.csv",
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_summary.json",
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_report.txt"
+  ]
+}

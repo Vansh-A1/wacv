@@ -1,0 +1,79 @@
+{
+  "task": "Task 8: lambda0 checkpoint selection using validation only, then one holdout evaluation",
+  "available_checkpoints": [
+    {
+      "checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth",
+      "epoch": 50,
+      "best_metric": "psnr",
+      "best_value": 26.58890858115424,
+      "reference_source_used": "checkpoint",
+      "label": "best_epoch_0050"
+    },
+    {
+      "checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/last.pth",
+      "epoch": 50,
+      "best_metric": null,
+      "best_value": null,
+      "reference_source_used": "/home/projectwork/student_package/dataset_model2/runs/wacv_degradation_from_scratch_lambda0_seed42/reference_stats.pt",
+      "label": "last_epoch_0050"
+    }
+  ],
+  "note": "Only best.pth and last.pth were present; no separate epoch 25/35/45 checkpoint files were found.",
+  "selection_rule": "Maximize negative within-type severity correlations for blur/sharpen/pixelate, with pooled E_A-vs-MOS as tie/support. No MOS used in VAE loss.",
+  "selected_checkpoint": {
+    "checkpoint_label": "best_epoch_0050",
+    "checkpoint_path": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth",
+    "epoch": 50,
+    "pooled Spearman(E_A, MOS)": 0.08786467735021285,
+    "within-type Spearman(E_A, severity) for blur": -0.5970379160176031,
+    "within-type Spearman(E_A, severity) for sharpen": 0.7757795065185036,
+    "within-type Spearman(E_A, severity) for pixelate": -0.021882229937144844,
+    "selection_score": -0.07330379417375979,
+    "selection_rule": "Maximize negative within-type severity correlations for blur/sharpen/pixelate, with pooled E_A-vs-MOS as tie/support. No MOS used in VAE loss.",
+    "selected": "yes"
+  },
+  "val_rows_scored": 3720,
+  "holdout_rows_scored": 2225,
+  "holdout_correlations": [
+    {
+      "checkpoint_label": "best_epoch_0050",
+      "subset": "KADID holdout",
+      "N": 1625,
+      "spearman_E_A_selected_vs_MOS": 0.07091291257852812,
+      "spearman_p": 0.004236515068340367,
+      "pearson_E_A_selected_vs_MOS": -0.039699839634350524,
+      "pearson_p": 0.10965386005804453
+    },
+    {
+      "checkpoint_label": "best_epoch_0050",
+      "subset": "TID holdout",
+      "N": 600,
+      "spearman_E_A_selected_vs_MOS": 0.043939723950192786,
+      "spearman_p": 0.282565666262981,
+      "pearson_E_A_selected_vs_MOS": 0.08860213093219356,
+      "pearson_p": 0.030003543793020324
+    },
+    {
+      "checkpoint_label": "best_epoch_0050",
+      "subset": "pooled KADID+TID holdout",
+      "N": 2225,
+      "spearman_E_A_selected_vs_MOS": -0.0507380442713433,
+      "spearman_p": 0.016688230927663396,
+      "pearson_E_A_selected_vs_MOS": -0.13461745806083228,
+      "pearson_p": 1.8252993867745145e-10
+    }
+  ],
+  "outputs": {
+    "val_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_val_scores_all_saved_checkpoints.csv",
+    "val_correlations": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_val_checkpoint_correlations.csv",
+    "selection": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_checkpoint_selection.csv",
+    "selected_holdout_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_selected_checkpoint_holdout_scores.csv",
+    "selected_holdout_correlations": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_selected_checkpoint_holdout_correlations.csv",
+    "summary_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_lambda0_checkpoint_selection_summary.json",
+    "report_txt": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_lambda0_checkpoint_selection_report.txt",
+    "plots": [
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/plots/task8_validation_checkpoint_correlations.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/plots/task8_selected_checkpoint_holdout_correlations.png"
+    ]
+  }
+}

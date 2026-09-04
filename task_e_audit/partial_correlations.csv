@@ -1,0 +1,9 @@
+variant,pair,partial_spearman_rho,p_value,N
+crop,D_WACV vs PSNR controlling LR_content,0.4764580001771652,6.239911774231956e-12,186
+crop,D_WACV vs SSIM controlling LR_content,0.5663926821422077,3.587225161056448e-17,186
+crop,D_WACV vs LPIPS controlling LR_content,-0.45093501298434885,1.0546540854633899e-10,186
+crop,D_WACV vs DISTS controlling LR_content,-0.270060469301456,0.00019315013655536771,186
+full,D_WACV vs PSNR controlling LR_content,0.07038962371030683,0.33972957467671616,186
+full,D_WACV vs SSIM controlling LR_content,0.25738849078507525,0.00039025069458451065,186
+full,D_WACV vs LPIPS controlling LR_content,nan,nan,0
+full,D_WACV vs DISTS controlling LR_content,nan,nan,0

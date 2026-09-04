@@ -1,0 +1,501 @@
+{
+  "checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "score_direction": "Higher D_WACV = worse quality; unchanged.",
+  "wacv_preprocess": {
+    "crop": "center 256x256",
+    "resize": "only if short side < 256, PIL BICUBIC",
+    "channel_order": "PIL RGB -> torchvision ToTensor RGB",
+    "value_range": "[0,1] float32",
+    "normalization": "no mean/std normalization",
+    "same_as_checks_a_to_d": true
+  },
+  "metric_preprocess": {
+    "crop_variant": "same 256x256 center crop for SR and HR; data_range=1 for RGB computations",
+    "full_variant": "full SR/HR image for PSNR/SSIM/NIQE; no resize, no border crop; LPIPS/DISTS NaN because no CUDA and full 22MP neural metric is impractical in this environment",
+    "lpips_dists_input": "pyiqa 0.1.16 accepts RGB tensors in [0,1] and internally normalizes as required",
+    "niqe": "pyiqa 0.1.16 no-reference NIQE, run on SR only"
+  },
+  "pairing": {
+    "rows": 186,
+    "bad_rows": 0,
+    "matched_per_method": {
+      "SwinSR": 93,
+      "HAT": 93
+    },
+    "lr_mapping": "dreal4_1..93 mapped to lexicographic HR order, matching original Test_x4.zip listing"
+  },
+  "score_direction_audit": {
+    "source_csv": "/home/projectwork/student_package/task wacv/check_b_gaussian_blur_severity_scores.csv",
+    "num_images": 50,
+    "strict_clean_blur1_blur2_blur3_blur4": 24,
+    "blur4_gt_clean": 50,
+    "adjacent_ordering_rate_from_check_b_summary": 0.87,
+    "pooled_spearman_from_check_b_summary": 0.7330107706580024,
+    "sample_images": [
+      {
+        "image": "0751.png",
+        "D0": 2804.81640625,
+        "D1": 2805.12060546875,
+        "D2": 2809.202392578125,
+        "D3": 2814.862060546875,
+        "D4": 2815.7685546875
+      },
+      {
+        "image": "0752.png",
+        "D0": 2802.319091796875,
+        "D1": 2803.98388671875,
+        "D2": 2808.326416015625,
+        "D3": 2815.16943359375,
+        "D4": 2817.404541015625
+      },
+      {
+        "image": "0753.png",
+        "D0": 2805.6279296875,
+        "D1": 2805.73046875,
+        "D2": 2812.4091796875,
+        "D3": 2819.723388671875,
+        "D4": 2823.389892578125
+      },
+      {
+        "image": "0754.png",
+        "D0": 2806.081787109375,
+        "D1": 2807.934814453125,
+        "D2": 2812.649658203125,
+        "D3": 2818.60888671875,
+        "D4": 2820.697509765625
+      },
+      {
+        "image": "0755.png",
+        "D0": 2810.1279296875,
+        "D1": 2808.881103515625,
+        "D2": 2811.9375,
+        "D3": 2818.321044921875,
+        "D4": 2820.10302734375
+      }
+    ]
+  },
+  "crop_correlations": [
+    {
+      "variant": "crop",
+      "method": "pooled",
+      "pair": "D_WACV vs NIQE",
+      "rho": 0.29812717668505145,
+      "p_value": 3.5824727930721344e-05,
+      "N": 186,
+      "rho_ci95_low": 0.161203772268429,
+      "rho_ci95_high": 0.42189880572653465
+    },
+    {
+      "variant": "crop",
+      "method": "pooled",
+      "pair": "D_WACV vs LR_content",
+      "rho": -0.4799490882982344,
+      "p_value": 4.1608906770726315e-12,
+      "N": 186,
+      "rho_ci95_low": -0.584141946919961,
+      "rho_ci95_high": -0.3513582117105456
+    },
+    {
+      "variant": "crop",
+      "method": "pooled",
+      "pair": "D_WACV vs PSNR",
+      "rho": 0.6335532358302756,
+      "p_value": 2.890726833153671e-22,
+      "N": 186,
+      "rho_ci95_low": 0.5198949901786964,
+      "rho_ci95_high": 0.7285254791731963
+    },
+    {
+      "variant": "crop",
+      "method": "pooled",
+      "pair": "D_WACV vs SSIM",
+      "rho": 0.6796609616343962,
+      "p_value": 1.4807015374737667e-26,
+      "N": 186,
+      "rho_ci95_low": 0.5922530921720562,
+      "rho_ci95_high": 0.752428453856254
+    },
+    {
+      "variant": "crop",
+      "method": "pooled",
+      "pair": "D_WACV vs LPIPS",
+      "rho": -0.52659576948002,
+      "p_value": 1.1629081136727322e-14,
+      "N": 186,
+      "rho_ci95_low": -0.6217616870414753,
+      "rho_ci95_high": -0.41501021336883764
+    },
+    {
+      "variant": "crop",
+      "method": "pooled",
+      "pair": "D_WACV vs DISTS",
+      "rho": -0.2846439677559222,
+      "p_value": 8.229271567162739e-05,
+      "N": 186,
+      "rho_ci95_low": -0.42001117496178575,
+      "rho_ci95_high": -0.12660070850985408
+    }
+  ],
+  "full_correlations": [
+    {
+      "variant": "full",
+      "method": "pooled",
+      "pair": "D_WACV vs NIQE",
+      "rho": 0.32753474537155747,
+      "p_value": 5.033725148953735e-06,
+      "N": 186,
+      "rho_ci95_low": 0.20009364047462552,
+      "rho_ci95_high": 0.4451654092923912
+    },
+    {
+      "variant": "full",
+      "method": "pooled",
+      "pair": "D_WACV vs LR_content",
+      "rho": -0.4799490882982344,
+      "p_value": 4.1608906770726315e-12,
+      "N": 186,
+      "rho_ci95_low": -0.584141946919961,
+      "rho_ci95_high": -0.3513582117105456
+    },
+    {
+      "variant": "full",
+      "method": "pooled",
+      "pair": "D_WACV vs PSNR",
+      "rho": 0.4411107329513401,
+      "p_value": 2.946707563695452e-10,
+      "N": 186,
+      "rho_ci95_low": 0.30601921827544065,
+      "rho_ci95_high": 0.5523995403028764
+    },
+    {
+      "variant": "full",
+      "method": "pooled",
+      "pair": "D_WACV vs SSIM",
+      "rho": 0.5077808185967578,
+      "p_value": 1.3883029100508618e-13,
+      "N": 186,
+      "rho_ci95_low": 0.38310016077843784,
+      "rho_ci95_high": 0.6114648689851422
+    },
+    {
+      "variant": "full",
+      "method": "pooled",
+      "pair": "D_WACV vs LPIPS",
+      "rho": NaN,
+      "p_value": NaN,
+      "N": 0,
+      "rho_ci95_low": NaN,
+      "rho_ci95_high": NaN
+    },
+    {
+      "variant": "full",
+      "method": "pooled",
+      "pair": "D_WACV vs DISTS",
+      "rho": NaN,
+      "p_value": NaN,
+      "N": 0,
+      "rho_ci95_low": NaN,
+      "rho_ci95_high": NaN
+    }
+  ],
+  "by_method_correlations": [
+    {
+      "variant": "crop",
+      "method": "SwinSR",
+      "pair": "D_WACV vs NIQE",
+      "rho": 0.3113306078601056,
+      "p_value": 0.0023844675563243823,
+      "N": 93,
+      "rho_ci95_low": 0.1072681667672916,
+      "rho_ci95_high": 0.4973548999765487
+    },
+    {
+      "variant": "crop",
+      "method": "SwinSR",
+      "pair": "D_WACV vs LR_content",
+      "rho": -0.4547760436871474,
+      "p_value": 4.660427610681196e-06,
+      "N": 93,
+      "rho_ci95_low": -0.6187327885368857,
+      "rho_ci95_high": -0.26083924231129263
+    },
+    {
+      "variant": "crop",
+      "method": "SwinSR",
+      "pair": "D_WACV vs PSNR",
+      "rho": 0.6324938080033421,
+      "p_value": 1.0416221605719965e-11,
+      "N": 93,
+      "rho_ci95_low": 0.4701621598147256,
+      "rho_ci95_high": 0.7513448743478447
+    },
+    {
+      "variant": "crop",
+      "method": "SwinSR",
+      "pair": "D_WACV vs SSIM",
+      "rho": 0.6851183193578227,
+      "p_value": 3.611764891225638e-14,
+      "N": 93,
+      "rho_ci95_low": 0.5501807735266027,
+      "rho_ci95_high": 0.7847837763120754
+    },
+    {
+      "variant": "crop",
+      "method": "SwinSR",
+      "pair": "D_WACV vs LPIPS",
+      "rho": -0.5093551371191548,
+      "p_value": 1.8478769140358596e-07,
+      "N": 93,
+      "rho_ci95_low": -0.6581792687486379,
+      "rho_ci95_high": -0.3340450104796192
+    },
+    {
+      "variant": "crop",
+      "method": "SwinSR",
+      "pair": "D_WACV vs DISTS",
+      "rho": -0.3085553997194951,
+      "p_value": 0.0026198581049413716,
+      "N": 93,
+      "rho_ci95_low": -0.49473348040829795,
+      "rho_ci95_high": -0.08105394839083198
+    },
+    {
+      "variant": "crop",
+      "method": "HAT",
+      "pair": "D_WACV vs NIQE",
+      "rho": 0.2831607531855211,
+      "p_value": 0.0059540679619761545,
+      "N": 93,
+      "rho_ci95_low": 0.07027651619114916,
+      "rho_ci95_high": 0.46191447006130815
+    },
+    {
+      "variant": "crop",
+      "method": "HAT",
+      "pair": "D_WACV vs LR_content",
+      "rho": -0.5019844230252752,
+      "p_value": 2.9542533672026125e-07,
+      "N": 93,
+      "rho_ci95_low": -0.6375895265060392,
+      "rho_ci95_high": -0.31431524917271364
+    },
+    {
+      "variant": "crop",
+      "method": "HAT",
+      "pair": "D_WACV vs PSNR",
+      "rho": 0.6353137775655755,
+      "p_value": 7.902557353606851e-12,
+      "N": 93,
+      "rho_ci95_low": 0.4604786904330431,
+      "rho_ci95_high": 0.760974042903545
+    },
+    {
+      "variant": "crop",
+      "method": "HAT",
+      "pair": "D_WACV vs SSIM",
+      "rho": 0.6671093073916027,
+      "p_value": 2.854143601060312e-13,
+      "N": 93,
+      "rho_ci95_low": 0.5283394360181244,
+      "rho_ci95_high": 0.7712738798842733
+    },
+    {
+      "variant": "crop",
+      "method": "HAT",
+      "pair": "D_WACV vs LPIPS",
+      "rho": -0.5480439258750858,
+      "p_value": 1.3006097335588093e-08,
+      "N": 93,
+      "rho_ci95_low": -0.6905149092561761,
+      "rho_ci95_high": -0.3881184688211434
+    },
+    {
+      "variant": "crop",
+      "method": "HAT",
+      "pair": "D_WACV vs DISTS",
+      "rho": -0.2694935991167079,
+      "p_value": 0.008994245856246539,
+      "N": 93,
+      "rho_ci95_low": -0.4509461840547038,
+      "rho_ci95_high": -0.0534787984755969
+    },
+    {
+      "variant": "full",
+      "method": "SwinSR",
+      "pair": "D_WACV vs NIQE",
+      "rho": 0.33077198531825364,
+      "p_value": 0.0012021311911334669,
+      "N": 93,
+      "rho_ci95_low": 0.15181324274827296,
+      "rho_ci95_high": 0.49344561418288224
+    },
+    {
+      "variant": "full",
+      "method": "SwinSR",
+      "pair": "D_WACV vs LR_content",
+      "rho": -0.4547760436871474,
+      "p_value": 4.660427610681196e-06,
+      "N": 93,
+      "rho_ci95_low": -0.6187327885368857,
+      "rho_ci95_high": -0.26083924231129263
+    },
+    {
+      "variant": "full",
+      "method": "SwinSR",
+      "pair": "D_WACV vs PSNR",
+      "rho": 0.41068604338873793,
+      "p_value": 4.3348335223193306e-05,
+      "N": 93,
+      "rho_ci95_low": 0.20688662893224508,
+      "rho_ci95_high": 0.5766656273050838
+    },
+    {
+      "variant": "full",
+      "method": "SwinSR",
+      "pair": "D_WACV vs SSIM",
+      "rho": 0.49161469368267124,
+      "p_value": 5.612484716173416e-07,
+      "N": 93,
+      "rho_ci95_low": 0.2991014034371638,
+      "rho_ci95_high": 0.6472378550634431
+    },
+    {
+      "variant": "full",
+      "method": "SwinSR",
+      "pair": "D_WACV vs LPIPS",
+      "rho": NaN,
+      "p_value": NaN,
+      "N": 0,
+      "rho_ci95_low": NaN,
+      "rho_ci95_high": NaN
+    },
+    {
+      "variant": "full",
+      "method": "SwinSR",
+      "pair": "D_WACV vs DISTS",
+      "rho": NaN,
+      "p_value": NaN,
+      "N": 0,
+      "rho_ci95_low": NaN,
+      "rho_ci95_high": NaN
+    },
+    {
+      "variant": "full",
+      "method": "HAT",
+      "pair": "D_WACV vs NIQE",
+      "rho": 0.3238787263883501,
+      "p_value": 0.0015404450315924046,
+      "N": 93,
+      "rho_ci95_low": 0.14956239204293523,
+      "rho_ci95_high": 0.4909686017062645
+    },
+    {
+      "variant": "full",
+      "method": "HAT",
+      "pair": "D_WACV vs LR_content",
+      "rho": -0.5019844230252752,
+      "p_value": 2.9542533672026125e-07,
+      "N": 93,
+      "rho_ci95_low": -0.6375895265060392,
+      "rho_ci95_high": -0.31431524917271364
+    },
+    {
+      "variant": "full",
+      "method": "HAT",
+      "pair": "D_WACV vs PSNR",
+      "rho": 0.4708752349974635,
+      "p_value": 1.9046440624488882e-06,
+      "N": 93,
+      "rho_ci95_low": 0.28392981272374684,
+      "rho_ci95_high": 0.6168137841809581
+    },
+    {
+      "variant": "full",
+      "method": "HAT",
+      "pair": "D_WACV vs SSIM",
+      "rho": 0.5245590999970158,
+      "p_value": 6.773924227970154e-08,
+      "N": 93,
+      "rho_ci95_low": 0.34791010302672404,
+      "rho_ci95_high": 0.6602001379296198
+    },
+    {
+      "variant": "full",
+      "method": "HAT",
+      "pair": "D_WACV vs LPIPS",
+      "rho": NaN,
+      "p_value": NaN,
+      "N": 0,
+      "rho_ci95_low": NaN,
+      "rho_ci95_high": NaN
+    },
+    {
+      "variant": "full",
+      "method": "HAT",
+      "pair": "D_WACV vs DISTS",
+      "rho": NaN,
+      "p_value": NaN,
+      "N": 0,
+      "rho_ci95_low": NaN,
+      "rho_ci95_high": NaN
+    }
+  ],
+  "partial_correlations": [
+    {
+      "variant": "crop",
+      "pair": "D_WACV vs PSNR controlling LR_content",
+      "partial_spearman_rho": 0.4764580001771652,
+      "p_value": 6.239911774231956e-12,
+      "N": 186
+    },
+    {
+      "variant": "crop",
+      "pair": "D_WACV vs SSIM controlling LR_content",
+      "partial_spearman_rho": 0.5663926821422077,
+      "p_value": 3.587225161056448e-17,
+      "N": 186
+    },
+    {
+      "variant": "crop",
+      "pair": "D_WACV vs LPIPS controlling LR_content",
+      "partial_spearman_rho": -0.45093501298434885,
+      "p_value": 1.0546540854633899e-10,
+      "N": 186
+    },
+    {
+      "variant": "crop",
+      "pair": "D_WACV vs DISTS controlling LR_content",
+      "partial_spearman_rho": -0.270060469301456,
+      "p_value": 0.00019315013655536771,
+      "N": 186
+    },
+    {
+      "variant": "full",
+      "pair": "D_WACV vs PSNR controlling LR_content",
+      "partial_spearman_rho": 0.07038962371030683,
+      "p_value": 0.33972957467671616,
+      "N": 186
+    },
+    {
+      "variant": "full",
+      "pair": "D_WACV vs SSIM controlling LR_content",
+      "partial_spearman_rho": 0.25738849078507525,
+      "p_value": 0.00039025069458451065,
+      "N": 186
+    },
+    {
+      "variant": "full",
+      "pair": "D_WACV vs LPIPS controlling LR_content",
+      "partial_spearman_rho": NaN,
+      "p_value": NaN,
+      "N": 0
+    },
+    {
+      "variant": "full",
+      "pair": "D_WACV vs DISTS controlling LR_content",
+      "partial_spearman_rho": NaN,
+      "p_value": NaN,
+      "N": 0
+    }
+  ]
+}

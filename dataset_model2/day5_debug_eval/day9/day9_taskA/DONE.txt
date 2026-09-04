@@ -1,0 +1,4 @@
+Day 9 Task A DONE
+ep05: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05
+ep10: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10
+sync: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_taskA_sync.csv

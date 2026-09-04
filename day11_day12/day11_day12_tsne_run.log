@@ -1,0 +1,134 @@
+{
+  "output_root": "/home/projectwork/student_package/day11_day12",
+  "N": 1000,
+  "max_images": 1000,
+  "datasets": {
+    "KADID-10k": 794,
+    "TID2013": 206
+  },
+  "tsne_settings": {
+    "seed": 42,
+    "perplexity": 30.0,
+    "max_iter": 1000,
+    "init": "pca",
+    "learning_rate": "auto"
+  },
+  "runs": [
+    {
+      "run_name": "Day11_rankall_lambda_0.1",
+      "run_dir": "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1",
+      "checkpoint_count": 5,
+      "checkpoints": [
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/checkpoints/epoch_0005.pth",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/checkpoints/epoch_0010.pth",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/checkpoints/epoch_0015.pth",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/checkpoints/epoch_0020.pth",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/checkpoints/epoch_0025.pth"
+      ],
+      "outputs": [
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0005_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0005_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0005_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0010_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0010_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0010_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0015_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0015_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0015_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0020_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0020_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0020_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0025_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0025_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/latent_plots/epoch_0025_tsne_by_group.png"
+      ]
+    },
+    {
+      "run_name": "Day11_rankall_lambda_1.0",
+      "run_dir": "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0",
+      "checkpoint_count": 5,
+      "checkpoints": [
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/checkpoints/epoch_0005.pth",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/checkpoints/epoch_0010.pth",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/checkpoints/epoch_0015.pth",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/checkpoints/epoch_0020.pth",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/checkpoints/epoch_0025.pth"
+      ],
+      "outputs": [
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0005_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0005_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0005_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0010_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0010_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0010_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0015_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0015_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0015_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0020_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0020_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0020_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0025_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0025_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/latent_plots/epoch_0025_tsne_by_group.png"
+      ]
+    },
+    {
+      "run_name": "Task12_pristine_rank_lambda_0.1",
+      "run_dir": "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1",
+      "checkpoint_count": 5,
+      "checkpoints": [
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/checkpoints/epoch_0005.pth",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/checkpoints/epoch_0010.pth",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/checkpoints/epoch_0015.pth",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/checkpoints/epoch_0020.pth",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/checkpoints/epoch_0025.pth"
+      ],
+      "outputs": [
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0005_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0005_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0005_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0010_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0010_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0010_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0015_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0015_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0015_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0020_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0020_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0020_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0025_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0025_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_0.1/latent_plots/epoch_0025_tsne_by_group.png"
+      ]
+    },
+    {
+      "run_name": "Task12_pristine_rank_lambda_1.0",
+      "run_dir": "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0",
+      "checkpoint_count": 5,
+      "checkpoints": [
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/checkpoints/epoch_0005.pth",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/checkpoints/epoch_0010.pth",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/checkpoints/epoch_0015.pth",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/checkpoints/epoch_0020.pth",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/checkpoints/epoch_0025.pth"
+      ],
+      "outputs": [
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0005_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0005_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0005_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0010_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0010_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0010_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0015_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0015_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0015_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0020_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0020_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0020_tsne_by_group.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0025_tsne_coordinates.csv",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0025_tsne_by_distortion_type.png",
+        "/home/projectwork/student_package/day11_day12/task12/day11b_pristine_rank/lambda_1.0/latent_plots/epoch_0025_tsne_by_group.png"
+      ]
+    }
+  ]
+}

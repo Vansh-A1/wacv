@@ -1,0 +1,32 @@
+{
+  "source_manifest": "/home/projectwork/student_package/dataset_model2/ref_splits_seed42/combined_kadid_tid_koniq_split_seed42.csv",
+  "output_dir": "/home/projectwork/student_package/dataset_model2/training_manifests",
+  "counts": {
+    "train_total": 16301,
+    "val_eval_total": 3415,
+    "kadid_val_monitor_total": 1500,
+    "train_by_dataset": {
+      "KADID-10k": 7000,
+      "KONIQ-10k": 7261,
+      "TID2013": 2040
+    },
+    "val_by_dataset": {
+      "KADID-10k": 1500,
+      "KONIQ-10k": 1555,
+      "TID2013": 360
+    }
+  },
+  "outputs": {
+    "train_txt": "/home/projectwork/student_package/dataset_model2/training_manifests/degradation_train_seed42.txt",
+    "train_csv": "/home/projectwork/student_package/dataset_model2/training_manifests/degradation_train_seed42.csv",
+    "eval_txt": "/home/projectwork/student_package/dataset_model2/training_manifests/degradation_val_eval_seed42.txt",
+    "kadid_monitor_csv": "/home/projectwork/student_package/dataset_model2/training_manifests/kadid_val_monitor_seed42.csv",
+    "summary_json": "/home/projectwork/student_package/dataset_model2/training_manifests/degradation_training_files_summary.json",
+    "summary_txt": "/home/projectwork/student_package/dataset_model2/training_manifests/degradation_training_files_summary.txt"
+  },
+  "notes": [
+    "Training list contains only split=train distorted/authentic images.",
+    "Eval list contains split=val images for reconstruction/latent diagnostics.",
+    "KADID val monitor is used for kadid_srcc checkpoint selection because it has MOS."
+  ]
+}

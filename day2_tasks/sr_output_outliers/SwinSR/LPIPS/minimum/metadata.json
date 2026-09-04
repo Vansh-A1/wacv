@@ -1,0 +1,21 @@
+{
+  "method": "SwinSR",
+  "metric": "LPIPS",
+  "extreme": "minimum",
+  "image_id": "sony_189",
+  "metric_value": 0.04124434292316437,
+  "D_WACV": 2835.353759765625,
+  "NIQE": 20.877908331127212,
+  "LR_content": 0.015794748440384865,
+  "PSNR": 42.993129617182326,
+  "SSIM": 0.9856299956639608,
+  "LPIPS": 0.04124434292316437,
+  "DISTS": 0.18059992790222168,
+  "sr_path": "/data/projectwork/sr_output/swinIr_Inference/SwinIR_results/Dreal/DRealSR_all_x4_sony_189_x1.png",
+  "hr_path": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/HR/sony_189_x4.png",
+  "lr_path": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/LR/dreal4_87.png",
+  "saved_sr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/SwinSR/LPIPS/minimum/SR_DRealSR_all_x4_sony_189_x1.png",
+  "saved_hr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/SwinSR/LPIPS/minimum/HR_sony_189_x4.png",
+  "saved_lr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/SwinSR/LPIPS/minimum/LR_dreal4_87.png",
+  "case_dir": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/SwinSR/LPIPS/minimum"
+}

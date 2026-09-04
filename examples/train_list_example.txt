@@ -1,0 +1,5 @@
+# One absolute image path per line (pristine / clean images only).
+# Replace these with your own paths before fine-tuning.
+# Example:
+# /data/my_dataset/clean/img001.png
+# /data/my_dataset/clean/img002.png

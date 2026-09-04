@@ -1,0 +1,34 @@
+{
+  "method": "SwinSR",
+  "case": "low_lrcontent_high_wacv",
+  "rank": 4,
+  "image_id": "sony_160",
+  "selection_rule": "low_lrcontent_high_wacv ranks by z(D_WACV) - z(LR_content); low_wacv_high_lrcontent ranks by z(LR_content) - z(D_WACV), computed within each method CSV.",
+  "source_paths": {
+    "sr_path": "/data/projectwork/sr_output/swinIr_Inference/SwinIR_results/Dreal/DRealSR_all_x4_sony_160_x1.png",
+    "hr_path": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/HR/sony_160_x4.png",
+    "lr_path": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/LR/dreal4_84.png"
+  },
+  "copied_files": {
+    "sr_copy": "/home/projectwork/student_package/day2_tasks/lrcontent_wacv_contradiction_images/SwinSR/low_lrcontent_high_wacv/04_sony_160/sony_160_SwinSR_SR.png",
+    "hr_copy": "/home/projectwork/student_package/day2_tasks/lrcontent_wacv_contradiction_images/SwinSR/low_lrcontent_high_wacv/04_sony_160/sony_160_HR.png",
+    "lr_copy": "/home/projectwork/student_package/day2_tasks/lrcontent_wacv_contradiction_images/SwinSR/low_lrcontent_high_wacv/04_sony_160/sony_160_LR.png"
+  },
+  "metrics": {
+    "D_WACV": 2824.070068359375,
+    "LR_content": 0.0161478668451309,
+    "NIQE": 17.11358473220248,
+    "PSNR": 44.000260978586994,
+    "SSIM": 0.9779958923657736,
+    "LPIPS": 0.0512464120984077,
+    "DISTS": 0.1775398254394531
+  },
+  "normalized_values": {
+    "D_WACV_z": 1.4390808558990904,
+    "LR_content_z": -1.2297271721985523
+  },
+  "contradiction_scores": {
+    "low_lrcontent_high_wacv_score": 2.6688080280976427,
+    "low_wacv_high_lrcontent_score": -2.6688080280976427
+  }
+}

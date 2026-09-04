@@ -1,0 +1,33 @@
+Day 7 Task B setup / blocked before training
+
+Status: NOT STARTED because disk space is insufficient.
+
+Reason:
+- Available space on /home/projectwork/student_package and /tmp was only 24M.
+- Existing lambda0 checkpoints are ~205M each.
+- Task B requires epoch_XXXX.pth every 5 epochs, plus best_psnr.pth.
+- A 50 epoch run with every-5 checkpointing needs roughly 2GB+ free space.
+
+Prepared correctly:
+- Folder: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7_taskb
+- Selected/trained E_A weights: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth
+- New ref copied here: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7_taskb/new_reference_stats_ea_refit.pt
+- Old epoch-0 ref explicitly not used: /home/projectwork/student_package/dataset_model2/runs/wacv_degradation_from_scratch_lambda0_seed42/reference_stats.pt
+- Train list: /home/projectwork/student_package/dataset_model2/training_manifests/degradation_train_seed42.txt
+- Train count: 16301
+- Train counts by dataset: {'KONIQ-10k': 7261, 'KADID-10k': 7000, 'TID2013': 2040}
+- Eval list: /home/projectwork/student_package/dataset_model2/training_manifests/degradation_val_eval_seed42.txt
+- lambda_rank: 0.0
+- Target checkpoint dir: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42
+- Target run dir: /home/projectwork/student_package/dataset_model2/runs/wacv_ea_day7_seed42
+
+Code changes prepared:
+- train.py supports --init_ref_from so warm-started E_A weights use the new Day7 ref instead of checkpoint-embedded old ref.
+- train.py supports --save_epoch_every 5 to write epoch_XXXX.pth.
+- train.py writes independent best_psnr.pth when PSNR improves; this is separate from the selected metric.
+
+Launch command saved in:
+/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7_taskb/train_command.sh
+
+To start after freeing disk:
+bash /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7_taskb/train_command.sh > /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7_taskb/train_log.txt 2>&1

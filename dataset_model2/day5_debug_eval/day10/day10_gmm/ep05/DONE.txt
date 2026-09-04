@@ -1,0 +1,5 @@
+Day 10 DONE
+No KonIQ images used.
+Output dir: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05
+free model: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/gmm_K05_free.pt
+family model: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/gmm_K05_family.pt

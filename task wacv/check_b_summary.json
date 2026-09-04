@@ -1,0 +1,46 @@
+{
+  "check": "Check B - Gaussian blur severity trend, calibration only",
+  "data": "/data/projectwork/swati_mam/HR_DATA/HR-calibration/DIV2K",
+  "checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "num_images": 50,
+  "severity_ladder": [
+    {
+      "severity": 0,
+      "kernel": 0,
+      "sigma": 0.0
+    },
+    {
+      "severity": 1,
+      "kernel": 5,
+      "sigma": 1.0
+    },
+    {
+      "severity": 2,
+      "kernel": 9,
+      "sigma": 2.0
+    },
+    {
+      "severity": 3,
+      "kernel": 15,
+      "sigma": 4.0
+    },
+    {
+      "severity": 4,
+      "kernel": 21,
+      "sigma": 8.0
+    }
+  ],
+  "score_name": "D_WACV = S_Z; higher means worse quality",
+  "pooled_spearman_rho_severity_D_WACV": 0.7330107706580024,
+  "pooled_spearman_pvalue": 2.159052067827456e-43,
+  "adjacent_ordering_rate": 0.87,
+  "adjacent_pairs_correct": 174,
+  "adjacent_pairs_total": 200,
+  "per_image_positive_spearman_fraction": 1.0,
+  "per_image_strictly_increasing_fraction": 0.48,
+  "num_images_strictly_increasing": 24,
+  "scores_csv": "/home/projectwork/student_package/task wacv/check_b_gaussian_blur_severity_scores.csv",
+  "per_image_csv": "/home/projectwork/student_package/task wacv/check_b_per_image_trend.csv",
+  "severity_images_dir": "/home/projectwork/student_package/task wacv/check_b_gaussian_blur_severity_images",
+  "passes_positive_spearman_rule": true
+}

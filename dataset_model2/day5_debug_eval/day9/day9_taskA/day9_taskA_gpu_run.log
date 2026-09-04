@@ -1,0 +1,10 @@
+Day 9 Task A complete: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA
+epoch_tag                                                                                      checkpoint  train_N  K                                                                                                model_path
+     ep05 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth    16301  2 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K02.pt
+     ep05 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth    16301  4 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K04.pt
+     ep05 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth    16301  8 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K08.pt
+     ep05 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth    16301 16 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep05/gmm_K16.pt
+     ep10 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth    16301  2 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K02.pt
+     ep10 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth    16301  4 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K04.pt
+     ep10 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth    16301  8 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K08.pt
+     ep10 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth    16301 16 /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K16.pt

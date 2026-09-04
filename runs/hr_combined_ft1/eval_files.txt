@@ -1,0 +1,4 @@
+/home/projectwork/student_package/examples/sample_images/002963_HR.png
+/home/projectwork/student_package/examples/sample_images/003536_HR.png
+/home/projectwork/student_package/examples/sample_images/002963_gblur_r4.png
+/home/projectwork/student_package/examples/sample_images/002963_jpeg_q10.png

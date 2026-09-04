@@ -1,0 +1,62 @@
+{
+  "task": "Day 10 - KADID+TID-only GMM, no KonIQ images",
+  "output_dir": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05",
+  "seed": 42,
+  "train_N_kadid_tid_only": 9040,
+  "train_dataset_counts": {
+    "KADID-10k": 7000,
+    "TID2013": 2040
+  },
+  "val_dataset_counts": {
+    "KADID-10k": 1500,
+    "TID2013": 360
+  },
+  "holdout_dataset_counts": {
+    "KADID-10k": 1625
+  },
+  "koniq_used": false,
+  "models": {
+    "free": {
+      "arm": "free",
+      "train_N": 9040,
+      "latent_dim": 100,
+      "fit_seconds": 1.365051507949829,
+      "model_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/gmm_K05_free.pt",
+      "converged": true,
+      "n_iter": 49,
+      "lower_bound": 409.4921569824219
+    },
+    "family": {
+      "arm": "family",
+      "train_N": 9040,
+      "latent_dim": 100,
+      "families": [
+        "blur",
+        "color",
+        "compression",
+        "noise",
+        "spatial_detail"
+      ],
+      "min_family_rows": 50,
+      "fit_seconds": 0.13013792037963867,
+      "model_path": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/gmm_K05_family.pt",
+      "K": 5,
+      "converged": true,
+      "n_iter": 23,
+      "lower_bound": 415.3641462253905
+    }
+  },
+  "outputs": {
+    "free_model": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/gmm_K05_free.pt",
+    "family_model": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/gmm_K05_family.pt",
+    "family_map": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/family_map.csv",
+    "fit_log": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/fit_log.txt",
+    "val_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/val_scores.csv",
+    "val_metrics": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/val_metrics.csv",
+    "holdout_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/holdout_scores.csv",
+    "holdout_metrics": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/holdout_metrics.csv",
+    "comparative_table": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/comparative_table.csv",
+    "report": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/day10_report.txt",
+    "summary": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05/Day10_summary.json"
+  }
+}

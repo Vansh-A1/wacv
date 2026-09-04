@@ -1,0 +1,20 @@
+Reference-level splits: KADID-10k and TID2013
+Split seed: 42
+Method: sort ref_ids lexicographically, shuffle with random.Random(42), train=int(70%), val=int(15%), holdout=remainder.
+
+KADID refs by split: {'train': 56, 'holdout': 13, 'val': 12}
+KADID rows by split: {'train': 7000, 'holdout': 1625, 'val': 1500}
+KADID refs in multiple splits: 0
+
+TID2013 refs by split: {'train': 17, 'holdout': 5, 'val': 3}
+TID2013 rows by split: {'train': 2040, 'holdout': 600, 'val': 360}
+TID2013 refs in multiple splits: 0
+
+Outputs:
+- /home/projectwork/student_package/day2_tasks/ref_splits_seed42/kadid10k_manifest_ref_split_seed42.csv
+- /home/projectwork/student_package/day2_tasks/ref_splits_seed42/tid2013_manifest_ref_split_seed42.csv
+- /home/projectwork/student_package/day2_tasks/ref_splits_seed42/kadid10k_ref_splits_seed42.csv
+- /home/projectwork/student_package/day2_tasks/ref_splits_seed42/tid2013_ref_splits_seed42.csv
+- /home/projectwork/student_package/day2_tasks/ref_splits_seed42/combined_kadid_tid_ref_split_seed42.csv
+- /home/projectwork/student_package/day2_tasks/ref_splits_seed42/reference_split_summary.json
+- /home/projectwork/student_package/day2_tasks/ref_splits_seed42/reference_split_summary.txt

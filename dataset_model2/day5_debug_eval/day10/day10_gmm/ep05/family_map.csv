@@ -1,0 +1,50 @@
+distortion_type,family_id_initial,family_train_N_initial,family_id_final,family_train_N_final
+Gaussian blur,blur,1010,blur,1010
+Lens blur,blur,1010,blur,1010
+Motion blur,blur,1010,blur,1010
+type_08,blur,1010,blur,1010
+type_23,blur,1010,blur,1010
+Brighten,color,2860,color,2860
+Color diffusion,color,2860,color,2860
+Color quantization,color,2860,color,2860
+Color saturation 1,color,2860,color,2860
+Color saturation 2,color,2860,color,2860
+Color shift,color,2860,color,2860
+Contrast change,color,2860,color,2860
+Darken,color,2860,color,2860
+Mean shift,color,2860,color,2860
+type_16,color,2860,color,2860
+type_17,color,2860,color,2860
+type_18,color,2860,color,2860
+type_22,color,2860,color,2860
+JPEG,compression,985,compression,985
+JPEG2000,compression,985,compression,985
+type_10,compression,985,compression,985
+type_11,compression,985,compression,985
+type_12,compression,985,compression,985
+type_13,compression,985,compression,985
+type_21,compression,985,compression,985
+Impulse noise,noise,1885,noise,1885
+Multiplicative noise,noise,1885,noise,1885
+White noise,noise,1885,noise,1885
+White noise in color component,noise,1885,noise,1885
+type_01,noise,1885,noise,1885
+type_02,noise,1885,noise,1885
+type_03,noise,1885,noise,1885
+type_04,noise,1885,noise,1885
+type_05,noise,1885,noise,1885
+type_06,noise,1885,noise,1885
+type_07,noise,1885,noise,1885
+type_19,noise,1885,noise,1885
+type_20,noise,1885,noise,1885
+Color block,spatial_detail,2300,spatial_detail,2300
+Denoise,spatial_detail,2300,spatial_detail,2300
+High sharpen,spatial_detail,2300,spatial_detail,2300
+Jitter,spatial_detail,2300,spatial_detail,2300
+Non-eccentricity patch,spatial_detail,2300,spatial_detail,2300
+Pixelate,spatial_detail,2300,spatial_detail,2300
+Quantization,spatial_detail,2300,spatial_detail,2300
+type_09,spatial_detail,2300,spatial_detail,2300
+type_14,spatial_detail,2300,spatial_detail,2300
+type_15,spatial_detail,2300,spatial_detail,2300
+type_24,spatial_detail,2300,spatial_detail,2300

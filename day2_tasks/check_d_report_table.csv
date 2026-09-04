@@ -1,0 +1,7 @@
+quantity,value
+SD of D0 across images,7.563487629779402
+mean of delta,17.6562548828125
+median of delta,17.239501953125
+fraction with delta > 0,1.0
+"Spearman(D0, luminance)",0.5165426170468187
+"Spearman(D0, edge density)",-0.5765666266506603

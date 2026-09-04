@@ -1,0 +1,45 @@
+{
+  "selected": [
+    {
+      "lambda_rank": 0.1,
+      "epoch": 5,
+      "ckpt_path": "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_0.1/checkpoints/epoch_0005.pth",
+      "blur_SRCC": -0.8730921990028422,
+      "blur_N": 60,
+      "lens_SRCC": -0.8744532156809449,
+      "lens_N": 60,
+      "sharpen_SRCC": -0.3150753609807606,
+      "sharpen_N": 60,
+      "pixelate_SRCC": -0.2490660520927826,
+      "pixelate_N": 60,
+      "pooled_EA_MOS_SRCC_report_only": 0.440351760177002,
+      "pooled_N": 1860,
+      "selection_score": 1.747545414683787,
+      "selected": "yes"
+    },
+    {
+      "lambda_rank": 1.0,
+      "epoch": 5,
+      "ckpt_path": "/home/projectwork/student_package/day11_day12/day11_rankall/lambda_1.0/checkpoints/epoch_0005.pth",
+      "blur_SRCC": -0.5607388713782868,
+      "blur_N": 60,
+      "lens_SRCC": -0.5811541215498264,
+      "lens_N": 60,
+      "sharpen_SRCC": -0.4994931208636681,
+      "sharpen_N": 60,
+      "pixelate_SRCC": -0.2810499440281947,
+      "pixelate_N": 60,
+      "pooled_EA_MOS_SRCC_report_only": 0.3981807039043925,
+      "pooled_N": 1860,
+      "selection_score": 1.1418929929281132,
+      "selected": "yes"
+    }
+  ],
+  "outputs": [
+    "pairs_severity_train.csv",
+    "val_selection_table.csv",
+    "holdout_rankall_scores.csv",
+    "holdout_comparison_table.csv",
+    "day11_report.txt"
+  ]
+}

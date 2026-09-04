@@ -1,0 +1,83 @@
+{
+  "task": "ZSSR iteration metric trends",
+  "zssr_root": "/home/projectwork/vansh_zssr",
+  "output_dir": "/home/projectwork/vansh_zssr/zssr_metric_trends",
+  "num_folders": 6,
+  "total_rows": 54,
+  "checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "wacv_score": "D_WACV = S_Z; higher means worse quality, same frozen checkpoint/wrapper direction as previous tasks.",
+  "metric_crop": 256,
+  "metric_note": "D_WACV, NIQE, DBCNN, PSNR, and LPIPS were computed on the same 256x256 center crop for reproducibility and speed. LR_content was computed on the full iteration image after bicubic Down4(SR) against matched LR.",
+  "pyiqa_version": "0.1.16",
+  "image_size": 256,
+  "latent_dim": 100,
+  "folders": [
+    {
+      "folder": "Canon_10_x1",
+      "image_id": "Canon_10",
+      "num_iterations": 9,
+      "first_iteration": 5,
+      "last_iteration": 1005,
+      "csv": "/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/Canon_10_x1_iteration_metrics.csv",
+      "plot_quality": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/Canon_10_x1_wacv_niqe_dbcnn_vs_iter.png",
+      "plot_reference": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/Canon_10_x1_lrcontent_psnr_lpips_vs_iter.png"
+    },
+    {
+      "folder": "Canon_14_x1",
+      "image_id": "Canon_14",
+      "num_iterations": 9,
+      "first_iteration": 5,
+      "last_iteration": 1005,
+      "csv": "/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/Canon_14_x1_iteration_metrics.csv",
+      "plot_quality": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/Canon_14_x1_wacv_niqe_dbcnn_vs_iter.png",
+      "plot_reference": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/Canon_14_x1_lrcontent_psnr_lpips_vs_iter.png"
+    },
+    {
+      "folder": "Canon_40_x1",
+      "image_id": "Canon_40",
+      "num_iterations": 9,
+      "first_iteration": 5,
+      "last_iteration": 1005,
+      "csv": "/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/Canon_40_x1_iteration_metrics.csv",
+      "plot_quality": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/Canon_40_x1_wacv_niqe_dbcnn_vs_iter.png",
+      "plot_reference": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/Canon_40_x1_lrcontent_psnr_lpips_vs_iter.png"
+    },
+    {
+      "folder": "Canon_42_x1",
+      "image_id": "Canon_42",
+      "num_iterations": 9,
+      "first_iteration": 5,
+      "last_iteration": 1005,
+      "csv": "/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/Canon_42_x1_iteration_metrics.csv",
+      "plot_quality": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/Canon_42_x1_wacv_niqe_dbcnn_vs_iter.png",
+      "plot_reference": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/Canon_42_x1_lrcontent_psnr_lpips_vs_iter.png"
+    },
+    {
+      "folder": "Canon_56_x1",
+      "image_id": "Canon_56",
+      "num_iterations": 9,
+      "first_iteration": 5,
+      "last_iteration": 1005,
+      "csv": "/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/Canon_56_x1_iteration_metrics.csv",
+      "plot_quality": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/Canon_56_x1_wacv_niqe_dbcnn_vs_iter.png",
+      "plot_reference": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/Canon_56_x1_lrcontent_psnr_lpips_vs_iter.png"
+    },
+    {
+      "folder": "DSC_0988_x1",
+      "image_id": "DSC_0988",
+      "num_iterations": 9,
+      "first_iteration": 5,
+      "last_iteration": 1005,
+      "csv": "/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder/DSC_0988_x1_iteration_metrics.csv",
+      "plot_quality": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/DSC_0988_x1_wacv_niqe_dbcnn_vs_iter.png",
+      "plot_reference": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots/DSC_0988_x1_lrcontent_psnr_lpips_vs_iter.png"
+    }
+  ],
+  "outputs": {
+    "all_metrics_csv": "/home/projectwork/vansh_zssr/zssr_metric_trends/zssr_all_iteration_metrics.csv",
+    "per_folder_dir": "/home/projectwork/vansh_zssr/zssr_metric_trends/per_folder",
+    "plot_dir": "/home/projectwork/vansh_zssr/zssr_metric_trends/plots",
+    "summary_json": "/home/projectwork/vansh_zssr/zssr_metric_trends/zssr_metric_trends_summary.json",
+    "summary_txt": "/home/projectwork/vansh_zssr/zssr_metric_trends/zssr_metric_trends_summary.txt"
+  }
+}

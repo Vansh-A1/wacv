@@ -1,0 +1,31 @@
+Day 6 correction audit
+
+Folders checked:
+/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6
+/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b
+/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6c
+/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6d
+/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6e
+
+Checks:
+- PASS: Task 0 KonIQ correlation rows (rows=3)
+- PASS: Task 0 MOS matches (matched=1512, unmatched=45)
+- PASS: Task 0 plots
+- PASS: Task 1 EA reference rows (rows=2000)
+- PASS: Task 1 no DF2K pristine refs (pristine_keyword_rows=0)
+- PASS: Task 1 wording corrected
+- PASS: Task 2 summary datasets (rows=3)
+- PASS: Task 2 severity rows (rows=6)
+- PASS: Task 3 Pearson included
+- PASS: Task 3 Qz rows (rows=2225)
+- PASS: Task 4 script restored (bytes=10874)
+- PASS: Task 4 score rows (rows=200)
+- PASS: Task 4 stale rho fixed (full rho=+0.8504)
+
+Corrections made:
+- Task 0: removed extra negative_MOS rows from the main KonIQ correlation CSV; kept only E_H, E_A, Q vs MOS as requested. Added unmatched KonIQ rows CSV.
+- Task 1: corrected report wording so it no longer falsely claims identical initial weights; kept the verified reference-stat similarity and 2000 distorted/authentic train path confirmation.
+- Task 3: added Pearson values directly to the Qz summary table/report, since the task requested Spearman + Pearson.
+- Task 4: restored the empty day6e_task4_eval.py script and corrected the full-holdout D_old vs E_H prose value to +0.8504.
+
+Overall result: all checked items pass.

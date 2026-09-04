@@ -1,0 +1,21 @@
+{
+  "method": "HAT",
+  "metric": "D_WACV",
+  "extreme": "maximum",
+  "image_id": "sony_189",
+  "metric_value": 2835.4716796875,
+  "D_WACV": 2835.4716796875,
+  "NIQE": 17.647463278818606,
+  "LR_content": 0.02022157795727253,
+  "PSNR": 37.201275900563296,
+  "SSIM": 0.9847004612286886,
+  "LPIPS": 0.03399094566702843,
+  "DISTS": 0.14419400691986084,
+  "sr_path": "/data/projectwork/sr_output/HAT_inference/DReal_x4/visualization/DReal_x4/sony_189_x1_DReal_x4.png",
+  "hr_path": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/HR/sony_189_x4.png",
+  "lr_path": "/home/projectwork/Deep_learning/VANSH_WORK/Internship/old/dataset/DRealSR-20231109T095957Z-004/DRealSR/Test_x4/LR/dreal4_87.png",
+  "saved_sr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/D_WACV/maximum/SR_sony_189_x1_DReal_x4.png",
+  "saved_hr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/D_WACV/maximum/HR_sony_189_x4.png",
+  "saved_lr": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/D_WACV/maximum/LR_dreal4_87.png",
+  "case_dir": "/home/projectwork/student_package/day2_tasks/sr_output_outliers/HAT/D_WACV/maximum"
+}

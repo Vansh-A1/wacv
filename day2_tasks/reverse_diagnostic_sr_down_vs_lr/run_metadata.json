@@ -1,0 +1,22 @@
+{
+  "task": "Reverse diagnostic: original LR vs SR downsampled back to LR",
+  "output_dir": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr",
+  "num_source_images": 2,
+  "models_per_image": [
+    "swinsr",
+    "hat"
+  ],
+  "crop_size": 512,
+  "scale": 4,
+  "base_seed": 42,
+  "summary_csv": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/summary.csv",
+  "interpretation_warning": "This is not SR vs HR. Difference maps are SR-to-LR reconstruction differences and do not automatically prove artifacts.",
+  "original_files_unchanged": {
+    "image_1_lr": true,
+    "image_1_swinsr_sr": true,
+    "image_1_hat_sr": true,
+    "image_2_lr": true,
+    "image_2_swinsr_sr": true,
+    "image_2_hat_sr": true
+  }
+}

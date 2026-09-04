@@ -1,0 +1,40 @@
+Day 6 Tasks 7-8 audit
+
+Task 7 output folder:
+/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6h
+
+Task 7 checklist result:
+- Resize rule: match=yes
+- Crop: match=yes
+- Color: match=yes
+- Value range / normalization: match=yes
+- Flip at test: match=yes
+
+Task 8 output folder:
+/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i
+
+Task 8 checkpoint availability:
+- Found only best.pth and last.pth in lambda0 checkpoint folder; no epoch 25/35/45 checkpoint files were present.
+
+Task 8 selected checkpoint:
+- best_epoch_0050
+- /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth
+
+Validation correlations:
+- best_epoch_0050 | pooled Spearman(E_A, MOS) | rho=+0.087865, N=1860
+- best_epoch_0050 | within-type Spearman(E_A, severity) for blur | rho=-0.597038, N=180
+- best_epoch_0050 | within-type Spearman(E_A, severity) for sharpen | rho=+0.775780, N=60
+- best_epoch_0050 | within-type Spearman(E_A, severity) for pixelate | rho=-0.021882, N=300
+- last_epoch_0050 | pooled Spearman(E_A, MOS) | rho=+0.087865, N=1860
+- last_epoch_0050 | within-type Spearman(E_A, severity) for blur | rho=-0.597038, N=180
+- last_epoch_0050 | within-type Spearman(E_A, severity) for sharpen | rho=+0.775780, N=60
+- last_epoch_0050 | within-type Spearman(E_A, severity) for pixelate | rho=-0.021882, N=300
+
+Selected checkpoint holdout correlations:
+- KADID holdout | Spearman=+0.070913, Pearson=-0.039700, N=1625
+- TID holdout | Spearman=+0.043940, Pearson=+0.088602, N=600
+- pooled KADID+TID holdout | Spearman=-0.050738, Pearson=-0.134617, N=2225
+
+Conclusion:
+- Task 7: preprocessing checklist is complete and shows old Day-1/2 WACV scoring matches Day-5 E_H test-time preprocessing.
+- Task 8: validation-only checkpoint selection and one holdout evaluation are complete; results are weak/mixed, so the report includes the retraining recommendation if stronger behavior is needed.

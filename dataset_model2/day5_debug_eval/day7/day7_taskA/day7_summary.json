@@ -1,0 +1,135 @@
+{
+  "task": "Day 7: refit E_A reference stats after training",
+  "used_checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth",
+  "checkpoint_epoch": 50,
+  "weights_reset": false,
+  "encoder_mode": "eval + no_grad; parameters require_grad=False during this script",
+  "reference_source": {
+    "input_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/ea_reference_set_diagnostics.csv",
+    "output_paths_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_reference_paths_used.csv",
+    "N": 2000,
+    "pool_counts": {
+      "KADID-10k": 876,
+      "KONIQ-10k": 869,
+      "TID2013": 255
+    },
+    "not_pristine_df2k": true
+  },
+  "diagnostic_200_source": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_task/day6e/kadid_200_old_vs_day5_scores.csv",
+  "preprocess": "RGB -> resize short side >=256 if needed -> center 256 crop -> float [0,1] -> ToTensor; no flip.",
+  "new_reference_stats": {
+    "mu_ref_A_new": {
+      "shape": [
+        100
+      ],
+      "finite": true,
+      "min": -0.10146472603082657,
+      "max": 0.20455549657344818,
+      "mean": -0.0002676584990695119,
+      "std": 0.051566280606755055
+    },
+    "Sigma_ref_A_new": {
+      "shape": [
+        100
+      ],
+      "finite": true,
+      "min": 8.016344509087503e-06,
+      "max": 0.005087125580757856,
+      "mean": 0.0005347708954468544,
+      "std": 0.0006647917421261431
+    }
+  },
+  "comparisons": [
+    {
+      "vector": "mu_ref",
+      "left": "new_trained_E_A_ref",
+      "right": "old_epoch0_E_A_ref",
+      "dim": 100,
+      "cosine_similarity": -0.03923732307217986,
+      "l2_distance": 0.5868933582455631,
+      "mean_abs_diff": 0.04674201689125766,
+      "max_abs_diff": 0.22565948218107224,
+      "left_mean": -0.0002676584990695119,
+      "right_mean": 0.0017229625715481235
+    },
+    {
+      "vector": "mu_ref",
+      "left": "new_trained_E_A_ref",
+      "right": "pristine_E_H_ref",
+      "dim": 100,
+      "cosine_similarity": -0.03934039155965082,
+      "l2_distance": 0.5869073991402293,
+      "mean_abs_diff": 0.04674497852967761,
+      "max_abs_diff": 0.22567328438162804,
+      "left_mean": -0.0002676584990695119,
+      "right_mean": 0.001732702071822132
+    },
+    {
+      "vector": "Sigma_ref",
+      "left": "new_trained_E_A_ref",
+      "right": "old_epoch0_E_A_ref",
+      "dim": 100,
+      "cosine_similarity": 0.5170640526313348,
+      "l2_distance": 0.008531668171446651,
+      "mean_abs_diff": 0.0005347425707749398,
+      "max_abs_diff": 0.005087115580757917,
+      "left_mean": 0.0005347708954468544,
+      "right_mean": 2.8324671914603526e-08
+    },
+    {
+      "vector": "Sigma_ref",
+      "left": "new_trained_E_A_ref",
+      "right": "pristine_E_H_ref",
+      "dim": 100,
+      "cosine_similarity": 0.5350125379239273,
+      "l2_distance": 0.008531712439436269,
+      "mean_abs_diff": 0.0005347486703938919,
+      "max_abs_diff": 0.005087115580757917,
+      "left_mean": 0.0005347708954468544,
+      "right_mean": 2.2225052962454582e-08
+    }
+  ],
+  "diagnostic_200_correlations": [
+    {
+      "x": "E_A_new_ref",
+      "y": "E_H",
+      "N": 200,
+      "spearman_rho": 0.5714575010378898,
+      "spearman_p": 9.841543559908972e-19,
+      "pearson_r": 0.3487498480677624,
+      "pearson_p": 4.1716721101948966e-07
+    },
+    {
+      "x": "E_A_new_ref",
+      "y": "MOS",
+      "N": 200,
+      "spearman_rho": -0.0004778067412064496,
+      "spearman_p": 0.9946423623086441,
+      "pearson_r": -0.13730994419173717,
+      "pearson_p": 0.052516227733796446
+    },
+    {
+      "x": "D_old",
+      "y": "E_A_new_ref",
+      "N": 200,
+      "spearman_rho": 0.6432588356886669,
+      "spearman_p": 9.53915690275392e-25,
+      "pearson_r": 0.153390146899997,
+      "pearson_p": 0.03011939131504782
+    }
+  ],
+  "outputs": {
+    "new_reference_stats_pt": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/ea_trained_encoder_refit_reference_stats.pt",
+    "reference_paths_used": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_reference_paths_used.csv",
+    "reference_mu_vectors": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_reference_mu_vectors.csv",
+    "reference_comparison_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_reference_stats_comparison.csv",
+    "diagnostic_200_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_200_diagnostics_with_new_ref.csv",
+    "diagnostic_200_correlations_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_200_new_ref_correlations.csv",
+    "summary_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_summary.json",
+    "report_txt": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_report.txt",
+    "plots": [
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/plots/day7_mu_ref_l2_comparison.png",
+      "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/plots/day7_200_EA_new_ref_vs_EH.png"
+    ]
+  }
+}

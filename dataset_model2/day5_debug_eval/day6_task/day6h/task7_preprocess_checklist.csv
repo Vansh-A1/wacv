@@ -1,0 +1,6 @@
+Preprocess item,Old Day-1/2,Day-5 E_H,match,evidence
+Resize rule,yes: resize short side to >=256 before scoring,yes: resize short side to >=256 before scoring,yes,"task wacv/check_* scripts and day5 diagnostics use _resize_short_side(..., 256)."
+Crop,center 256 crop for scoring,center 256 crop for scoring,yes,Old check scripts call center_crop after resize; diagnostics.json says Day-5 E_H uses center 256x256 crop.
+Color,RGB,RGB,yes,Image.open(...).convert('RGB') is used in scoring scripts.
+Value range / normalization,"[0,1], no ImageNet mean/std for WACV input","[0,1], no ImageNet mean/std for WACV input",yes,Scoring converts np.asarray(image)/255.0 then ToTensor; diagnostics.json says no mean/std normalization.
+Flip at test,no,no,yes,Evaluation/scoring uses deterministic center crop only; no hflip in test/inference path.

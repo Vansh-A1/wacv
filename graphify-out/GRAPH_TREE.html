@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>/ — graphify tree viewer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      margin: 20px 0 0 24px;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #1e3a56;
+    }
+    .controls {
+      margin: 20px 0 15px 24px;
+    }
+    button {
+      margin-right: 10px;
+      padding: 8px 18px;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    button:active {
+      background: #004085;
+    }
+    #tree-container {
+      width: calc(100vw - 48px); /* Adjust for body margin/padding */
+      height: 85vh;
+      overflow: auto;
+      border-radius: 8px;
+      background: #fff;
+      margin-left: 24px;
+      margin-right: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: 1px solid #ddd;
+    }
+    svg {
+      background: #fff;
+      border-radius: 8px;
+      display: block; /* Important for D3 */
+    }
+    .node circle {
+      stroke-width: 2.5px;
+    }
+    .node text { /* Base style for the <text> container */
+      font: 13px 'Segoe UI', sans-serif;
+      paint-order: stroke fill; /* Ensures text is readable over lines */
+      stroke: #fff; /* White halo */
+      stroke-width: 3px; /* Halo thickness */
+      stroke-linejoin: round;
+      stroke-opacity: 0.85; /* Halo opacity */
+    }
+    .link {
+      fill: none;
+      stroke-opacity: 0.7;
+      stroke-width: 2px;
+    }
+  </style>
+</head>
+<body>
+  <h1>/ — Knowledge Graph</h1>
+  <div class="controls">
+    <button onclick="expandAll()">Expand All</button>
+    <button onclick="collapseAll()">Collapse All</button>
+    <button onclick="resetView()">Reset View</button>
+  </div>
+  <div id="tree-container">
+    <svg id="tree-svg" width="6000" height="8000"></svg>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    const initialJsonData = {"name":"/","total_count":509,"children":[{"name":"dataset_model2","total_count":220,"children":[{"name":"build_degradation_training_files.py","total_count":2,"children":[{"name":"main()","total_count":1,"children":[]},{"name":"remap_path()","total_count":1,"children":[]}]},{"name":"day5_debug_eval","total_count":191,"children":[{"name":"day10","total_count":18,"children":[{"name":"day10_fit_score_gmm_no_koniq.py","total_count":17,"children":[{"name":"add_arm_scores()","total_count":1,"children":[]},{"name":"build_family_map()","total_count":1,"children":[]},{"name":"build_holdout_scores()","total_count":1,"children":[]},{"name":"comparative_table()","total_count":1,"children":[]},{"name":"corr()","total_count":1,"children":[]},{"name":"family_for_distortion()","total_count":1,"children":[]},{"name":"fit_family()","total_count":1,"children":[]},{"name":"fit_free()","total_count":1,"children":[]},{"name":"gmm_energies()","total_count":1,"children":[]},{"name":"holdout_metrics()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"pcorr()","total_count":1,"children":[]},{"name":"require_inputs()","total_count":1,"children":[]},{"name":"save_gmm_dict()","total_count":1,"children":[]},{"name":"tid_code()","total_count":1,"children":[]},{"name":"val_metrics()","total_count":1,"children":[]},{"name":"val_norm_stats()","total_count":1,"children":[]}]},{"name":"run_day10.sh","total_count":1,"children":[{"name":"run_day10.sh script","total_count":1,"children":[]}]}]},{"name":"day6_task","total_count":67,"children":[{"name":"day6","total_count":7,"children":[{"name":"day6_koniq_eval.py","total_count":7,"children":[{"name":"3 scatter plots as specified: 1. E_H vs KonIQ MOS -> KonIQ_E_H_vs_mos.png 2.\u2026","total_count":1,"children":[]},{"name":"Compute Spearman / Pearson / Kendall for E_H, E_A, Q vs KonIQ MOS on the KonIQ\u2026","total_count":1,"children":[]},{"name":"Compute Spearman, Pearson, Kendall for a pair of arrays.","total_count":1,"children":[]},{"name":"compute_correlations_koniq()","total_count":1,"children":[]},{"name":"corr_pair()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"plot_scatter_koniq()","total_count":1,"children":[]}]}]},{"name":"day6_b","total_count":7,"children":[{"name":"day6_task1_eval.py","total_count":7,"children":[{"name":"analyze_ea_ref_paths()","total_count":1,"children":[]},{"name":"Compute similarity and distance metrics between two 1D tensors.","total_count":1,"children":[]},{"name":"compute_metrics()","total_count":1,"children":[]},{"name":"Generate visual comparison plots for mu_ref and Sigma_ref.","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"plot_vector_comparisons()","total_count":1,"children":[]},{"name":"Verify and confirm the 2000 paths in ea_reference_set_diagnostics.csv.","total_count":1,"children":[]}]}]},{"name":"day6c","total_count":2,"children":[{"name":"day6c_eval.py","total_count":2,"children":[{"name":"format_min_max()","total_count":1,"children":[]},{"name":"run_task2()","total_count":1,"children":[]}]}]},{"name":"day6d","total_count":8,"children":[{"name":"day6d_task3_eval.py","total_count":8,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":"FastImageDataset","total_count":1,"children":[]},{"name":"load_model()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"remap_path()","total_count":1,"children":[]},{"name":"score_image_list()","total_count":1,"children":[]}]}]},{"name":"day6e","total_count":15,"children":[{"name":"day6e_task4_eval.py","total_count":15,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":"build_metrics()","total_count":1,"children":[]},{"name":"corr_row()","total_count":1,"children":[]},{"name":"ImagePathDataset","total_count":1,"children":[]},{"name":"load_model()","total_count":1,"children":[]},{"name":"load_or_recompute_scores()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"make_plot()","total_count":1,"children":[]},{"name":"metric()","total_count":1,"children":[]},{"name":"recompute_200()","total_count":1,"children":[]},{"name":"score_paths()","total_count":1,"children":[]},{"name":"select_fixed_200()","total_count":1,"children":[]},{"name":"write_summary_and_report()","total_count":1,"children":[]}]}]},{"name":"day6f","total_count":2,"children":[{"name":"day6f_task5_reference_stats.py","total_count":2,"children":[{"name":"main()","total_count":1,"children":[]},{"name":"tensor_stats()","total_count":1,"children":[]}]}]},{"name":"day6g","total_count":9,"children":[{"name":"day6g_task6_encoder_mu_distance.py","total_count":9,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":"corr_row()","total_count":1,"children":[]},{"name":"encode_mu()","total_count":1,"children":[]},{"name":"ImagePathDataset","total_count":1,"children":[]},{"name":"load_eh_model()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"make_plot()","total_count":1,"children":[]}]}]},{"name":"day6h","total_count":1,"children":[{"name":"day6h_task7_preprocess_checklist.py","total_count":1,"children":[{"name":"main()","total_count":1,"children":[]}]}]},{"name":"day6i","total_count":16,"children":[{"name":"day6i_task8_lambda0_checkpoint_selection.py","total_count":16,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":"checkpoint_label()","total_count":1,"children":[]},{"name":"choose_checkpoint()","total_count":1,"children":[]},{"name":"corr()","total_count":1,"children":[]},{"name":"distortion_group()","total_count":1,"children":[]},{"name":"ImagePathDataset","total_count":1,"children":[]},{"name":"load_model()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"make_plots()","total_count":1,"children":[]},{"name":"pearson()","total_count":1,"children":[]},{"name":"remap_path()","total_count":1,"children":[]},{"name":"score_paths()","total_count":1,"children":[]},{"name":"score_selected_holdout()","total_count":1,"children":[]},{"name":"score_validation_checkpoints()","total_count":1,"children":[]}]}]}]},{"name":"day7","total_count":58,"children":[{"name":"day7_taskA","total_count":13,"children":[{"name":"day7_refit_trained_ea_reference.py","total_count":13,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":"compare_vectors()","total_count":1,"children":[]},{"name":"corr_row()","total_count":1,"children":[]},{"name":"cosine()","total_count":1,"children":[]},{"name":"encode_paths()","total_count":1,"children":[]},{"name":"ImagePathDataset","total_count":1,"children":[]},{"name":"load_ea_model()","total_count":1,"children":[]},{"name":"load_fixed_200_diagnostic_rows()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"make_plots()","total_count":1,"children":[]},{"name":"tensor_summary()","total_count":1,"children":[]}]}]},{"name":"day7_taskb","total_count":2,"children":[{"name":"train_command.sh","total_count":2,"children":[{"name":"MPLCONFIGDIR","total_count":1,"children":[]},{"name":"train_command.sh script","total_count":1,"children":[]}]}]},{"name":"day7_taskc","total_count":14,"children":[{"name":"day7_taskc_epoch_ckpt_val_selection.py","total_count":14,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":"compute_correlations()","total_count":1,"children":[]},{"name":"epoch_from_path()","total_count":1,"children":[]},{"name":"load_model()","total_count":1,"children":[]},{"name":"load_validation_rows()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"make_plots()","total_count":1,"children":[]},{"name":"remap_path()","total_count":1,"children":[]},{"name":"score_paths()","total_count":1,"children":[]},{"name":"spearman()","total_count":1,"children":[]},{"name":"subset_mask()","total_count":1,"children":[]},{"name":"ValImageDataset","total_count":1,"children":[]}]}]},{"name":"day7_taskD","total_count":16,"children":[{"name":"day7_taskd_holdout_qz_scores.py","total_count":14,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":"apply_stats()","total_count":1,"children":[]},{"name":"ImagePathDataset","total_count":1,"children":[]},{"name":"load_koniq_mos()","total_count":1,"children":[]},{"name":"load_manifest()","total_count":1,"children":[]},{"name":"load_model()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"remap_path()","total_count":1,"children":[]},{"name":"score_frame()","total_count":1,"children":[]},{"name":"score_paths()","total_count":1,"children":[]},{"name":"selected_ea_checkpoint()","total_count":1,"children":[]},{"name":"val_stats()","total_count":1,"children":[]}]},{"name":"run_taskD_gpu.sh","total_count":2,"children":[{"name":"MPLCONFIGDIR","total_count":1,"children":[]},{"name":"run_taskD_gpu.sh script","total_count":1,"children":[]}]}]},{"name":"day7_taskE","total_count":13,"children":[{"name":"day7_taskE_spearman_tables.py","total_count":12,"children":[{"name":"corr_values()","total_count":1,"children":[]},{"name":"e1_mos_tables()","total_count":1,"children":[]},{"name":"e2_overall_severity()","total_count":1,"children":[]},{"name":"e3_within_type_severity()","total_count":1,"children":[]},{"name":"e4_day6_vs_day7()","total_count":1,"children":[]},{"name":"finite_xy()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"read_day6_cosine()","total_count":1,"children":[]},{"name":"read_day6_qz()","total_count":1,"children":[]},{"name":"read_day7_cosine()","total_count":1,"children":[]},{"name":"require_paths()","total_count":1,"children":[]},{"name":"write_report()","total_count":1,"children":[]}]},{"name":"run_taskE.sh","total_count":1,"children":[{"name":"run_taskE.sh script","total_count":1,"children":[]}]}]}]},{"name":"day8","total_count":15,"children":[{"name":"day8_selection_v2_holdout_compare.py","total_count":14,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":"compute_v2_holdout()","total_count":1,"children":[]},{"name":"finite_corr()","total_count":1,"children":[]},{"name":"ImagePathDataset","total_count":1,"children":[]},{"name":"load_model()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"make_compare_scores()","total_count":1,"children":[]},{"name":"metric_rows()","total_count":1,"children":[]},{"name":"recompute_selection_v2()","total_count":1,"children":[]},{"name":"remap_path()","total_count":1,"children":[]},{"name":"score_paths()","total_count":1,"children":[]},{"name":"val_stats_for_epoch()","total_count":1,"children":[]}]},{"name":"run_day8.sh","total_count":1,"children":[{"name":"run_day8.sh script","total_count":1,"children":[]}]}]},{"name":"day9","total_count":33,"children":[{"name":"day9_taskA","total_count":13,"children":[{"name":"day9_taskA_fit_gmms.py","total_count":12,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":"encode_mu()","total_count":1,"children":[]},{"name":"fit_and_save_gmms()","total_count":1,"children":[]},{"name":"ImageDataset","total_count":1,"children":[]},{"name":"load_encoder()","total_count":1,"children":[]},{"name":"load_train_manifest()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"remap_path()","total_count":1,"children":[]},{"name":"run_epoch()","total_count":1,"children":[]},{"name":"save_id_list()","total_count":1,"children":[]}]},{"name":"run_day9_taskA.sh","total_count":1,"children":[{"name":"run_day9_taskA.sh script","total_count":1,"children":[]}]}]},{"name":"day9_taskb","total_count":20,"children":[{"name":"day9_taskB_eval_gmm_models.py","total_count":19,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":"add_gmm_columns()","total_count":1,"children":[]},{"name":"build_holdout_scores()","total_count":1,"children":[]},{"name":"corr()","total_count":1,"children":[]},{"name":"encode_mu()","total_count":1,"children":[]},{"name":"gmm_energies()","total_count":1,"children":[]},{"name":"gmm_val_stats()","total_count":1,"children":[]},{"name":"holdout_metrics()","total_count":1,"children":[]},{"name":"ImageDataset","total_count":1,"children":[]},{"name":"load_encoder()","total_count":1,"children":[]},{"name":"load_manifest()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"pearson()","total_count":1,"children":[]},{"name":"remap_path()","total_count":1,"children":[]},{"name":"require_inputs()","total_count":1,"children":[]},{"name":"val_metrics()","total_count":1,"children":[]},{"name":"write_k_selection()","total_count":1,"children":[]}]},{"name":"run_day9_taskB.sh","total_count":1,"children":[{"name":"run_day9_taskB.sh script","total_count":1,"children":[]}]}]}]}]},{"name":"day5_debug_eval.py","total_count":16,"children":[{"name":"checkpoint_diagnostics()","total_count":1,"children":[]},{"name":"compute_correlations()","total_count":1,"children":[]},{"name":"corr_pair()","total_count":1,"children":[]},{"name":"diagnose_reference_set()","total_count":1,"children":[]},{"name":"distortion_bar()","total_count":1,"children":[]},{"name":"load_holdout_manifest()","total_count":1,"children":[]},{"name":"load_image_tensor()","total_count":1,"children":[]},{"name":"load_model()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"plot_scatters()","total_count":1,"children":[]},{"name":"read_eval_list_label_counts()","total_count":1,"children":[]},{"name":"reconstruct_reference_entries()","total_count":1,"children":[]},{"name":"remap_path()","total_count":1,"children":[]},{"name":"score_manifest()","total_count":1,"children":[]},{"name":"score_one()","total_count":1,"children":[]},{"name":"tensor_stats()","total_count":1,"children":[]}]},{"name":"ref_splits_seed42","total_count":11,"children":[{"name":"build_koniq10k_authentic_split.py","total_count":4,"children":[{"name":"assign_splits()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"make_combined_manifest()","total_count":1,"children":[]},{"name":"make_manifest()","total_count":1,"children":[]}]},{"name":"build_reference_splits.py","total_count":7,"children":[{"name":"build_kadid()","total_count":1,"children":[]},{"name":"build_tid2013()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"split_ref_ids()","total_count":1,"children":[]},{"name":"tid_ref_map()","total_count":1,"children":[]},{"name":"verify_reference_exclusivity()","total_count":1,"children":[]},{"name":"write_ref_split_csv()","total_count":1,"children":[]}]}]}]},{"name":"day2_tasks","total_count":112,"children":[{"name":"check_d_content_sensitivity.py","total_count":10,"children":[{"name":"apply_blur_level_4()","total_count":1,"children":[]},{"name":"collect_images()","total_count":1,"children":[]},{"name":"content_proxies()","total_count":1,"children":[]},{"name":"luminance()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"pil_to_float_rgb()","total_count":1,"children":[]},{"name":"pil_to_tensor()","total_count":1,"children":[]},{"name":"report_row()","total_count":1,"children":[]},{"name":"score_image()","total_count":1,"children":[]},{"name":"write_report_txt()","total_count":1,"children":[]}]},{"name":"find_lrcontent_wacv_contradictions.py","total_count":4,"children":[{"name":"main()","total_count":1,"children":[]},{"name":"safe_copy()","total_count":1,"children":[]},{"name":"select_cases()","total_count":1,"children":[]},{"name":"zscore()","total_count":1,"children":[]}]},{"name":"kaddik","total_count":13,"children":[{"name":"build_kaddik_manifest.py","total_count":2,"children":[{"name":"main()","total_count":1,"children":[]},{"name":"parse_distorted_name()","total_count":1,"children":[]}]},{"name":"score_kaddik_task4.py","total_count":11,"children":[{"name":"center_metric_crop()","total_count":1,"children":[]},{"name":"finite_pairs()","total_count":1,"children":[]},{"name":"load_existing()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"metric_correlation_rows()","total_count":1,"children":[]},{"name":"pil_rgb()","total_count":1,"children":[]},{"name":"pil_to_tensor()","total_count":1,"children":[]},{"name":"psnr_rgb()","total_count":1,"children":[]},{"name":"score_wacv()","total_count":1,"children":[]},{"name":"ssim_rgb()","total_count":1,"children":[]},{"name":"write_rows()","total_count":1,"children":[]}]}]},{"name":"reverse_sr_down_vs_lr_diagnostic.py","total_count":12,"children":[{"name":"comparison()","total_count":1,"children":[]},{"name":"crop_coord()","total_count":1,"children":[]},{"name":"downsample_area()","total_count":1,"children":[]},{"name":"ImageCase","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"make_fresh_output_dir()","total_count":1,"children":[]},{"name":"pil_rgb()","total_count":1,"children":[]},{"name":"signed_vis()","total_count":1,"children":[]},{"name":"snapshot()","total_count":1,"children":[]},{"name":"stats()","total_count":1,"children":[]},{"name":"unchanged()","total_count":1,"children":[]},{"name":"write_summary()","total_count":1,"children":[]}]},{"name":"score_zssr_iteration_trend.py","total_count":6,"children":[{"name":"collect_images()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"pil_to_tensor()","total_count":1,"children":[]},{"name":"safe_name()","total_count":1,"children":[]},{"name":"summarize_values()","total_count":1,"children":[]},{"name":"write_csv()","total_count":1,"children":[]}]},{"name":"task_6_bicubic_vs_sr","total_count":12,"children":[{"name":"run_task_6_bicubic_vs_sr.py","total_count":12,"children":[{"name":"csv_write()","total_count":1,"children":[]},{"name":"ensure_rgb()","total_count":1,"children":[]},{"name":"FileState","total_count":1,"children":[]},{"name":"image_rmse()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"make_coords()","total_count":1,"children":[]},{"name":"move_previous_root_outputs()","total_count":1,"children":[]},{"name":"run_one_image()","total_count":1,"children":[]},{"name":"save_comparison()","total_count":1,"children":[]},{"name":"snapshot()","total_count":1,"children":[]},{"name":"TaskImage","total_count":1,"children":[]},{"name":"verify_unchanged()","total_count":1,"children":[]}]}]},{"name":"task_e_audit_rerun.py","total_count":13,"children":[{"name":"audit_pairing()","total_count":1,"children":[]},{"name":"bootstrap_ci()","total_count":1,"children":[]},{"name":"corr_table()","total_count":1,"children":[]},{"name":"finite_xy()","total_count":1,"children":[]},{"name":"full_psnr_ssim()","total_count":1,"children":[]},{"name":"image_mode_size()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"partial_rows()","total_count":1,"children":[]},{"name":"residualize()","total_count":1,"children":[]},{"name":"score_direction_audit()","total_count":1,"children":[]},{"name":"score_rows()","total_count":1,"children":[]},{"name":"stratified_rows()","total_count":1,"children":[]},{"name":"write_csv()","total_count":1,"children":[]}]},{"name":"task_e_metric_correspondence.py","total_count":23,"children":[{"name":"build_hr_map()","total_count":1,"children":[]},{"name":"build_lr_map()","total_count":1,"children":[]},{"name":"build_sr_map()","total_count":1,"children":[]},{"name":"center_metric_crop()","total_count":1,"children":[]},{"name":"collect_images()","total_count":1,"children":[]},{"name":"correlation_rows()","total_count":1,"children":[]},{"name":"finite_pair()","total_count":1,"children":[]},{"name":"load_existing()","total_count":1,"children":[]},{"name":"lr_content()","total_count":1,"children":[]},{"name":"lr_number()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"metric_tensor()","total_count":1,"children":[]},{"name":"pil_rgb()","total_count":1,"children":[]},{"name":"pil_to_tensor()","total_count":1,"children":[]},{"name":"psnr_rgb()","total_count":1,"children":[]},{"name":"score_method()","total_count":1,"children":[]},{"name":"score_wacv()","total_count":1,"children":[]},{"name":"ssim_rgb()","total_count":1,"children":[]},{"name":"strip_hat_id()","total_count":1,"children":[]},{"name":"strip_hr_id()","total_count":1,"children":[]},{"name":"strip_swin_id()","total_count":1,"children":[]},{"name":"write_rows()","total_count":1,"children":[]},{"name":"write_summary_txt()","total_count":1,"children":[]}]},{"name":"task_e_metric_correspondence_negated_psnr_ssim","total_count":4,"children":[{"name":"negate_psnr_ssim_correlate_plot.py","total_count":4,"children":[{"name":"correlation_rows()","total_count":1,"children":[]},{"name":"load_and_adjust()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"plot_metric()","total_count":1,"children":[]}]}]},{"name":"zssr_iteration_metrics.py","total_count":15,"children":[{"name":"build_lr_map()","total_count":1,"children":[]},{"name":"center_metric_crop()","total_count":1,"children":[]},{"name":"collect_images()","total_count":1,"children":[]},{"name":"find_zssr_folders()","total_count":1,"children":[]},{"name":"iteration_number()","total_count":1,"children":[]},{"name":"lr_content()","total_count":1,"children":[]},{"name":"lr_number()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"pil_rgb()","total_count":1,"children":[]},{"name":"pil_to_tensor()","total_count":1,"children":[]},{"name":"plot_group()","total_count":1,"children":[]},{"name":"psnr_rgb()","total_count":1,"children":[]},{"name":"score_wacv()","total_count":1,"children":[]},{"name":"strip_hr_id()","total_count":1,"children":[]},{"name":"write_csv()","total_count":1,"children":[]}]}]},{"name":"external","total_count":80,"children":[{"name":"dataloader.py","total_count":35,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":"_label_from_basename()","total_count":1,"children":[]},{"name":"_resize_short_side()","total_count":1,"children":[]},{"name":"add_noise()","total_count":1,"children":[]},{"name":"center_crop()","total_count":1,"children":[]},{"name":"Crop the given PIL Image at the center to the given size. Args: img\u2026","total_count":1,"children":[]},{"name":"crop_image()","total_count":1,"children":[]},{"name":"DistTestImageDataset","total_count":1,"children":[]},{"name":"EvalImageDataset","total_count":1,"children":[]},{"name":"Fixed eval/plot set: center-crop (or resize-short then center-crop), [0,1],\u2026","total_count":1,"children":[]},{"name":"get_training_set()","total_count":1,"children":[]},{"name":"If any side < target, scale short side up to target (preserve aspect).","total_count":1,"children":[]},{"name":"ImageDataset","total_count":1,"children":[]},{"name":"ManifestImageDataset","total_count":1,"children":[]},{"name":"os_sorted()","total_count":1,"children":[]},{"name":"TestImageDataset","total_count":1,"children":[]},{"name":"Training dataset from an explicit absolute-path file list (manifest). Random-\u2026","total_count":1,"children":[]},{"name":"ValidationImageDataset","total_count":1,"children":[]}]},{"name":"model.py","total_count":44,"children":[{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".decode()","total_count":1,"children":[]},{"name":".decode()","total_count":1,"children":[]},{"name":".encode()","total_count":1,"children":[]},{"name":".encode()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".generate()","total_count":1,"children":[]},{"name":".reparameterize()","total_count":1,"children":[]},{"name":".reparameterize()","total_count":1,"children":[]},{"name":".reparameterize()","total_count":1,"children":[]},{"name":".reparameterize()","total_count":1,"children":[]},{"name":".reparameterize()","total_count":1,"children":[]},{"name":":param mu: mean from the encoder's latent space :param log_var: log variance\u2026","total_count":1,"children":[]},{"name":"ConvDiscriminator","total_count":1,"children":[]},{"name":"ConvVAE","total_count":1,"children":[]},{"name":"CVAEGenerator","total_count":1,"children":[]},{"name":"CVAEGenerator512","total_count":1,"children":[]},{"name":"CVAEGenerator_v2","total_count":1,"children":[]},{"name":"Discriminator","total_count":1,"children":[]},{"name":"Discriminator_Unet","total_count":1,"children":[]},{"name":"Encoder","total_count":1,"children":[]},{"name":"UnetDecoderBlock","total_count":1,"children":[]},{"name":"UnetEncoderBlock","total_count":1,"children":[]},{"name":"VAE_UNet","total_count":1,"children":[]}]},{"name":"__init__.py","total_count":1,"children":[]}]},{"name":"infer.py","total_count":8,"children":[{"name":"collect_paths()","total_count":1,"children":[]},{"name":"get_args()","total_count":1,"children":[]},{"name":"load_best()","total_count":1,"children":[]},{"name":"load_image_tensor()","total_count":1,"children":[]},{"name":"load_mos_map()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"pick_device()","total_count":1,"children":[]},{"name":"save_intermediateResults()","total_count":1,"children":[]}]},{"name":"score.py","total_count":20,"children":[{"name":"Differentiable (posterior-mean) S_Z: uses encoder mu/log_var without\u2026","total_count":1,"children":[]},{"name":"ema_update_reference()","total_count":1,"children":[]},{"name":"Encode pristine images; return mu_ref = mean(mu), Sigma_ref = diag(var(mu)).","total_count":1,"children":[]},{"name":"Exponential moving average of reference stats (on CPU tensors).","total_count":1,"children":[]},{"name":"fit_reference()","total_count":1,"children":[]},{"name":"Kwargs for sz_from_stats / score_sz_* matching the frozen rule. Checkpoint-\u2026","total_count":1,"children":[]},{"name":"Load frozen scoring rule YAML. Returns dict (empty if missing / no PyYAML).","total_count":1,"children":[]},{"name":"load_reference()","total_count":1,"children":[]},{"name":"load_scoring_config()","total_count":1,"children":[]},{"name":"No-grad eval S_Z. x in [0,1], shape (B,3,H,W) or (3,H,W).","total_count":1,"children":[]},{"name":"Reconstruction-Error Metric (REM): pixel L1 between x and recon.","total_count":1,"children":[]},{"name":"S_Z = sqrt( sum_j (mu_ref_j - mu_t_j)^2 / (Sigma_ref_j + Sigma_t_j) ) where\u2026","total_count":1,"children":[]},{"name":"save_reference()","total_count":1,"children":[]},{"name":"Score one batch/image. metrics subset of {'sz','rem'}. Returns dict of tensors\u2026","total_count":1,"children":[]},{"name":"score_image()","total_count":1,"children":[]},{"name":"score_rem()","total_count":1,"children":[]},{"name":"score_sz_diff()","total_count":1,"children":[]},{"name":"score_sz_eval()","total_count":1,"children":[]},{"name":"scoring_sz_kwargs()","total_count":1,"children":[]},{"name":"sz_from_stats()","total_count":1,"children":[]}]},{"name":"task wacv","total_count":16,"children":[{"name":"check_a_clean_vs_degraded.py","total_count":4,"children":[{"name":"collect_images()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"pil_to_tensor()","total_count":1,"children":[]},{"name":"save_pair()","total_count":1,"children":[]}]},{"name":"check_b_severity_trend.py","total_count":4,"children":[{"name":"apply_blur()","total_count":1,"children":[]},{"name":"collect_images()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"pil_to_tensor()","total_count":1,"children":[]}]},{"name":"check_c_ballpark_pristine_test.py","total_count":8,"children":[{"name":"collect_images()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"paths_from_manifest_or_folder()","total_count":1,"children":[]},{"name":"pil_to_tensor()","total_count":1,"children":[]},{"name":"read_manifest()","total_count":1,"children":[]},{"name":"score_split()","total_count":1,"children":[]},{"name":"summarize()","total_count":1,"children":[]},{"name":"write_summary_txt()","total_count":1,"children":[]}]}]},{"name":"train.py","total_count":52,"children":[{"name":".__getitem__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__init__()","total_count":1,"children":[]},{"name":".__len__()","total_count":1,"children":[]},{"name":".forward()","total_count":1,"children":[]},{"name":".normalize()","total_count":1,"children":[]},{"name":"Arithmetic mean of S_Z over 1 center crop + (n_crops-1) seeded random crops.","total_count":1,"children":[]},{"name":"best_score()","total_count":1,"children":[]},{"name":"build_lr_scheduler()","total_count":1,"children":[]},{"name":"cap_train_path_labels()","total_count":1,"children":[]},{"name":"Center-crop images with explicit labels (pool name or HR/LR/...).","total_count":1,"children":[]},{"name":"collect_eval_files()","total_count":1,"children":[]},{"name":"compute_latent_embeddings()","total_count":1,"children":[]},{"name":"Encourage sz_deg >= sz_clean + margin (higher S_Z = worse).","total_count":1,"children":[]},{"name":"eval_kadid_monitor()","total_count":1,"children":[]},{"name":"eval_ladder_spearman()","total_count":1,"children":[]},{"name":"get_args()","total_count":1,"children":[]},{"name":"get_git_hash()","total_count":1,"children":[]},{"name":"grad_norm()","total_count":1,"children":[]},{"name":"kl_loss()","total_count":1,"children":[]},{"name":"kl_warmup_beta()","total_count":1,"children":[]},{"name":"latent_plot_methods()","total_count":1,"children":[]},{"name":"load_checkpoint()","total_count":1,"children":[]},{"name":"load_eval_list()","total_count":1,"children":[]},{"name":"load_weights_only()","total_count":1,"children":[]},{"name":"main()","total_count":1,"children":[]},{"name":"make_run_name()","total_count":1,"children":[]},{"name":"Mean per-distortion-type SRCC(S_Z, MOS) on the KADID monitor split. S_Z\u2026","total_count":1,"children":[]},{"name":"Normalize --ver into a stable run-name token (no timestamps).","total_count":1,"children":[]},{"name":"PathLabelImageDataset","total_count":1,"children":[]},{"name":"Per-image Kendall tau of S_Z vs severity (more stable than Spearman of 4 level-\u2026","total_count":1,"children":[]},{"name":"plot_latent_2d()","total_count":1,"children":[]},{"name":"plot_sz_hist()","total_count":1,"children":[]},{"name":"pools_tag()","total_count":1,"children":[]},{"name":"psnr_batch()","total_count":1,"children":[]},{"name":"ranking_sz_loss()","total_count":1,"children":[]},{"name":"read_manifest()","total_count":1,"children":[]},{"name":"run_already_started()","total_count":1,"children":[]},{"name":"run_validation()","total_count":1,"children":[]},{"name":"save_checkpoint()","total_count":1,"children":[]},{"name":"save_intermediateResults()","total_count":1,"children":[]},{"name":"score_image_multicrop()","total_count":1,"children":[]},{"name":"seed_worker()","total_count":1,"children":[]},{"name":"set_seed()","total_count":1,"children":[]},{"name":"ssim_batch()","total_count":1,"children":[]},{"name":"subsample_path_labels()","total_count":1,"children":[]},{"name":"synthesize_degraded()","total_count":1,"children":[]},{"name":"Synthetic degradation for ranking loss (covers KADID failure-mode families).","total_count":1,"children":[]},{"name":"sz_kwargs()","total_count":1,"children":[]},{"name":"update_or_fit_reference()","total_count":1,"children":[]},{"name":"version_tag()","total_count":1,"children":[]},{"name":"VGGPerceptualLoss","total_count":1,"children":[]}]},{"name":"try_bicubic.py","total_count":1,"children":[{"name":"find_orientation()","total_count":1,"children":[]}]}]};
+
+    function transformData(jsonData) {
+        // Helper function to recursively build the children structure
+        function processNode(node, parentL1StageName) {
+            let displayName = node.name;
+            // Append total_count if it exists and is not already in the name
+            if (node.total_count !== undefined) {
+                if (!/\(Total Count: \d+\)$/.test(displayName)) {
+                    displayName += ` (Total Count: ${node.total_count})`;
+                }
+            }
+
+            const newNode = { name: displayName };
+
+            if (parentL1StageName === "Root") {
+                 newNode.originalStageName = node.name;
+            } else {
+                newNode.originalStageName = parentL1StageName;
+            }
+
+            if (node.children && node.children.length > 0) {
+                const stageNameToPass = (parentL1StageName === "Root") ? node.name : parentL1StageName;
+                newNode.children = node.children.map(child => processNode(child, stageNameToPass));
+            }
+
+            return newNode;
+        }
+
+        let rootDisplayName = jsonData.name;
+        if (jsonData.total_count !== undefined && !/\(Total Count: \d+\)$/.test(rootDisplayName)) {
+            rootDisplayName += ` (Total Count: ${jsonData.total_count})`;
+        }
+
+        return {
+            name: rootDisplayName,
+            originalStageName: "Root",
+            children: (jsonData.children || []).map(child => processNode(child, "Root"))
+        };
+    }
+
+    const treeData = transformData(initialJsonData);
+
+    // Auto-populated phaseColors: every depth-1 child of the root gets
+    // a stable colour from a bigger palette so all top-level dirs are
+    // distinguishable.
+    const PALETTE = [
+      ["#3498DB","#2980B9","#AED6F1"], ["#2ECC71","#27AE60","#A9DFBF"],
+      ["#E74C3C","#C0392B","#F5B7B1"], ["#9B59B6","#8E44AD","#D7BDE2"],
+      ["#F39C12","#D68910","#FAD7A0"], ["#1ABC9C","#117864","#A2D9CE"],
+      ["#34495E","#1B2631","#ABB2B9"], ["#E67E22","#BA4A00","#F5CBA7"],
+      ["#16A085","#0E6655","#A2D9CE"], ["#D35400","#A04000","#EDBB99"],
+      ["#7F8C8D","#566573","#D5DBDB"], ["#C0392B","#7B241C","#F5B7B1"],
+      ["#2E86C1","#1B4F72","#A9CCE3"], ["#28B463","#196F3D","#A9DFBF"],
+      ["#AF7AC5","#6C3483","#D2B4DE"],
+    ];
+    const phaseColors = { "Root": { fill: "#4A4A4A", stroke: "#333333", collapsedFill: "#6C757D" },
+                          "Default": { fill: "#BDC3C7", stroke: "#95A5A6", collapsedFill: "#ECF0F1" } };
+    (initialJsonData.children || []).forEach((c, i) => {
+      const pal = PALETTE[i % PALETTE.length];
+      phaseColors[c.name] = { fill: pal[0], stroke: pal[1], collapsedFill: pal[2] };
+    });
+
+    const levelSpecificPalettes = {
+      0: { fill: "#4A4A4A", stroke: "#333333", collapsedFill: "#6C757D" },
+      2: { fill: "#6ab04c", stroke: "#508a38", collapsedFill: "#a3d391" },
+      3: { fill: "#f0932b", stroke: "#d0730f", collapsedFill: "#f6c07e" },
+      4: { fill: "#be2edd", stroke: "#a01cb3", collapsedFill: "#e08bf2" },
+      5: { fill: "#00a8ff", stroke: "#007ac1", collapsedFill: "#74d2ff" },
+      6: { fill: "#e55039", stroke: "#c23620", collapsedFill: "#f09a8d" },
+      default: { fill: "#747d8c", stroke: "#57606f", collapsedFill: "#a4b0be" }
+    };
+
+    const svgElement = d3.select("#tree-svg");
+    const initialSvgWidth = +svgElement.attr("width");
+    const initialSvgHeight = +svgElement.attr("height");
+    const margin = { top: 40, right: 120, bottom: 80, left: 450 };
+    let width = initialSvgWidth - margin.left - margin.right;
+    let height = initialSvgHeight - margin.top - margin.bottom;
+    const duration = 500;
+    let nodeCounter = 0;
+    const g = svgElement.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+    const treemap = d3.tree().nodeSize([40, 0]);
+    let rootNode = d3.hierarchy(treeData, d => d.children);
+    rootNode.x0 = 0;
+    rootNode.y0 = 0;
+
+    if (rootNode.children) {
+      rootNode.children.forEach(d_child => {
+        if (d_child.children) { collapseBranch(d_child); }
+      });
+    }
+    updateTree(rootNode);
+
+    function collapseBranch(d) { if (d.children) { d._children = d.children; d._children.forEach(collapseBranch); d.children = null; } }
+    function expandBranch(d) { if (d._children) { d.children = d._children; d._children = null; } if (d.children) { d.children.forEach(expandBranch); } }
+    window.expandAll = () => { expandBranch(rootNode); updateTree(rootNode); };
+    window.collapseAll = () => { if (rootNode.children) { rootNode.children.forEach(collapseBranch); } updateTree(rootNode); };
+    window.resetView = () => { if (rootNode.children) { rootNode.children.forEach(d_child => { if (d_child.children || d_child._children) { collapseBranch(d_child); } }); } if (rootNode._children && !rootNode.children) { rootNode.children = rootNode._children; rootNode._children = null; } updateTree(rootNode); };
+
+    function updateTree(source) {
+      const treeLayoutData = treemap(rootNode);
+      let nodes = treeLayoutData.descendants();
+      let links = treeLayoutData.descendants().slice(1);
+
+      let minX = 0;
+      let maxX = 0;
+      if (nodes.length > 0) {
+        minX = d3.min(nodes, d => d.x);
+        maxX = d3.max(nodes, d => d.x);
+      }
+
+      let neededHeight = Math.max(initialSvgHeight, maxX - minX + margin.top + margin.bottom + 100);
+      svgElement.transition().duration(duration / 2).attr("height", neededHeight);
+      g.transition().duration(duration / 2).attr("transform", `translate(${margin.left},${margin.top - minX + 40})`);
+
+      nodes.forEach(d => { d.y = d.depth * 400; }); // Adjust horizontal separation if needed
+
+      const node = g.selectAll('g.node').data(nodes, d => d.id || (d.id = ++nodeCounter));
+      const nodeEnter = node.enter().append('g')
+        .attr('class', d => "node" + (d.children || d._children ? " node--internal" : " node--leaf") + (d._children ? " _children" : ""))
+        .attr('transform', d => `translate(${source.y0},${source.x0})`)
+        .on('click', (event, d) => { if (d.children) { d._children = d.children; d.children = null; } else if (d._children) { d.children = d._children; d._children = null; } updateTree(d); })
+        .style('cursor', d => (d.children || d._children) ? 'pointer' : 'default');
+
+      nodeEnter.append('circle').attr('r', 1e-6);
+
+      nodeEnter.append('text')
+        .attr('dy', '.35em')
+        .attr('x', d => d.children || d._children ? -14 : 14)
+        .attr('text-anchor', d => d.children || d._children ? 'end' : 'start')
+        .style("fill-opacity", 1e-6)
+        .call(wrapText, 380);
+
+      const nodeUpdate = nodeEnter.merge(node);
+      nodeUpdate.transition().duration(duration)
+        .attr('transform', d => `translate(${d.y},${d.x})`)
+        .attr('class', d => "node" + (d.children ? " node--internal" : " node--leaf") + (d._children ? " node--internal _children" : ""));
+
+      nodeUpdate.select('circle').attr('r', 8.5)
+        .style('fill', d => {
+            let palette;
+            if (d.depth === 0) {
+                palette = levelSpecificPalettes[0];
+            } else if (d.depth === 1) {
+                palette = phaseColors[d.data.originalStageName] || phaseColors.Default;
+            } else {
+                palette = levelSpecificPalettes[d.depth] || levelSpecificPalettes.default;
+            }
+            if (d._children) return palette.collapsedFill;
+            if (d.children) return palette.fill;
+            return "#fff";
+        })
+        .style('stroke', d => {
+            let palette;
+            if (d.depth === 0) {
+                palette = levelSpecificPalettes[0];
+            } else if (d.depth === 1) {
+                palette = phaseColors[d.data.originalStageName] || phaseColors.Default;
+            } else {
+                palette = levelSpecificPalettes[d.depth] || levelSpecificPalettes.default;
+            }
+            return palette.stroke;
+        });
+      nodeUpdate.select('text').style("fill-opacity", 1).call(wrapText, 380);
+
+      const nodeExit = node.exit().transition().duration(duration).attr('transform', d => `translate(${source.y},${source.x})`).remove();
+      nodeExit.select('circle').attr('r', 1e-6);
+      nodeExit.select('text').style('fill-opacity', 1e-6);
+
+      const link = g.selectAll('path.link').data(links, d => d.id);
+      const linkEnter = link.enter().insert('path', "g").attr('class', 'link').attr('d', d => { const o = { x: source.x0, y: source.y0 }; return diagonal(o, o); });
+
+      linkEnter.merge(link).transition().duration(duration).attr('d', d => diagonal(d, d.parent))
+        .style('stroke', d => {
+            const sourceNode = d.parent;
+            if (!sourceNode) return phaseColors.Default.stroke;
+            const l1AncestorName = sourceNode.data.originalStageName;
+            const colorPalette = phaseColors[l1AncestorName] || phaseColors.Default;
+            return colorPalette.stroke;
+        });
+      link.exit().transition().duration(duration).attr('d', d => { const o = { x: source.x, y: source.y }; return diagonal(o, o); }).remove();
+      nodes.forEach(d => { d.x0 = d.x; d.y0 = d.y; });
+    }
+
+    function diagonal(s, d) { return `M ${s.y} ${s.x} C ${(s.y + d.y) / 2} ${s.x}, ${(s.y + d.y) / 2} ${d.x}, ${d.y} ${d.x}`; }
+
+    function wrapText(textElements, maxWidth) {
+        const textPartColors = {
+            name: '#343a40',
+            count: '#0056b3'
+        };
+        const countRegex = /(\s\(Total Count: \d+\))$/;
+
+        textElements.each(function () {
+            const textD3 = d3.select(this);
+            const originalNodeText = textD3.datum().data.name;
+            const x = parseFloat(textD3.attr("x") || 0);
+            const initialDy = textD3.attr("dy");
+            const textAnchor = textD3.attr("text-anchor");
+            const lineHeight = 1.1;
+
+            textD3.text(null);
+
+            let namePart = originalNodeText;
+            let countPartText = "";
+
+            const countMatch = originalNodeText.match(countRegex);
+            if (countMatch && originalNodeText.endsWith(countMatch[0])) {
+                namePart = originalNodeText.substring(0, originalNodeText.length - countMatch[0].length).trim();
+                countPartText = countMatch[0].trim();
+            }
+
+            const tokens = [];
+            namePart.split(/\s+/).filter(Boolean).forEach(word => {
+                tokens.push({ text: word, type: 'name' });
+            });
+            if (countPartText) {
+                tokens.push({ text: countPartText, type: 'count' });
+            }
+
+            if (tokens.length === 0 && originalNodeText) {
+                tokens.push({ text: originalNodeText, type: 'name' });
+            }
+
+            let currentTspan = textD3.append("tspan").attr("x", x).attr("dy", initialDy);
+            if (textAnchor === "end") currentTspan.attr("text-anchor", "end");
+
+            let lineTokens = [];
+
+            for (let i = 0; i < tokens.length; i++) {
+                const tokenObj = tokens[i];
+
+                lineTokens.push(tokenObj);
+                currentTspan.text(lineTokens.map(t => t.text).join(" "));
+
+                if (currentTspan.node().getComputedTextLength() > maxWidth && lineTokens.length > 1) {
+                    lineTokens.pop();
+
+                    currentTspan.text(null);
+                    lineTokens.forEach((prevToken, idx) => {
+                        currentTspan.append("tspan")
+                            .text((idx > 0 ? " " : "") + prevToken.text)
+                            .style("fill", textPartColors[prevToken.type] || textPartColors.name)
+                            .style("font-weight", prevToken.type === 'count' ? "bold" : "normal");
+                    });
+
+                    lineTokens = [tokenObj];
+                    currentTspan = textD3.append("tspan").attr("x", x).attr("dy", lineHeight + "em");
+                    if (textAnchor === "end") currentTspan.attr("text-anchor", "end");
+                }
+            }
+
+            currentTspan.text(null);
+            lineTokens.forEach((token, idx) => {
+                currentTspan.append("tspan")
+                    .text((idx > 0 ? " " : "") + token.text)
+                    .style("fill", textPartColors[token.type] || textPartColors.name)
+                    .style("font-weight", token.type === 'count' ? "bold" : "normal");
+            });
+
+            if (textD3.selectAll("tspan > tspan").empty() && textD3.select("tspan").text().length === 0 && originalNodeText) {
+                let t = textD3.select("tspan");
+                let displayText = originalNodeText;
+                t.text(displayText).style("fill", textPartColors.name);
+                if (t.node() && t.node().getComputedTextLength() > maxWidth && displayText.length > 20) {
+                    let estimatedChars = Math.floor(maxWidth / (t.node().getComputedTextLength()/displayText.length) );
+                    displayText = displayText.substring(0, Math.max(0, estimatedChars - 3)) + "...";
+                    t.text(displayText);
+                }
+            }
+        });
+    }
+  </script>
+</body>
+</html>

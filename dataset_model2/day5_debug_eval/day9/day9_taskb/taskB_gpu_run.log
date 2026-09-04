@@ -1,0 +1,15 @@
+Day 9 Task B complete: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskb
+Selected K: {'ep05': 8, 'ep10': 16}
+epoch_tag  K  selected_K_for_epoch  is_selected_K energy_variant                       metric                      subset    N      SRCC       SRCC_p   Pearson    Pearson_p
+     ep05  8                     8           True           soft               E_A_GMM vs MOS               KADID holdout 1625 -0.152741 6.062375e-10 -0.229612 6.959119e-21
+     ep05  8                     8           True           soft            Qz_AmH_GMM vs MOS               KADID holdout 1625  0.123694 5.684323e-07  0.055624 2.494222e-02
+     ep05  8                     8           True           soft            Qz_HmA_GMM vs MOS               KADID holdout 1625 -0.123694 5.684323e-07 -0.055624 2.494222e-02
+     ep05  8                     8           True           soft     Blur E_A_GMM vs severity KADID holdout Gaussian blur   65  0.237150 5.715812e-02  0.208704 9.523521e-02
+     ep05  8                     8           True           soft  Sharpen E_A_GMM vs severity  KADID holdout High sharpen   65  0.644191 7.053492e-09  0.617908 4.166027e-08
+     ep05  8                     8           True           soft Pixelate E_A_GMM vs severity      KADID holdout Pixelate   65  0.086974 4.908789e-01  0.043078 7.333115e-01
+     ep10 16                    16           True           soft               E_A_GMM vs MOS               KADID holdout 1625 -0.215595 1.525868e-18 -0.244310 1.641179e-23
+     ep10 16                    16           True           soft            Qz_AmH_GMM vs MOS               KADID holdout 1625  0.124171 5.138564e-07  0.099162 6.224538e-05
+     ep10 16                    16           True           soft            Qz_HmA_GMM vs MOS               KADID holdout 1625 -0.124171 5.138564e-07 -0.099162 6.224538e-05
+     ep10 16                    16           True           soft     Blur E_A_GMM vs severity KADID holdout Gaussian blur   65  0.517788 9.996997e-06  0.478742 5.483352e-05
+     ep10 16                    16           True           soft  Sharpen E_A_GMM vs severity  KADID holdout High sharpen   65  0.557796 1.385265e-06  0.565575 9.148800e-07
+     ep10 16                    16           True           soft Pixelate E_A_GMM vs severity      KADID holdout Pixelate   65  0.054504 6.663087e-01  0.025699 8.389774e-01

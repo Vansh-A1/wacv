@@ -1,0 +1,26 @@
+ZSSR iteration trend with frozen WACV
+Data: /home/projectwork/vansh_zssr
+Checkpoint: /home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth
+Score: D_WACV = S_Z; higher means worse quality
+Folders: 6
+Images scored: 54
+Iterations: [5, 10, 15, 30, 55, 105, 255, 505, 1005]
+Pooled Spearman(iteration, D_WACV): -0.104043
+Pooled p-value: 0.454036
+
+Iteration summary:
+iteration,N,mean,SD,median,min,max
+5,6,2823.866984,3.483160,2824.177246,2818.603271,2829.122070
+10,6,2824.519938,4.672074,2824.261230,2818.762695,2832.841309
+15,6,2824.490275,4.777739,2824.143311,2818.708496,2833.091309
+30,6,2824.363281,4.575939,2824.132812,2818.733154,2832.512695
+55,6,2824.388916,4.578875,2824.136475,2818.722656,2832.530273
+105,6,2824.383667,4.582096,2824.139771,2818.730469,2832.530273
+255,6,2824.338949,4.597107,2824.052612,2818.733643,2832.530273
+505,6,2824.231974,4.620994,2823.814209,2818.713867,2832.530273
+1005,6,2824.151530,4.624987,2823.601685,2818.713867,2832.530273
+
+All scores CSV: /home/projectwork/student_package/day2_tasks/zssr itteration trend/zssr_all_wacv_scores.csv
+Folder summary CSV: /home/projectwork/student_package/day2_tasks/zssr itteration trend/zssr_folder_summary.csv
+Iteration summary CSV: /home/projectwork/student_package/day2_tasks/zssr itteration trend/zssr_iteration_summary.csv
+Per-folder CSVs: /home/projectwork/student_package/day2_tasks/zssr itteration trend/per_folder_csv

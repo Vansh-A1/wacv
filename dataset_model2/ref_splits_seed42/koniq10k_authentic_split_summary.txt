@@ -1,0 +1,32 @@
+KONIQ-10k authentic image split, seed 42
+Input directory: /data/projectwork/swati_mam/new model data/koniq10k_1024x768/1024x768
+Output directory: /home/projectwork/student_package/dataset_model2/ref_splits_seed42
+
+No paired pristine references are used for KONIQ-10k.
+Manifest fields are set as: distortion_type=authentic, distortion_code=NA, severity_or_level=NA, ref_id=NA, ref_path=NA, mos_or_dmos=NA.
+
+Total images: 10373
+Train: 7261
+Val: 1555
+Holdout: 1557
+
+Split rule: list image_ids, sort lexicographically, shuffle with random.Random(split_seed=42), then assign 70% / 15% / 15%.
+
+Combined dataset row counts:
+  dataset   split    N
+KADID-10k holdout 1625
+KADID-10k   train 7000
+KADID-10k     val 1500
+KONIQ-10k holdout 1557
+KONIQ-10k   train 7261
+KONIQ-10k     val 1555
+  TID2013 holdout  600
+  TID2013   train 2040
+  TID2013     val  360
+
+Generated files:
+- /home/projectwork/student_package/dataset_model2/ref_splits_seed42/koniq10k_authentic_image_splits_seed42.csv
+- /home/projectwork/student_package/dataset_model2/ref_splits_seed42/koniq10k_authentic_manifest_split_seed42.csv
+- /home/projectwork/student_package/dataset_model2/ref_splits_seed42/combined_kadid_tid_koniq_split_seed42.csv
+- /home/projectwork/student_package/dataset_model2/ref_splits_seed42/koniq10k_authentic_split_summary.json
+- /home/projectwork/student_package/dataset_model2/ref_splits_seed42/koniq10k_authentic_split_summary.txt

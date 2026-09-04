@@ -1,0 +1,18 @@
+{
+  "task": "Day 8 quick check for selection criteria",
+  "output_dir": "/home/projectwork/student_package/dataset_model2/day8",
+  "device_used": "cpu",
+  "v1_epoch": 5,
+  "v2_selected_epoch": 10,
+  "v2_selected_checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth",
+  "selection_score_v2_formula": "(-SRCC_EA_sev_blur)+(-SRCC_EA_sev_lens)-max(0,SRCC_EA_sev_sharpen)-max(0,SRCC_EA_sev_pixelate)",
+  "kadid_holdout_rows_compared": 1625,
+  "outputs": {
+    "selection_table": "/home/projectwork/student_package/dataset_model2/day8/taskC_v2_checkpoint_selection_table.csv",
+    "v2_holdout_scores": "/home/projectwork/student_package/dataset_model2/day8/kadid_holdout_v2_selected_epoch_scores.csv",
+    "compare_scores": "/home/projectwork/student_package/dataset_model2/day8/kadid_holdout_epoch5_v1_vs_v2_scores.csv",
+    "compare_table": "/home/projectwork/student_package/dataset_model2/day8/kadid_holdout_epoch5_v1_vs_v2_metric_compare.csv",
+    "report": "/home/projectwork/student_package/dataset_model2/day8/day8_report.txt",
+    "summary": "/home/projectwork/student_package/dataset_model2/day8/day8_summary.json"
+  }
+}

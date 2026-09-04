@@ -1,0 +1,53 @@
+{
+  "task": "Task 7: preprocessing checklist",
+  "conclusion": "Old Day-1/2 WACV scoring and Day-5 E_H scoring use matching test-time preprocessing.",
+  "source_files_checked": [
+    "/home/projectwork/student_package/task wacv/check_a_clean_vs_degraded.py",
+    "/home/projectwork/student_package/task wacv/check_b_severity_trend.py",
+    "/home/projectwork/student_package/task wacv/check_c_ballpark_pristine_test.py",
+    "/home/projectwork/student_package/infer.py",
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/diagnostics.json"
+  ],
+  "outputs": {
+    "checklist_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6h/task7_preprocess_checklist.csv",
+    "summary_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6h/task7_preprocess_checklist.json",
+    "report_txt": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6h/task7_preprocess_checklist_report.txt"
+  },
+  "rows": [
+    {
+      "Preprocess item": "Resize rule",
+      "Old Day-1/2": "yes: resize short side to >=256 before scoring",
+      "Day-5 E_H": "yes: resize short side to >=256 before scoring",
+      "match": "yes",
+      "evidence": "task wacv/check_* scripts and day5 diagnostics use _resize_short_side(..., 256)."
+    },
+    {
+      "Preprocess item": "Crop",
+      "Old Day-1/2": "center 256 crop for scoring",
+      "Day-5 E_H": "center 256 crop for scoring",
+      "match": "yes",
+      "evidence": "Old check scripts call center_crop after resize; diagnostics.json says Day-5 E_H uses center 256x256 crop."
+    },
+    {
+      "Preprocess item": "Color",
+      "Old Day-1/2": "RGB",
+      "Day-5 E_H": "RGB",
+      "match": "yes",
+      "evidence": "Image.open(...).convert('RGB') is used in scoring scripts."
+    },
+    {
+      "Preprocess item": "Value range / normalization",
+      "Old Day-1/2": "[0,1], no ImageNet mean/std for WACV input",
+      "Day-5 E_H": "[0,1], no ImageNet mean/std for WACV input",
+      "match": "yes",
+      "evidence": "Scoring converts np.asarray(image)/255.0 then ToTensor; diagnostics.json says no mean/std normalization."
+    },
+    {
+      "Preprocess item": "Flip at test",
+      "Old Day-1/2": "no",
+      "Day-5 E_H": "no",
+      "match": "yes",
+      "evidence": "Evaluation/scoring uses deterministic center crop only; no hflip in test/inference path."
+    }
+  ]
+}

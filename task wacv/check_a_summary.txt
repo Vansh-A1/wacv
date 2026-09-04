@@ -1,0 +1,13 @@
+Check A - clean vs degraded (calibration only)
+Data: /data/projectwork/swati_mam/HR_DATA/HR-calibration/DIV2K
+Checkpoint: /home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth
+Images: 50
+Degradation: Gaussian heavy blur, radius=8.0
+Score: D = S_Z; higher means worse quality
+mean D_clean: 2803.975713
+mean D_deg: 2823.709614
+mean difference D_deg - D_clean: 19.733901
+median difference D_deg - D_clean: 20.271851
+paired fraction D_deg > D_clean: 1.0000 (50/50)
+passes most-images rule: True
+Scores CSV: /home/projectwork/student_package/task wacv/check_a_clean_vs_heavy_blur_scores.csv

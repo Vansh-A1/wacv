@@ -1,0 +1,15 @@
+Check B - severity trend (calibration only)
+Data: /data/projectwork/swati_mam/HR_DATA/HR-calibration/DIV2K
+Checkpoint: /home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth
+Images: 50
+Degradation: cv2.GaussianBlur
+Severity ladder: [{'severity': 0, 'kernel': 0, 'sigma': 0.0}, {'severity': 1, 'kernel': 5, 'sigma': 1.0}, {'severity': 2, 'kernel': 9, 'sigma': 2.0}, {'severity': 3, 'kernel': 15, 'sigma': 4.0}, {'severity': 4, 'kernel': 21, 'sigma': 8.0}]
+Score: D_WACV = S_Z; higher means worse quality
+pooled Spearman(severity, D_WACV): 0.733011
+pooled Spearman p-value: 2.15905e-43
+adjacent ordering rate D(i+1) > D(i): 0.8700 (174/200)
+per-image positive Spearman fraction: 1.0000
+per-image strictly increasing fraction: 0.4800 (24/50)
+passes positive Spearman rule: True
+Scores CSV: /home/projectwork/student_package/task wacv/check_b_gaussian_blur_severity_scores.csv
+Per-image CSV: /home/projectwork/student_package/task wacv/check_b_per_image_trend.csv

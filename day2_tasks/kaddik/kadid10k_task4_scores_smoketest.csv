@@ -1,0 +1,4 @@
+dataset,ref_id,distorted_path,ref_path,distortion_type,severity_or_level,mos_or_dmos,D_WACV,PSNR,SSIM,NIQE,LPIPS
+KADID-10k,I01,/data/projectwork/swati_mam/kadid10k/images/I01_01_01.png,/data/projectwork/swati_mam/kadid10k/images/I01.png,Gaussian blur,1,4.57,2799.4638671875,inf,1.0,2.73810367803899,0.0
+KADID-10k,I01,/data/projectwork/swati_mam/kadid10k/images/I01_01_02.png,/data/projectwork/swati_mam/kadid10k/images/I01.png,Gaussian blur,2,4.33,2798.578125,36.466112384673714,0.9889680544535319,2.9252539748478235,0.021413277834653854
+KADID-10k,I01,/data/projectwork/swati_mam/kadid10k/images/I01_01_03.png,/data/projectwork/swati_mam/kadid10k/images/I01.png,Gaussian blur,3,2.67,2798.15576171875,27.424479687077707,0.903619110584259,5.769025516170332,0.2167208045721054

@@ -1,0 +1,47 @@
+Day 6 Task 8: lambda0 checkpoint selection
+
+Checkpoint directory: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42
+Found checkpoints:
+- best_epoch_0050: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth (epoch=50)
+- last_epoch_0050: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/last.pth (epoch=50)
+
+Validation-only metrics:
+checkpoint_label                                                                                                    checkpoint_path  epoch                                           metric                 subset                                       desired_sign  spearman_rho   spearman_p    N
+ best_epoch_0050 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth     50                        pooled Spearman(E_A, MOS) KADID+TID val with MOS negative for higher=worse E_A vs higher=better MOS      0.087865 1.481230e-04 1860
+ best_epoch_0050 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth     50     within-type Spearman(E_A, severity) for blur         KADID val blur           negative if severity increase lowers E_A     -0.597038 9.108202e-19  180
+ best_epoch_0050 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth     50  within-type Spearman(E_A, severity) for sharpen      KADID val sharpen           negative if severity increase lowers E_A      0.775780 3.355939e-13   60
+ best_epoch_0050 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth     50 within-type Spearman(E_A, severity) for pixelate     KADID val pixelate           negative if severity increase lowers E_A     -0.021882 7.058212e-01  300
+ last_epoch_0050 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/last.pth     50                        pooled Spearman(E_A, MOS) KADID+TID val with MOS negative for higher=worse E_A vs higher=better MOS      0.087865 1.481230e-04 1860
+ last_epoch_0050 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/last.pth     50     within-type Spearman(E_A, severity) for blur         KADID val blur           negative if severity increase lowers E_A     -0.597038 9.108202e-19  180
+ last_epoch_0050 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/last.pth     50  within-type Spearman(E_A, severity) for sharpen      KADID val sharpen           negative if severity increase lowers E_A      0.775780 3.355939e-13   60
+ last_epoch_0050 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/last.pth     50 within-type Spearman(E_A, severity) for pixelate     KADID val pixelate           negative if severity increase lowers E_A     -0.021882 7.058212e-01  300
+
+Selection table:
+checkpoint_label                                                                                                    checkpoint_path  epoch  pooled Spearman(E_A, MOS)  within-type Spearman(E_A, severity) for blur  within-type Spearman(E_A, severity) for sharpen  within-type Spearman(E_A, severity) for pixelate  selection_score                                                                                                                                 selection_rule selected
+ best_epoch_0050 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth     50                   0.087865                                     -0.597038                                          0.77578                                         -0.021882        -0.073304 Maximize negative within-type severity correlations for blur/sharpen/pixelate, with pooled E_A-vs-MOS as tie/support. No MOS used in VAE loss.      yes
+ last_epoch_0050 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/last.pth     50                   0.087865                                     -0.597038                                          0.77578                                         -0.021882        -0.073304 Maximize negative within-type severity correlations for blur/sharpen/pixelate, with pooled E_A-vs-MOS as tie/support. No MOS used in VAE loss.       no
+
+Selected checkpoint: best_epoch_0050
+Selected path: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth
+
+Holdout evaluation of selected checkpoint:
+checkpoint_label                   subset    N  spearman_E_A_selected_vs_MOS  spearman_p  pearson_E_A_selected_vs_MOS    pearson_p
+ best_epoch_0050            KADID holdout 1625                      0.070913    0.004237                    -0.039700 1.096539e-01
+ best_epoch_0050              TID holdout  600                      0.043940    0.282566                     0.088602 3.000354e-02
+ best_epoch_0050 pooled KADID+TID holdout 2225                     -0.050738    0.016688                    -0.134617 1.825299e-10
+
+Important note:
+- Selection used validation correlations only.
+- MOS was not used inside the VAE loss.
+- Only the selected checkpoint was evaluated on holdout in this task.
+- No epoch 25/35/45 checkpoint files were present; best.pth and last.pth were evaluated.
+
+Outputs:
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_val_scores_all_saved_checkpoints.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_val_checkpoint_correlations.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_checkpoint_selection.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_selected_checkpoint_holdout_scores.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_selected_checkpoint_holdout_correlations.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_lambda0_checkpoint_selection_summary.json
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/task8_lambda0_checkpoint_selection_report.txt
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6i/plots

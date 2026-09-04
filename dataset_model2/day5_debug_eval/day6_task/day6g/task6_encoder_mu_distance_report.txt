@@ -1,0 +1,42 @@
+Day 6 Task 6: encoder mu distance to pristine mu_ref
+
+Input 200-image list:
+/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6e/kadid_200_old_vs_day5_scores.csv
+
+Model/checkpoint:
+/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth
+
+Reference stats:
+/home/projectwork/student_package/runs/hr_combined_ft1/reference_stats.pt
+
+Preprocess:
+PIL RGB -> resize short side to >=256 if needed -> center 256x256 crop -> float RGB [0,1] -> ToTensor; no mean/std normalization.
+
+Saved encoder mean:
+- one 100-float mu vector per image
+- encoded mu array shape: [200, 100]
+- mu_ref shape: [100]
+
+Distance:
+d = ||mu_image - mu_ref||_2
+
+d statistics across 200 images:
+- mean: 0.64452136
+- std: 0.00159867
+- min: 0.64216113
+- median: 0.64411116
+- max: 0.65041059
+
+Correlations:
+- d vs E_H: Spearman rho = +0.995205, Pearson r = +0.996843, N = 200
+- d vs MOS: Spearman rho = -0.411591, Pearson r = -0.447114, N = 200
+
+Interpretation note:
+E_H is a Mahalanobis-style distance using mu_ref and Sigma_ref. This task uses plain Euclidean distance to mu_ref, so it should be highly related but not numerically identical to E_H.
+
+Outputs:
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6g/task6_200_encoder_mu_vectors.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6g/task6_distance_correlations.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6g/task6_encoder_mu_distance_summary.json
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6g/task6_encoder_mu_distance_report.txt
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6g/plots

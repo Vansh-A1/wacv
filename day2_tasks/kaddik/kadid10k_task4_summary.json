@@ -1,0 +1,65 @@
+{
+  "task": "Task 4: KADID-10k scoring",
+  "manifest": "/home/projectwork/student_package/day2_tasks/kaddik/kadid10k_manifest.csv",
+  "output_csv": "/home/projectwork/student_package/day2_tasks/kaddik/kadid10k_task4_scores.csv",
+  "correlations_csv": "/home/projectwork/student_package/day2_tasks/kaddik/kadid10k_task4_metric_correlations.csv",
+  "num_manifest_rows": 10125,
+  "num_scored_rows": 10125,
+  "checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "score_name": "D_WACV = S_Z; higher means worse quality",
+  "wacv_preprocess": "resize short side only if < 256, then center crop 256x256",
+  "metric_crop_size": 256,
+  "metric_note": "PSNR, SSIM, NIQE, and LPIPS were computed on the same center 256x256 crop for consistency with previous Task E scoring.",
+  "pyiqa_version": "0.1.16",
+  "image_size": 256,
+  "latent_dim": 100,
+  "sz_mode": "mu_only",
+  "sz_sigma_t_max": 1.0,
+  "correlations_against_mos_or_dmos": [
+    {
+      "metric": "D_WACV",
+      "target": "mos_or_dmos",
+      "N": 10125,
+      "spearman_rho": -0.36582741395113044,
+      "spearman_pvalue": 0.0,
+      "pearson_r": -0.3744832225502998,
+      "pearson_pvalue": 0.0
+    },
+    {
+      "metric": "PSNR",
+      "target": "mos_or_dmos",
+      "N": 9775,
+      "spearman_rho": 0.6749477657779483,
+      "spearman_pvalue": 0.0,
+      "pearson_r": 0.6567203679552807,
+      "pearson_pvalue": 0.0
+    },
+    {
+      "metric": "SSIM",
+      "target": "mos_or_dmos",
+      "N": 10125,
+      "spearman_rho": 0.6761308944851928,
+      "spearman_pvalue": 0.0,
+      "pearson_r": 0.6623652222799646,
+      "pearson_pvalue": 0.0
+    },
+    {
+      "metric": "NIQE",
+      "target": "mos_or_dmos",
+      "N": 10125,
+      "spearman_rho": -0.3493179813590949,
+      "spearman_pvalue": 1.9748013481618273e-288,
+      "pearson_r": -0.2958928662110782,
+      "pearson_pvalue": 1.0463926180087492e-203
+    },
+    {
+      "metric": "LPIPS",
+      "target": "mos_or_dmos",
+      "N": 10125,
+      "spearman_rho": -0.8555239023220369,
+      "spearman_pvalue": 0.0,
+      "pearson_r": -0.7849346235677509,
+      "pearson_pvalue": 0.0
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+Day 9 Task B completed
+
+Baseline/ref-only instruction followed: frozen E_H and S0 single-Gaussian baseline scores were joined from existing Day 7/Day 8 CSVs, not recomputed.
+Device used for new GMM encoding: cpu
+Val rows: 1860 (KADID+TID val)
+KADID holdout rows: 1625
+
+K selection on val, soft GMM energy only:
+
+ep05:
+epoch_tag  K energy_variant         energy_column  blur_SRCC   blur_p  blur_N  lens_SRCC   lens_p  lens_N  sharpen_SRCC    sharpen_p  sharpen_N  pixelate_SRCC  pixelate_p  pixelate_N  pooled_EA_MOS_SRCC_report_only  pooled_EA_MOS_p  pooled_EA_MOS_N   K_score selected_K
+     ep05  2           soft E_A_GMM_soft_ep05_K02   0.066009 0.616303      60   0.413749 0.001016      60      0.817971 1.493488e-15         60      -0.093230    0.478630          60                        0.085652         0.000217             1860 -1.297729         no
+     ep05  4           soft E_A_GMM_soft_ep05_K04   0.066009 0.616303      60   0.276286 0.032608      60      0.826137 4.451051e-16         60      -0.101396    0.440780          60                        0.102498         0.000009             1860 -1.168433         no
+     ep05  8           soft E_A_GMM_soft_ep05_K08  -0.048316 0.713920      60   0.183737 0.159938      60      0.773738 4.232185e-13         60      -0.080980    0.538496          60                       -0.033423         0.149614             1860 -0.909159        yes
+     ep05 16           soft E_A_GMM_soft_ep05_K16   0.380404 0.002716      60   0.373599 0.003279      60      0.502896 4.221814e-05         60      -0.084383    0.521508          60                       -0.079564         0.000594             1860 -1.256899         no
+
+ep10:
+epoch_tag  K energy_variant         energy_column  blur_SRCC   blur_p  blur_N  lens_SRCC   lens_p  lens_N  sharpen_SRCC    sharpen_p  sharpen_N  pixelate_SRCC  pixelate_p  pixelate_N  pooled_EA_MOS_SRCC_report_only  pooled_EA_MOS_p  pooled_EA_MOS_N   K_score selected_K
+     ep10  2           soft E_A_GMM_soft_ep10_K02   0.395375 0.001768      60   0.194625 0.136188      60      0.705687 3.042769e-10         60      -0.064648    0.623608          60                       -0.069527         0.002698             1860 -1.295688         no
+     ep10  4           soft E_A_GMM_soft_ep10_K04   0.362711 0.004398      60   0.180335 0.167951      60      0.660093 9.618330e-09         60      -0.158558    0.226269          60                       -0.037339         0.107439             1860 -1.203139         no
+     ep10  8           soft E_A_GMM_soft_ep10_K08   0.232053 0.074406      60  -0.019054 0.885104      60      0.619943 1.276957e-07         60      -0.065329    0.619951          60                       -0.083264         0.000325             1860 -0.832942         no
+     ep10 16           soft E_A_GMM_soft_ep10_K16   0.180335 0.167951      60  -0.055802 0.671948      60      0.536241 1.005493e-05         60      -0.149031    0.255761          60                       -0.060242         0.009358             1860 -0.660774        yes
+
+Selected soft-GMM holdout metrics:
+epoch_tag  K  selected_K_for_epoch  is_selected_K energy_variant                       metric                      subset    N      SRCC       SRCC_p   Pearson    Pearson_p
+     ep05  8                     8           True           soft               E_A_GMM vs MOS               KADID holdout 1625 -0.152741 6.062375e-10 -0.229612 6.959119e-21
+     ep05  8                     8           True           soft            Qz_AmH_GMM vs MOS               KADID holdout 1625  0.123694 5.684323e-07  0.055624 2.494222e-02
+     ep05  8                     8           True           soft            Qz_HmA_GMM vs MOS               KADID holdout 1625 -0.123694 5.684323e-07 -0.055624 2.494222e-02
+     ep05  8                     8           True           soft     Blur E_A_GMM vs severity KADID holdout Gaussian blur   65  0.237150 5.715812e-02  0.208704 9.523521e-02
+     ep05  8                     8           True           soft  Sharpen E_A_GMM vs severity  KADID holdout High sharpen   65  0.644191 7.053492e-09  0.617908 4.166027e-08
+     ep05  8                     8           True           soft Pixelate E_A_GMM vs severity      KADID holdout Pixelate   65  0.086974 4.908789e-01  0.043078 7.333115e-01
+     ep10 16                    16           True           soft               E_A_GMM vs MOS               KADID holdout 1625 -0.215595 1.525868e-18 -0.244310 1.641179e-23
+     ep10 16                    16           True           soft            Qz_AmH_GMM vs MOS               KADID holdout 1625  0.124171 5.138564e-07  0.099162 6.224538e-05
+     ep10 16                    16           True           soft            Qz_HmA_GMM vs MOS               KADID holdout 1625 -0.124171 5.138564e-07 -0.099162 6.224538e-05
+     ep10 16                    16           True           soft     Blur E_A_GMM vs severity KADID holdout Gaussian blur   65  0.517788 9.996997e-06  0.478742 5.483352e-05
+     ep10 16                    16           True           soft  Sharpen E_A_GMM vs severity  KADID holdout High sharpen   65  0.557796 1.385265e-06  0.565575 9.148800e-07
+     ep10 16                    16           True           soft Pixelate E_A_GMM vs severity      KADID holdout Pixelate   65  0.054504 6.663087e-01  0.025699 8.389774e-01
+
+Energy definitions:
+negative log likelihood under diagonal GMM: -logsumexp(log pi_k + log N(mu | mean_k, diag cov_k))
+minimum per-component negative weighted log likelihood: min_k[-(log pi_k + log N(mu | mean_k, diag cov_k))]

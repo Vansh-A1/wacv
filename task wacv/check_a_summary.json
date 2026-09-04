@@ -1,0 +1,20 @@
+{
+  "check": "Check A - clean vs heavy blur degraded, calibration only",
+  "data": "/data/projectwork/swati_mam/HR_DATA/HR-calibration/DIV2K",
+  "checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "num_images": 50,
+  "blur_radius": 8.0,
+  "score_name": "D = S_Z; higher means worse quality",
+  "mean_D_clean": 2803.975712890625,
+  "mean_D_deg": 2823.7096142578125,
+  "mean_difference_D_deg_minus_D_clean": 19.7339013671875,
+  "median_difference_D_deg_minus_D_clean": 20.2718505859375,
+  "paired_fraction_D_deg_gt_D_clean": 1.0,
+  "num_pairs_D_deg_gt_D_clean": 50,
+  "passes_most_images_rule": true,
+  "scores_csv": "/home/projectwork/student_package/task wacv/check_a_clean_vs_heavy_blur_scores.csv",
+  "manifest": "/home/projectwork/student_package/task wacv/calibration_manifest.txt",
+  "clean_crops_dir": "/home/projectwork/student_package/task wacv/clean_scored_crops",
+  "degraded_dir": "/home/projectwork/student_package/task wacv/degraded_heavy_blur",
+  "side_by_side_dir": "/home/projectwork/student_package/task wacv/side_by_side"
+}

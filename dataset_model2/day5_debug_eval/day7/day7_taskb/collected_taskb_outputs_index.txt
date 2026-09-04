@@ -1,0 +1,43 @@
+Day 7 Task B collected outputs index
+
+Collected destination: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskb/collected_taskb_outputs/wacv_ea_day7_seed42
+
+Original sources copied, not moved:
+/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42
+/home/projectwork/student_package/dataset_model2/runs/wacv_ea_day7_seed42
+/home/projectwork/student_package/dataset_model2/configs/wacv_ea_day7_seed42.json
+
+Key files/folders inside collected destination:
+best.pth
+best_psnr.pth
+config.json
+epoch_0005.pth
+epoch_0010.pth
+epoch_0015.pth
+epoch_0020.pth
+epoch_0025.pth
+epoch_0030.pth
+epoch_0035.pth
+epoch_0040.pth
+epoch_0045.pth
+epoch_0050.pth
+eval_files.txt
+events.out.tfevents.1787765073.soai-hpclab-1601.1345471.0
+git_commit.txt
+last.pth
+latent_plots
+metrics.csv
+reference_stats.pt
+seed.txt
+sz_hist
+train_files.txt
+train_recon
+val_recon
+
+Epoch checkpoint count: 10
+Latent plot count: 20
+SZ histogram count: 10
+Train recon image count: 510
+Val recon image count: 10
+
+Full manifest: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskb/copied_outputs_manifest.txt

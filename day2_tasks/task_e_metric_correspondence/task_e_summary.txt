@@ -1,0 +1,13 @@
+Task E - Metric correspondence on frozen SR corpus
+Scoring only; no training.
+Frozen WACV checkpoint: /home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth
+Metric crop size: 256
+pyiqa version: 0.1.16
+
+pair,Spearman_rho,N
+D_WACV vs NIQE,0.298127,186
+D_WACV vs LR_content,-0.479949,186
+D_WACV vs PSNR,0.633553,186
+D_WACV vs SSIM,0.679661,186
+D_WACV vs LPIPS,-0.526596,186
+D_WACV vs DISTS,-0.284644,186

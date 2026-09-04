@@ -1,0 +1,50 @@
+Day 7: trained E_A reference-stat refit
+
+Checkpoint loaded: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_degradation_from_scratch_lambda0_seed42/best.pth
+Checkpoint epoch: 50
+Weights reset: no
+Mode: model.eval(), torch.no_grad(), parameters frozen for this script
+
+Reference images used:
+- Source CSV: /home/projectwork/student_package/dataset_model2/day5_debug_eval/ea_reference_set_diagnostics.csv
+- N: 2000
+- Pool counts: {'KADID-10k': 876, 'KONIQ-10k': 869, 'TID2013': 255}
+- Safety: distorted/authentic train only; no holdout, no pristine DF2K.
+
+Preprocess:
+- RGB, resize short side to >=256 if needed, center 256 crop, float [0,1], no flip.
+
+New reference stats:
+- mu_ref_A_new shape/min/max/mean: [100], -0.10146473, 0.20455550, -0.00026766
+- Sigma_ref_A_new shape/min/max/mean: [100], 8.01634450909e-06, 0.00508712558076, 0.000534770893864
+
+Reference comparisons:
+   vector                left              right  dim  cosine_similarity  l2_distance  mean_abs_diff  max_abs_diff  left_mean   right_mean
+   mu_ref new_trained_E_A_ref old_epoch0_E_A_ref  100          -0.039237     0.586893       0.046742      0.225659  -0.000268 1.722963e-03
+   mu_ref new_trained_E_A_ref   pristine_E_H_ref  100          -0.039340     0.586907       0.046745      0.225673  -0.000268 1.732702e-03
+Sigma_ref new_trained_E_A_ref old_epoch0_E_A_ref  100           0.517064     0.008532       0.000535      0.005087   0.000535 2.832467e-08
+Sigma_ref new_trained_E_A_ref   pristine_E_H_ref  100           0.535013     0.008532       0.000535      0.005087   0.000535 2.222505e-08
+
+200-image diagnostic with new ref:
+Diagnostic source: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_task/day6e/kadid_200_old_vs_day5_scores.csv
+          x           y   N  spearman_rho   spearman_p  pearson_r    pearson_p
+E_A_new_ref         E_H 200      0.571458 9.841544e-19    0.34875 4.171672e-07
+E_A_new_ref         MOS 200     -0.000478 9.946424e-01   -0.13731 5.251623e-02
+      D_old E_A_new_ref 200      0.643259 9.539157e-25    0.15339 3.011939e-02
+
+Important note:
+- The original checkpoint and original reference_stats.pt were not modified.
+- Use the new ref for later tasks from this file:
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/ea_trained_encoder_refit_reference_stats.pt
+
+Outputs:
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/ea_trained_encoder_refit_reference_stats.pt
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_reference_paths_used.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_reference_mu_vectors.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_reference_stats_comparison.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_200_diagnostics_with_new_ref.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_200_new_ref_correlations.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_summary.json
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_report.txt
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/plots/day7_mu_ref_l2_comparison.png
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/plots/day7_200_EA_new_ref_vs_EH.png

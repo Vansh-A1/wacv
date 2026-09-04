@@ -1,0 +1,76 @@
+===========================================================================
+DAY 6 TASK 1 AUDIT REPORT: REFERENCE STATS SIMILARITY & EA REFERENCE SET
+===========================================================================
+
+1. OBJECTIVE
+---------------------------------------------------------------------------
+Investigate numerical similarity between pristine reference stats (E_H) and
+degradation reference stats (E_A), report similarity/distance metrics, and verify
+the dataset composition of the 2000 paths in ea_reference_set_diagnostics.csv.
+
+2. REFERENCE STATS SIMILARITY & DISTANCE METRICS
+---------------------------------------------------------------------------
+Pristine run file (E_H):    /home/projectwork/student_package/runs/hr_combined_ft1/reference_stats.pt
+Degradation run file (E_A): /home/projectwork/student_package/dataset_model2/runs/wacv_degradation_from_scratch_lambda0_seed42/reference_stats.pt
+
+Vector Dimension: 100
+
+A. Mean Vector (mu_ref):
+  - Cosine Similarity:       0.99999845
+  - L2 Euclidean Distance:   4.40080359e-04
+  - Relative L2 Distance:    1.68803672e-03
+  - Mean Absolute Difference: 3.53905125e-05
+  - Max Absolute Difference:  1.14884228e-04
+  - mu_ref^(H) Range:        [-0.046238, 0.055749], Mean: 0.001733, Std: 0.026144
+  - mu_ref^(A) Range:        [-0.046197, 0.055662], Mean: 0.001723, Std: 0.026147
+
+B. Covariance Vector (Sigma_ref):
+  - Cosine Similarity:       0.99030310
+  - L2 Euclidean Distance:   1.06753753e-07
+  - Relative L2 Distance:    3.63647218e-01
+  - Mean Absolute Difference: 6.11813222e-09
+  - Max Absolute Difference:  4.87604765e-08
+  - Sigma_ref^(H) Range:     [1.000e-08, 8.414e-08], Mean: 2.223e-08, Std: 1.928e-08
+  - Sigma_ref^(A) Range:     [1.000e-08, 1.228e-07], Mean: 2.832e-08, Std: 2.685e-08
+
+3. EA REFERENCE SET (2000 PATHS) CONFIRMATION
+---------------------------------------------------------------------------
+Source file: /home/projectwork/student_package/dataset_model2/day5_debug_eval/ea_reference_set_diagnostics.csv
+Total entries: 2000
+
+Dataset Pool Breakdown:
+  - KADID-10k (distorted train): 876 paths (43.80%)
+  - KONIQ-10k (authentic train): 869 paths (43.45%)
+  - TID2013   (distorted train): 255 paths (12.75%)
+  - Pristine DF2K / Flickr2K:      0 paths ( 0.00%)
+
+Confirmation Result: CONFIRMED.
+All 2,000 paths are drawn exclusively from distorted/authentic training manifests.
+There are ZERO pristine DF2K/Flickr2K images in ea_reference_set_diagnostics.csv.
+
+4. INTERPRETATION OF NUMERICAL SIMILARITY
+---------------------------------------------------------------------------
+1) ref_mode = 'once':
+   In train.py, fit_reference() is executed only once at epoch 0 prior to training.
+   Because ref_mode is set to 'once', the reference vectors are frozen and never updated
+   as the weights evolve during training.
+
+2) Initialization caveat:
+   The degradation run was trained from scratch with seed=123, but the HR run config
+   records init_from='checkpoints/best.pth'. So this audit does NOT prove identical
+   initial weights between the two runs.
+
+3) Latent/statistical explanation:
+   Both scorers share the same CVAE latent geometry and store very small Sigma_ref
+   values. Combined with ref_mode='once', close reference statistics remain frozen
+   and can look numerically very similar even when the training data differs.
+
+5. GENERATED OUTPUT ARTIFACTS
+---------------------------------------------------------------------------
+Output directory: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b
+  - Similarity Metrics:     /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b/task1_similarity_metrics.csv
+  - Path Confirmation Table:/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b/task1_ea_reference_paths_confirmation.csv
+  - Summary JSON:           /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b/task1_reference_comparison.json
+  - Full Report:            /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b/task1_report.txt
+  - Plots:                  /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_b/plots/
+===========================================================================

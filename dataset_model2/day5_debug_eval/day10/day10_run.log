@@ -1,0 +1,6 @@
+Day 10 complete: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day10/day10_gmm/ep05
+                        Arm  Holdout Q_z^(A-H)  Blur E_A--sev  Sharpen E_A--sev
+       S0 ep05 (Day-8 join)           0.251901      -0.625636          0.593166
+         Day-9 GMM ep05 K=8           0.123694       0.237150          0.644191
+   Day-10 free K=5 no KonIQ           0.060976       0.374570          0.546199
+Day-10 family K<=5 no KonIQ           0.093928       0.357175          0.623897

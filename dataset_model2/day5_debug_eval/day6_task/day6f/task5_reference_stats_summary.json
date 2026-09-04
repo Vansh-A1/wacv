@@ -1,0 +1,68 @@
+{
+  "task": "Task 5: inspect pristine reference_stats used by Day-5 E_H",
+  "inputs": {
+    "reference_stats_pt": "/home/projectwork/student_package/runs/hr_combined_ft1/reference_stats.pt",
+    "eh_checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+    "diagnostics_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/diagnostics.json"
+  },
+  "reference_stats_file": {
+    "mu_ref": {
+      "shape": [
+        100
+      ],
+      "finite": true,
+      "min": -0.04623810574412346,
+      "max": 0.055748626589775085,
+      "mean": 0.001732701901346445,
+      "std": 0.026012899354100227
+    },
+    "Sigma_ref": {
+      "shape": [
+        100
+      ],
+      "finite": true,
+      "min": 9.99999993922529e-09,
+      "max": 8.41410070506754e-08,
+      "mean": 2.2225053797342298e-08,
+      "std": 1.9179301702365592e-08
+    }
+  },
+  "checkpoint_reference_stats_match": {
+    "mu_ref_allclose": true,
+    "Sigma_ref_allclose": true,
+    "mu_ref_max_abs_diff": 0.0,
+    "Sigma_ref_max_abs_diff": 0.0
+  },
+  "diagnostics_json_E_H_entry": {
+    "mu_ref": {
+      "shape": [
+        100
+      ],
+      "finite": true,
+      "nan_count": 0,
+      "inf_count": 0,
+      "min": -0.04623810574412346,
+      "max": 0.055748626589775085,
+      "mean": 0.001732701901346445,
+      "std": 0.026012899354100227
+    },
+    "Sigma_ref": {
+      "shape": [
+        100
+      ],
+      "finite": true,
+      "nan_count": 0,
+      "inf_count": 0,
+      "min": 9.99999993922529e-09,
+      "max": 8.41410070506754e-08,
+      "mean": 2.2225053797342298e-08,
+      "std": 1.9179301702365592e-08
+    }
+  },
+  "comparison_note": "The loaded Sigma_ref mean/min/max are on the same order as diagnostics.json and are approximately 1e-8 to 1e-7.",
+  "outputs": {
+    "summary_json": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6f/task5_reference_stats_summary.json",
+    "report_txt": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6f/task5_reference_stats_report.txt",
+    "vector_csv": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6f/task5_reference_stats_vector.csv"
+  }
+}

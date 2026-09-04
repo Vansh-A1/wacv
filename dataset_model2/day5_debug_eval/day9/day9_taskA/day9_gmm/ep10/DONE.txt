@@ -1,0 +1,7 @@
+ep10 DONE
+mu_train.npy: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/mu_train.npy
+mu_train_ids.csv: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/mu_train_ids.csv
+gmm_K02.pt: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K02.pt
+gmm_K04.pt: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K04.pt
+gmm_K08.pt: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K08.pt
+gmm_K16.pt: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day9/day9_taskA/day9_gmm/ep10/gmm_K16.pt

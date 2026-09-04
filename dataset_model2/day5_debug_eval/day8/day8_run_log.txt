@@ -1,0 +1,8 @@
+Day 8 complete: /home/projectwork/student_package/dataset_model2/day8
+V2 selected epoch: 10
+               Metric  epoch 5 (v1)  v2 selected    N      Better?
+      SRCC E_A vs MOS      0.112002     0.055869 1625 epoch 5 (v1)
+SRCC Q_z^(A-H) vs MOS      0.251901     0.225761 1625 epoch 5 (v1)
+        Blur E_A--sev     -0.625636    -0.607081   65 epoch 5 (v1)
+     Sharpen E_A--sev      0.593166     0.559535   65 epoch 5 (v1)
+    Pixelate E_A--sev     -0.028412     0.000580   65 epoch 5 (v1)

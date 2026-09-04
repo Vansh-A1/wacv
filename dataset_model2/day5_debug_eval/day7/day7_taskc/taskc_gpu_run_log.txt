@@ -1,0 +1,2 @@
+Saved Task C outputs under /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd
+Selected epoch 5: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth

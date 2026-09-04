@@ -1,0 +1,39 @@
+{
+  "check": "VTask A - Ballpark pristine test (Check C)",
+  "checkpoint": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "calibration_dir": "/data/projectwork/swati_mam/HR_DATA/HR-calibration/DIV2K",
+  "test_dir": "/data/projectwork/swati_mam/HR_DATA/HR-test/DIV2K",
+  "calibration_csv_used": null,
+  "test_csv_used": null,
+  "score_name": "D_WACV = S_Z; higher means worse quality",
+  "image_size": 256,
+  "latent_dim": 100,
+  "sz_mode": "mu_only",
+  "sz_sigma_t_max": 1.0,
+  "summary_table": [
+    {
+      "split": "calibration",
+      "N": 50,
+      "mean": 2803.975712890625,
+      "SD": 7.563677553468054,
+      "median": 2802.7791748046875,
+      "p05": 2793.080212402344,
+      "p95": 2818.2093994140623
+    },
+    {
+      "split": "hr_test",
+      "N": 100,
+      "mean": 2802.645029296875,
+      "SD": 7.788530800013704,
+      "median": 2802.031494140625,
+      "p05": 2792.128076171875,
+      "p95": 2816.6545532226564
+    }
+  ],
+  "delta_mean": 1.3306835937501091,
+  "threshold": 3.781838776734027,
+  "rule": "delta_mean <= 0.5 * SD_cal",
+  "passes_ballpark_rule": true,
+  "scores_csv": "/home/projectwork/student_package/task wacv/check_c_ballpark_pristine_scores.csv",
+  "summary_csv": "/home/projectwork/student_package/task wacv/check_c_summary_table.csv"
+}

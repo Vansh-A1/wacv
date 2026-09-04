@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+
+# Model checkpoints / binary arrays
+*.pth
+*.pt
+*.npy
+*.npz
+
+# Archives and heavy run bundles
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Raw dataset/sample images. Generated plots are intentionally tracked as PNG.
+*.jpg
+*.jpeg
+*.bmp
+*.tif
+*.tiff
+
+# Local editor/runtime noise
+.vscode/
+*.pid
+*.nohup

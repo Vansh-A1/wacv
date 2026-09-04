@@ -1,0 +1,9 @@
+Task E complete. Outputs saved to: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE
+Selected checkpoint: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth
+Generated:
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E1_mos_correlations.csv
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E2_overall_severity_correlations.csv
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E3_within_type_severity_correlations.csv
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E4_day6_vs_day7_comparison.csv
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_summary.json
+  /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_report.txt

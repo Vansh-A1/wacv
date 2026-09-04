@@ -1,0 +1,27 @@
+{
+  "output_dir": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE",
+  "taskD_holdout_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskD/taskD_holdout_scores.csv",
+  "taskD_val_scores": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskD/taskD_val_scores.csv",
+  "day6_baseline_dir": "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day6_task",
+  "selected_day7_ea_checkpoint": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+  "holdout_rows": 3782,
+  "val_rows": 3415,
+  "holdout_dataset_counts": {
+    "KADID-10k": 1625,
+    "KONIQ-10k": 1557,
+    "TID2013": 600
+  },
+  "val_dataset_counts": {
+    "KONIQ-10k": 1555,
+    "KADID-10k": 1500,
+    "TID2013": 360
+  },
+  "generated_files": [
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E1_mos_correlations.csv",
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E2_overall_severity_correlations.csv",
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E3_within_type_severity_correlations.csv",
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_E4_day6_vs_day7_comparison.csv",
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_summary.json",
+    "/home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskE/taskE_report.txt"
+  ]
+}

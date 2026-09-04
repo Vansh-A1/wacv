@@ -1,0 +1,30 @@
+================================================================================
+DAY 6 TASK 4 AUDIT REPORT: OLD WACV (D_old) VS DAY-5 PRISTINE (E_H)
+================================================================================
+
+Setup:
+- Evaluated on 200 fixed KADID holdout images.
+- D_old checkpoint: /home/projectwork/student_package/checkpoints/best.pth
+- E_H checkpoint:   /home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth
+
+200 fixed KADID holdout:
+- D_old vs MOS: Spearman -0.3993, Pearson -0.2598
+- E_H vs MOS:   Spearman -0.4391, Pearson -0.4707
+- D_old vs E_H: Spearman +0.9060, Pearson +0.6017
+
+Full KADID holdout reference (N=1625):
+- D_old vs MOS: Spearman -0.4132, Pearson -0.2349
+- E_H vs MOS:   Spearman -0.3447, Pearson -0.3572
+- D_old vs E_H: Spearman +0.8504, Pearson +0.4304
+
+Conclusion:
+- D_old and E_H rank the 200 fixed images very similarly.
+- Both scores are higher=worse and therefore correlate negatively with MOS.
+- The full-holdout D_old vs E_H value reported here matches the metrics CSV: +0.8504.
+
+Outputs:
+- Scores:  /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6e/kadid_200_old_vs_day5_scores.csv
+- Metrics: /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6e/task4_correlations_metrics.csv
+- JSON:    /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6e/task4_summary.json
+- Plot:    /home/projectwork/student_package/dataset_model2/day5_debug_eval/day6e/plots/task4_dold_vs_eh_and_mos_scatters.png
+================================================================================

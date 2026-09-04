@@ -1,0 +1,43 @@
+Day 7 Task C: validation-only epoch checkpoint selection
+
+Checkpoint dir: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42
+Epoch checkpoints evaluated: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
+Device used: cuda:0
+
+Validation data only:
+- rows: 1860
+- by dataset: {'KADID-10k': 1500, 'TID2013': 360}
+- Gaussian blur rows: 60
+- Lens blur rows: 60
+- High sharpen rows: 60
+- Pixelate rows: 60
+- pooled MOS rows: 1860
+
+Selection formula:
+selection_score = (- SRCC_EA_sev_blur) + (- SRCC_EA_sev_lens)
+
+Selection table:
+ Epoch                                                                                       ckpt path  blur SRCC  lens SRCC  sharpen SRCC  pixelation SRCC  pooled Spearman(E_A,MOS)  selection_score selected
+     5 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth  -0.780543  -0.785987      0.807083        -0.034706                  0.173610         1.566530      yes
+    10 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0010.pth  -0.747879  -0.780543      0.716575         0.002042                  0.104887         1.528422       no
+    15 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0015.pth  -0.706368  -0.664176      0.766252        -0.028581                  0.136976         1.370544       no
+    20 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0020.pth  -0.534880  -0.631512      0.816610        -0.109562                  0.113990         1.166391       no
+    25 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0025.pth  -0.728824  -0.643080      0.738352         0.078258                  0.101765         1.371905       no
+    30 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0030.pth  -0.753323  -0.807763      0.824776        -0.110923                  0.188829         1.561086       no
+    35 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0035.pth  -0.560058  -0.317117      0.696160         0.028581                  0.215018         0.877175       no
+    40 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0040.pth  -0.367475  -0.450497      0.787348        -0.078258                  0.071364         0.817971       no
+    45 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0045.pth  -0.762169  -0.773057      0.748559        -0.004083                  0.111126         1.535227       no
+    50 /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0050.pth  -0.354545  -0.317117      0.634234         0.033345                  0.031830         0.671662       no
+
+Selected checkpoint:
+- epoch: 5
+- path: /home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth
+- selection_score: 1.566530
+
+Outputs:
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/taskc_val_scores_all_epoch_ckpts.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/taskc_val_correlations_long.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/taskc_checkpoint_selection_table.csv
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/taskc_summary.json
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/taskc_report.txt
+- /home/projectwork/student_package/dataset_model2/day5_debug_eval/day7/day7_taskd/plots

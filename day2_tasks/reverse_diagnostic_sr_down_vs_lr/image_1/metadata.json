@@ -1,0 +1,74 @@
+{
+  "image_id": "sony_160",
+  "seed": 42,
+  "crop_x": 114,
+  "crop_y": 12,
+  "crop_size": 512,
+  "scale": 4,
+  "lr_width": 1145,
+  "lr_height": 845,
+  "models": {
+    "swinsr": {
+      "sr_path": "/data/projectwork/sr_output/swinIr_Inference/SwinIR_results/Dreal/DRealSR_all_x4_sony_160_x1.png",
+      "sr_width": 4580,
+      "sr_height": 3380,
+      "downsampled_width": 1145,
+      "downsampled_height": 845,
+      "downsample_method": "cv2.INTER_AREA",
+      "difference_definition": "signed_difference = SR_down_crop - LR_crop; absolute_difference = abs(signed_difference)",
+      "difference_name": "SR-to-LR reconstruction difference",
+      "statistics": {
+        "mean_absolute_difference": 1.1816978454589844,
+        "median_absolute_difference": 1.0,
+        "std_absolute_difference": 1.6234012073772048,
+        "max_absolute_difference": 62,
+        "percentage_pixels_absdiff_gt_1": 55.00373840332031,
+        "percentage_pixels_absdiff_gt_2": 16.345977783203125,
+        "percentage_pixels_absdiff_gt_5": 2.0748138427734375,
+        "percentage_pixels_absdiff_gt_10": 0.9571075439453125
+      },
+      "outputs": {
+        "sr_original": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/swinsr/sr_original.png",
+        "sr_downsampled_x4": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/swinsr/sr_downsampled_x4.png",
+        "lr_crop_512": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/swinsr/lr_crop_512.png",
+        "sr_downsampled_crop_512": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/swinsr/sr_downsampled_crop_512.png",
+        "difference_abs": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/swinsr/difference_abs.png",
+        "difference_signed_visualization": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/swinsr/difference_signed.png",
+        "difference_abs_raw": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/swinsr/difference_abs_raw.npy",
+        "difference_signed_raw": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/swinsr/difference_signed_raw.npy",
+        "comparison": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/swinsr/comparison.png"
+      }
+    },
+    "hat": {
+      "sr_path": "/data/projectwork/sr_output/HAT_inference/DReal_x4/visualization/DReal_x4/sony_160_x1_DReal_x4.png",
+      "sr_width": 4580,
+      "sr_height": 3380,
+      "downsampled_width": 1145,
+      "downsampled_height": 845,
+      "downsample_method": "cv2.INTER_AREA",
+      "difference_definition": "signed_difference = SR_down_crop - LR_crop; absolute_difference = abs(signed_difference)",
+      "difference_name": "SR-to-LR reconstruction difference",
+      "statistics": {
+        "mean_absolute_difference": 2.9866320292154946,
+        "median_absolute_difference": 3.0,
+        "std_absolute_difference": 2.903863718846633,
+        "max_absolute_difference": 87,
+        "percentage_pixels_absdiff_gt_1": 96.66366577148438,
+        "percentage_pixels_absdiff_gt_2": 83.53347778320312,
+        "percentage_pixels_absdiff_gt_5": 8.527755737304688,
+        "percentage_pixels_absdiff_gt_10": 1.3805389404296875
+      },
+      "outputs": {
+        "sr_original": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/hat/sr_original.png",
+        "sr_downsampled_x4": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/hat/sr_downsampled_x4.png",
+        "lr_crop_512": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/hat/lr_crop_512.png",
+        "sr_downsampled_crop_512": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/hat/sr_downsampled_crop_512.png",
+        "difference_abs": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/hat/difference_abs.png",
+        "difference_signed_visualization": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/hat/difference_signed.png",
+        "difference_abs_raw": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/hat/difference_abs_raw.npy",
+        "difference_signed_raw": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/hat/difference_signed_raw.npy",
+        "comparison": "/home/projectwork/student_package/day2_tasks/reverse_diagnostic_sr_down_vs_lr/image_1/hat/comparison.png"
+      }
+    }
+  }
+}

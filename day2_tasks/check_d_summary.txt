@@ -1,0 +1,11 @@
+Task B - Content sensitivity test (Check D)
+Score: D_WACV = S_Z; higher means worse quality
+Blur level 4: kernel=21, sigma=8.0
+
+quantity,value
+SD of D0 across images,7.563488
+mean of delta,17.656255
+median of delta,17.239502
+fraction with delta > 0,1.000000
+Spearman(D0, luminance),0.516543
+Spearman(D0, edge density),-0.576567
