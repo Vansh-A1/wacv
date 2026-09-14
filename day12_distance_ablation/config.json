@@ -1,0 +1,51 @@
+{
+  "task": "Modified Day12 Task4 matched-distance ablation",
+  "source_pdf_sha256": "0aa772709194946a38d11781fe8d329cc0aca0ee775de3e89da61d8f1c29e7f2",
+  "seed": 42,
+  "epsilon": 1e-08,
+  "poles": [
+    "EA",
+    "EH"
+  ],
+  "distances": [
+    "D0_LEGACY",
+    "DM_BETWEEN",
+    "DM_AGGREGATE",
+    "KL_AGGREGATE",
+    "W2_AGGREGATE",
+    "BHATT_AGGREGATE"
+  ],
+  "lambdas": [
+    0.1,
+    1.0
+  ],
+  "epochs": 25,
+  "save_every": 5,
+  "primary_runs": 24,
+  "preflight_unique_score_fraction_min": 0.99,
+  "preflight_std_min": 1e-12,
+  "reference_weights_EA": "1/2000",
+  "reference_weights_EH": "1/(accepted_source_count * accepted_image_count_for_source)",
+  "rank_loss": "mean(softplus(0.1 - signed_standardized_gap))",
+  "EA_gap": "mild - severe",
+  "EH_gap": "severe - mild",
+  "optimizer": "Adam",
+  "lr": 0.0001,
+  "betas": [
+    0.5,
+    0.999
+  ],
+  "batch_pairs": 8,
+  "vae_loss": "L1 + 0.1*VGGPerceptualLoss + clamp(KL_raw,min=1.0)",
+  "preprocessing": "RGB; upscale only if short side <256; 256 center crop; float32 [0,1]; no augmentation or AMP",
+  "preflight_precision": "historical float32 D0; float64 registered distances/reference statistics",
+  "checkpoint_EA": "/home/projectwork/student_package/dataset_model2/checkpoints/wacv_ea_day7_seed42/epoch_0005.pth",
+  "checkpoint_EH": "/home/projectwork/student_package/checkpoints/hr_combined_ft1/best.pth",
+  "bootstrap_draws": 5000,
+  "bootstrap_seed": 20260912,
+  "holdout_opened_for_scoring": false,
+  "MOS_DMOS_used": false,
+  "TF32": false,
+  "deterministic_algorithms": true,
+  "num_workers": 4
+}
